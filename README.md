@@ -8,7 +8,6 @@ The portfolio presents selected engineering projects through concise case studie
 
 **Website:** https://soumik-ghosh-portfolio.vercel.app
 
-> If the production URL changes, update this link to the current deployment URL.
 
 ## About
 
