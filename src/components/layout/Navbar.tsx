@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, Terminal } from "lucide-react";
+import { LinkedinIcon } from "../ui/Icons";
 import { Container } from "../ui/Container";
 
 export function Navbar() {
@@ -70,11 +71,21 @@ export function Navbar() {
           </nav>
 
           {/* CTA & Status Badge */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2.5">
             <div className="flex items-center gap-2 px-2.5 py-1 rounded border border-emerald-900/60 bg-emerald-950/40 text-[11px] font-mono text-emerald-400">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>Available for Engagements</span>
+              <span>Panorama Electronics</span>
             </div>
+            <a
+              href="https://www.linkedin.com/in/soumik-ghosh-883a1a22b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1.5 rounded border border-zinc-800 bg-zinc-900/80 text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
+              aria-label="Soumik Ghosh LinkedIn"
+              title="LinkedIn Profile"
+            >
+              <LinkedinIcon className="h-3.5 w-3.5 text-[#0a66c2]" />
+            </a>
             <Link
               href="/contact"
               className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-1.5 rounded bg-zinc-100 text-zinc-950 hover:bg-white transition-colors font-semibold"
@@ -113,7 +124,17 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-3 border-t border-zinc-800 mt-2">
+            <div className="pt-3 border-t border-zinc-800 mt-2 space-y-2">
+              <a
+                href="https://www.linkedin.com/in/soumik-ghosh-883a1a22b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2 rounded border border-zinc-800 bg-zinc-900 text-zinc-300 hover:text-white"
+              >
+                <LinkedinIcon className="h-3.5 w-3.5 text-[#0a66c2]" />
+                <span>LinkedIn Profile</span>
+                <ArrowUpRight className="h-3 w-3 opacity-60" />
+              </a>
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}

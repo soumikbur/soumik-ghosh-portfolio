@@ -55,7 +55,7 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/soumikbur/PanoramaWaterTank",
     featured: true,
     overview:
-      "Railway coaches and industrial facilities require accurate, continuous monitoring of water reservoirs to prevent dry runs, detect leakage, and schedule refilling. Traditional mechanical gauges fail in mobile, vibrating environments, requiring a robust electronic monitoring and telemetry solution.",
+      "Engineered in the context of industrial telemetry and railway monitoring applications at Panorama Electronics Pvt. Ltd., this system addresses the need for continuous reservoir monitoring in harsh environments. Railway coaches and industrial facilities require accurate tracking of water reservoirs to prevent dry runs, detect leakage, and schedule refilling without relying on failure-prone mechanical gauges.",
     whatItDoes:
       "A dual-tiered industrial monitoring solution comprising an embedded microcontroller node installed on the physical tank and a Qt-based desktop SCADA monitoring station. The node captures continuous liquid levels, processes physical sensor data, and transmits telemetry over cellular networks and industrial fieldbuses.",
     keyCapabilities: [

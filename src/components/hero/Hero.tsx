@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowRight, ArrowUpRight, ShieldCheck, Mail } from "lucide-react";
+import { LinkedinIcon } from "../ui/Icons";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
 import { Badge } from "../ui/Badge";
@@ -23,7 +24,11 @@ export function Hero() {
                 <span className="text-zinc-600 font-mono text-xs">•</span>
                 <span className="text-emerald-400 font-mono text-xs flex items-center gap-1.5">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Available for Technical Engagements
+                  Panorama Electronics Pvt. Ltd.
+                </span>
+                <span className="text-zinc-600 font-mono text-xs">•</span>
+                <span className="text-zinc-400 font-mono text-xs">
+                  Kolkata, India
                 </span>
               </div>
 
@@ -43,7 +48,7 @@ export function Hero() {
               </p>
 
               <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-2xl">
-                Engineering reliable embedded software, full-stack business applications, backend APIs, and database-driven internal tools.
+                Engineering reliable embedded software, industrial IoT systems, connected telemetry, and operational full-stack applications.
               </p>
 
               {/* CTAs */}
@@ -54,6 +59,15 @@ export function Hero() {
                 <Button href="/contact" variant="outline" size="md" icon={<ArrowUpRight className="h-4 w-4" />}>
                   Contact Me
                 </Button>
+                <a
+                  href="https://www.linkedin.com/in/soumik-ghosh-883a1a22b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-zinc-200 transition-colors py-2 ml-1"
+                >
+                  <LinkedinIcon className="h-3.5 w-3.5 text-[#0a66c2]" />
+                  <span>LinkedIn</span>
+                </a>
                 <a
                   href="mailto:soumik.bur@gmail.com"
                   className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-zinc-200 transition-colors py-2 ml-1"

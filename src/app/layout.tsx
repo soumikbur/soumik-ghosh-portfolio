@@ -25,26 +25,27 @@ export const metadata: Metadata = {
     template: "%s | Soumik Ghosh",
   },
   description:
-    "Soumik Ghosh is an Embedded Software Developer who builds practical, production-oriented software systems across real-time embedded firmware, full-stack applications, and transactional business tools.",
+    "Soumik Ghosh is an Embedded Software Developer at Panorama Electronics Pvt. Ltd. in Kolkata, India. Building practical systems across real-time embedded firmware, industrial IoT telemetry, and operational software.",
   keywords: [
     "Soumik Ghosh",
     "Embedded Software Developer",
+    "Panorama Electronics",
     "Firmware Engineer",
     "STM32",
-    "ESP32",
+    "ESP32-S3",
     "FreeRTOS",
     "Modbus RTU",
+    "Industrial IoT",
     "Next.js",
-    "PostgreSQL",
-    "ApexFlow",
-    "Full-Stack Development",
+    "Sister Nivedita University",
+    "Full-Stack Systems",
   ],
   authors: [{ name: "Soumik Ghosh", url: "https://github.com/soumikbur" }],
   creator: "Soumik Ghosh",
   openGraph: {
     title: "Soumik Ghosh — Embedded Software Developer",
     description:
-      "Practical software systems: Real-time embedded firmware, industrial telemetry, and full-stack operational platforms.",
+      "Embedded Software Developer at Panorama Electronics Pvt. Ltd. Practical systems: Real-time embedded firmware, industrial telemetry, and full-stack operational platforms.",
     url: siteUrl,
     siteName: "Soumik Ghosh Portfolio",
     type: "website",
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Soumik Ghosh — Embedded Software Developer",
     description:
-      "Practical software systems across real-time embedded firmware, full-stack applications, and transactional business tools.",
+      "Embedded Software Developer at Panorama Electronics Pvt. Ltd. Real-time embedded firmware, industrial telemetry, and full-stack operational platforms.",
     images: ["/images/og-preview.png"],
   },
   robots: {
@@ -87,6 +88,32 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Soumik Ghosh",
+  jobTitle: "Embedded Software Developer",
+  worksFor: {
+    "@type": "Organization",
+    name: "Panorama Electronics Pvt. Ltd.",
+  },
+  alumniOf: {
+    "@type": "EducationalOrganization",
+    name: "Sister Nivedita University",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Kolkata",
+    addressRegion: "West Bengal",
+    addressCountry: "India",
+  },
+  url: siteUrl,
+  sameAs: [
+    "https://www.linkedin.com/in/soumik-ghosh-883a1a22b/",
+    "https://github.com/soumikbur",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -97,6 +124,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-100 selection:bg-zinc-800 selection:text-white">
         <Navbar />
         <main className="flex-1 flex flex-col">
