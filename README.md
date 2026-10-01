@@ -1,205 +1,215 @@
 # Soumik Ghosh — Engineering Portfolio
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.3-black?logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.2-61dafb?logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178c6?logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
-[![GSAP](https://img.shields.io/badge/GSAP-3.15-88ce02?logo=greensock)](https://greensock.com/gsap/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+Personal engineering portfolio for **Soumik Ghosh**, an Embedded Software Developer focused on embedded systems, industrial IoT, firmware, and practical software applications.
 
-A high-performance personal engineering portfolio showcasing real-world embedded firmware, industrial IoT systems, and full-stack operational platforms developed by **Soumik Ghosh**.
+The portfolio presents selected engineering projects through concise case studies, screenshots, technical highlights, and links to available source repositories.
 
-![Portfolio Preview](public/images/og-preview.png)
+## Live Portfolio
 
----
+**Website:** https://soumik-ghosh-portfolio.vercel.app
 
-## Overview
+> If the production URL changes, update this link to the current deployment URL.
 
-This repository contains the complete source code for Soumik Ghosh's engineering portfolio. Built with **Next.js 16**, **React 19**, and **TypeScript**, the site highlights verified engineering projects spanning:
+## About
 
-- **Embedded Systems & Firmware**: Microcontroller architectures (STM32, ESP32-S3), FreeRTOS task scheduling, low-power sleep management, and sensor driver development.
-- **Industrial IoT & Telemetry**: Cellular Cat-1 / 4G telemetry units, Modbus RTU communication, GNSS navigation decoding, and secure MQTT over TLS.
-- **Full-Stack Systems & Operational Tools**: Next.js and React enterprise applications, double-entry inventory engines, executive dashboards, and progressive web apps (PWAs).
+I build practical software systems that solve real operational and engineering problems.
 
-The portfolio emphasizes practical engineering outcomes, real constraints, hardware-software integration, and verifiable project evidence over generic skill meters.
+My work spans embedded firmware, real-time systems, industrial telemetry, IoT applications, dashboards, and full-stack software.
 
----
+The portfolio focuses on the engineering problem, the resulting system, and the technologies used rather than generic skill ratings.
 
-## Live Website
+## Featured Projects
 
-- **Production URL**: [https://soumik-ghosh-portfolio.vercel.app](https://soumik-ghosh-portfolio.vercel.app) *(or deployed Vercel domain)*
-- **Primary Domain**: Deployable directly to any Vercel domain or custom domain without code modifications.
+The portfolio currently showcases the following projects:
 
----
+| Project                                   | Area                        | Technologies                                     |
+| ----------------------------------------- | --------------------------- | ------------------------------------------------ |
+| Panorama Water Tank Monitor               | Industrial IoT / SCADA      | ESP32, Qt, QML, C++, FreeRTOS, LTE, MQTT         |
+| Railway Water Level Indicator & Telemetry | Embedded / IoT              | STM32, FreeRTOS, LTE, GNSS, MQTT/TLS             |
+| Industrial Substation Asset Monitor       | Embedded / IIoT             | STM32, Modbus RTU, SPI Flash, FATFS, MQTT        |
+| ApexFlow Inventory & Order Management     | Full-Stack / Operations     | Next.js, React, TypeScript, PostgreSQL, Prisma   |
+| Business Analytics & Operations Dashboard | Analytics / Internal Tools  | Next.js, React, Prisma, PostgreSQL, Tailwind CSS |
+| PujoPath Kolkata Metro Transit PWA        | Geospatial / Web            | Next.js, React, Leaflet, OpenStreetMap, PWA      |
+| Transparent Supply Chain Platform         | Distributed Systems / Web3  | Solidity, Ethereum, IPFS, React, Web3.js         |
+| Sarvak AI Safety Platform                 | Emergency Response / Mobile | React, Flutter, Firebase, Computer Vision        |
 
-## Features
+Project availability, repository links, and case-study links are maintained on the portfolio website.
 
-- **Responsive Portfolio**: Fully responsive across mobile smartphones, tablets, laptops, and ultra-wide desktop displays.
-- **Comprehensive Project Showcase**: Multi-category filterable directory organizing projects across Embedded Systems, Industrial IoT, Full-Stack Applications, Dashboards & Tools, and Geospatial & Web.
-- **Dedicated Project Case Studies**: 8 in-depth case study routes (`/projects/[slug]`) documenting real system architecture, hardware/software specifications, engineering highlights, and measurable outcomes.
-- **Dedicated About Page**: Comprehensive professional profile detailing engineering background, firmware and software competencies, and engineering philosophies.
-- **Interactive Contact Section**: Direct communication portal with verified email, GitHub, and LinkedIn profiles.
-- **Smooth Navigation & Transitions**: Streamlined top navigation bar (`Overview | Projects | About | Contact`) with mobile drawer menu and fluid GSAP route transitions.
-- **Back-to-Top Interaction**: Subtle, context-aware back-to-top button with circular scroll-depth progress ring.
-- **SEO & Social Sharing Ready**: Dynamically generated Open Graph preview card (`/opengraph-image`), Twitter card metadata, `robots.txt`, and automated `sitemap.xml`.
+## Portfolio Features
 
----
-
-## Projects
-
-All 8 featured projects represent verified systems built and tested by Soumik Ghosh:
-
-| Project | Category | Purpose | Core Technologies | Links |
-|---|---|---|---|---|
-| **Panorama Water Tank Monitor** | Industrial SCADA & IoT | Multi-tier industrial water tank monitoring system pairing an ESP32-S3 cellular 4G telemetry unit with a desktop Qt 6 / QML SCADA console. | ESP32-S3, Qt 6, QML, C++, FreeRTOS, 4G LTE, MQTT | [Case Study](/projects/panorama-water-tank) · [GitHub](https://github.com/soumikbur/PanoramaWaterTank) |
-| **Railway Water Level Indicator & Telemetry** | Autonomous Telemetry | Autonomous, ultra-low-power ARM Cortex-M4 telemetry node for remote trackside drainage and water installations with satellite positioning. | STM32, FreeRTOS, ARM Cortex-M4, Quectel 4G LTE, GNSS, MQTT/TLS | [Case Study](/projects/railway-telemetry-wli) · [GitHub](https://github.com/soumikbur) |
-| **Industrial Substation Asset Monitor** | Industrial Embedded & IIoT | Non-volatile telemetry logger and multi-sensor diagnostic monitor for substation transformers, tap-changers, and power meters. | STM32, Modbus RTU, SPI NOR Flash, FATFS, Power Meter, MQTT | [Case Study](/projects/industrial-asset-monitor) · [GitHub](https://github.com/soumikbur) |
-| **ApexFlow Inventory & Order Management** | Enterprise Operations | Full-stack operations platform featuring double-entry stock ledger, 5-stage order fulfillment state machine, and multi-tier RBAC. | Next.js, React, TypeScript, Node.js, PostgreSQL, Prisma, Docker | [Case Study](/projects/apexflow) · [GitHub](https://github.com/soumikbur) |
-| **Business Analytics & Operations Dashboard** | Analytics & Internal Tools | Real-time executive performance dashboard delivering sub-100ms KPI computations, visual charts, and administrative audit trails. | Next.js 16, React 19, Prisma, PostgreSQL, NextAuth v5, Tailwind CSS | [Case Study](/projects/business-dashboard) · [GitHub](https://github.com/soumikbur/business-admin-dashboard) |
-| **PujoPath Kolkata Metro Transit PWA** | Geospatial & Web | Progressive web application providing interactive GIS route mapping and offline transit navigation across Kolkata Metro corridors. | Next.js, React, Leaflet GIS, OpenStreetMap, PWA, Service Workers | [Case Study](/projects/pujopath) · [GitHub](https://github.com/soumikbur) |
-| **Transparent Supply Chain Platform** | Distributed Systems & Web3 | Decentralized product traceability platform maintaining immutable chain-of-custody and tamper-evident document storage. | Solidity, Ethereum, IPFS, React.js, Web3.js | [Case Study](/projects/transparent-supply-chain) · [GitHub](https://github.com/soumikbur/AI-enabled-Decentralized-SupplyChain) |
-| **Sarvak AI Safety Platform** | Emergency Response & Mobile | Real-time incident response and automated distress tracking platform developed for Smart India Hackathon public safety challenges. | React, Flutter, Firebase, Computer Vision, Telemetry | [Case Study](/projects/sarvak-safety-platform) · [GitHub](https://github.com/soumikbur) |
-
----
+* Responsive design for mobile, tablet, and desktop
+* Project directory with category-based organization
+* Individual project case studies
+* Dedicated About and Contact pages
+* GitHub and LinkedIn integration
+* Responsive navigation
+* Smooth page transitions
+* Back-to-top interaction
+* Open Graph metadata for link sharing
+* Sitemap and robots configuration
+* Static project and profile imagery hosted with the application
 
 ## Technology Stack
 
-The portfolio is built with modern, production-grade web technologies:
+The portfolio is built with:
 
-- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Server Components, Route Handlers)
-- **UI Library**: [React 19](https://react.dev/)
-- **Language**: [TypeScript 5](https://www.typescriptlang.org/) (Strict type checking)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) with custom dark design tokens
-- **Animations**: [GSAP 3.15](https://greensock.com/gsap/) (Route transitions and subtle entrance motion)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **SEO & Metadata**: Dynamic Open Graph generation via `next/og`, `sitemap.ts`, `robots.ts`
+* **Next.js**
+* **React**
+* **TypeScript**
+* **Tailwind CSS**
+* **GSAP**
+* **Lucide React**
 
----
+The project uses the Next.js App Router and keeps reusable UI components and project data separated from individual route implementations.
 
 ## Project Structure
 
 ```text
-portfolio/
-├── public/                     # Static public assets
-│   ├── images/
-│   │   ├── og-preview.png      # High-res social sharing Open Graph banner
-│   │   ├── soumik-ghosh.jpg    # Verified developer profile photograph
-│   │   └── projects/           # High-resolution project imagery & hardware diagrams
-│   └── favicon.ico             # Site favicon
+soumik-ghosh-portfolio/
+├── public/
+│   └── images/
+│       ├── soumik-ghosh.jpg
+│       ├── og-preview.png
+│       └── projects/
+│
 ├── src/
-│   ├── app/                    # Next.js App Router routes & pages
-│   │   ├── layout.tsx          # Root layout with navbar, footer, and back-to-top
-│   │   ├── page.tsx            # Homepage / Overview
-│   │   ├── about/              # Dedicated About page
-│   │   ├── contact/            # Dedicated Contact page
-│   │   ├── projects/           # Projects index page & category filters
-│   │   │   └── [slug]/         # Dynamic case study route handler
-│   │   ├── opengraph-image.tsx # Dynamic Open Graph card generator
-│   │   ├── robots.ts           # Search engine crawler configuration
-│   │   └── sitemap.ts          # XML sitemap generator
-│   ├── components/             # Reusable UI & architectural components
-│   │   ├── Navbar.tsx          # Responsive navigation bar with mobile drawer
-│   │   ├── Footer.tsx          # Site footer with direct links & copyright
-│   │   ├── PageTransition.tsx  # GSAP route-transition manager
-│   │   ├── BackToTop.tsx       # Contextual back-to-top scroll trigger
-│   │   └── ProjectCard.tsx     # Standardized project showcase card
-│   └── lib/                    # Shared data models & utility functions
+│   ├── app/
+│   │   ├── about/
+│   │   ├── contact/
+│   │   ├── projects/
+│   │   │   └── [slug]/
+│   │   ├── opengraph-image.tsx
+│   │   ├── robots.ts
+│   │   ├── sitemap.ts
+│   │   └── page.tsx
+│   │
+│   ├── components/
+│   └── lib/
 │       └── data/
-│           └── projects.ts     # Complete verified project database & metadata
-├── .gitignore                  # Git ignore rules (node_modules, .next, .env*)
-├── LICENSE                     # MIT License
-├── package.json                # Project dependencies and run scripts
-├── tsconfig.json               # TypeScript strict configuration
-└── README.md                   # Repository documentation
+│
+├── package.json
+├── next.config.ts
+├── tsconfig.json
+├── eslint.config.mjs
+├── LICENSE
+└── README.md
 ```
 
----
+The exact structure may evolve as the portfolio is maintained.
 
-## Running Locally
+## Run Locally
 
-### Prerequisites
+### Requirements
 
-- **Node.js**: `v18.18.0` or later (Node.js 20+ recommended)
-- **npm**: `v9.0.0` or later
+* Node.js 18.18 or later
+* npm
 
-### Installation
+### Clone
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/soumikbur/soumik-ghosh-portfolio.git
-   cd soumik-ghosh-portfolio
-   ```
+```bash
+git clone https://github.com/soumikbur/soumik-ghosh-portfolio.git
+cd soumik-ghosh-portfolio
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+### Install dependencies
 
-3. Start the local development server:
-   ```bash
-   npm run dev
-   ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+```bash
+npm install
+```
 
-4. Run code quality checks:
-   ```bash
-   npm run lint
-   ```
+### Start development server
 
-5. Test production build:
-   ```bash
-   npm run build
-   npm run start
-   ```
+```bash
+npm run dev
+```
 
----
+Open:
+
+```text
+http://localhost:3000
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+### Production build
+
+```bash
+npm run build
+```
+
+### Start production server
+
+```bash
+npm run start
+```
 
 ## Deployment
 
-The application is pre-configured for automated deployment on **Vercel**:
+The portfolio is designed for deployment on **Vercel** or another platform that supports Next.js.
 
-### Automated Deployment via GitHub
+For Vercel:
 
-1. Import the repository in [Vercel Dashboard](https://vercel.com/new).
-2. Framework preset will automatically detect **Next.js**.
-3. (Optional) Define the environment variable:
-   - `NEXT_PUBLIC_SITE_URL`: Set to your production domain (e.g., `https://soumik-ghosh-portfolio.vercel.app`).
-4. Click **Deploy**. Vercel will run `npm run build` and provision an edge-cached static deployment.
+1. Import the GitHub repository.
+2. Allow Vercel to detect the Next.js configuration.
+3. Configure any required production environment variables.
+4. Deploy the application.
+5. Update the Live Portfolio URL in this README if the deployment domain changes.
 
-### Manual Deployment via Vercel CLI
+The application should not depend on a local machine, localhost address, or private network address after deployment.
 
-```bash
-# Log in to Vercel
-npx vercel
+## Screenshots
 
-# Deploy directly to production
-npx vercel --prod
+Portfolio screenshots and project imagery are stored in the repository under:
+
+```text
+public/images/
+public/images/projects/
 ```
 
----
+When adding screenshots to this README, use repository-hosted paths so they render correctly on GitHub.
 
-## Images / Screenshots
+Example:
 
-Key visuals hosted within the repository:
+```md
+![Portfolio overview](./public/images/og-preview.png)
+```
 
-| Asset | Preview | Description |
-|---|---|---|
-| **Open Graph Banner** | ![OG Preview](public/images/og-preview.png) | Social preview card for sharing on LinkedIn, Twitter, and messaging platforms. |
-| **Profile Photo** | ![Soumik Ghosh](public/images/soumik-ghosh.jpg) | Verified professional profile photo of Soumik Ghosh. |
-| **Panorama Water Tank** | ![Panorama Water Tank](public/images/projects/panorama-water-tank.jpg) | ESP32-S3 4G telemetry unit and Qt 6 / QML industrial SCADA console. |
-| **Business Dashboard** | ![Business Dashboard](public/images/projects/business-dashboard.jpg) | High-performance operational analytics and executive KPI scorecard view. |
+Additional project screenshots can be added here as the portfolio evolves.
 
----
+## Design Approach
 
-## Design / UX
+The interface uses a dark, technical visual language intended to reflect engineering and systems work.
 
-- **Technical Engineering Aesthetic**: Styled with a deliberate deep-slate palette (`#07090e` background with slate borders and subtle cyan-teal highlights) designed to reflect industrial and firmware precision.
-- **Restrained Motion**: Subtle micro-interactions and smooth GSAP route transitions that enhance user navigation without unnecessary visual clutter.
-- **Responsive Layout**: Designed mobile-first, ensuring high legibility and touch-friendly controls across all screen form factors.
-- **Focus on Verifiable Systems**: Clear architectural diagrams, pinouts, protocols, and data models prioritize tangible technical competence over generic skill bars.
+The design emphasizes:
 
----
+* Clear typography
+* Strong information hierarchy
+* Controlled motion
+* Responsive layouts
+* Technical project imagery
+* Minimal decorative effects
+* Project evidence over generic skill meters
+
+Animations are used to support navigation and interaction rather than dominate the interface.
+
+## Contact
+
+**Soumik Ghosh**
+Embedded Software Developer
+
+* Email: [soumik.bur@gmail.com](mailto:soumik.bur@gmail.com)
+* GitHub: https://github.com/soumikbur
+* LinkedIn: https://www.linkedin.com/in/soumik-ghosh-883a1a22b/
+
+## Repository
+
+**GitHub:**
+https://github.com/soumikbur/soumik-ghosh-portfolio
 
 ## License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+This repository is licensed under the MIT License. See [`LICENSE`](./LICENSE) for details.
