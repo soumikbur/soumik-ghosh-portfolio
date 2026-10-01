@@ -52,7 +52,7 @@ export const PROJECTS: Project[] = [
     technologies: ["C++20", "Qt 6 / QML", "ESP32-S3", "FreeRTOS", "4G LTE", "Modbus RTU"],
     image: "/images/projects/panorama-water-tank.jpg",
     imageType: "actual",
-    github: "https://github.com/soumikbur",
+    github: "https://github.com/soumikbur/PanoramaWaterTank",
     featured: true,
     overview:
       "Railway coaches and industrial facilities require accurate, continuous monitoring of water reservoirs to prevent dry runs, detect leakage, and schedule refilling. Traditional mechanical gauges fail in mobile, vibrating environments, requiring a robust electronic monitoring and telemetry solution.",
@@ -216,7 +216,7 @@ export const PROJECTS: Project[] = [
     technologies: ["Next.js", "React", "Prisma", "PostgreSQL", "NextAuth v5", "Tailwind CSS"],
     image: "/images/projects/business-dashboard.jpg",
     imageType: "actual",
-    github: "https://github.com/soumikbur",
+    github: "https://github.com/soumikbur/business-admin-dashboard",
     featured: true,
     overview:
       "Executive leadership and business operators need immediate visibility into performance trends, revenue trajectories, operational backlogs, and user activity without navigating slow, complex legacy reports.",
@@ -298,7 +298,7 @@ export const PROJECTS: Project[] = [
       sourceUrl: PROJECT_IMAGE_METADATA["transparent-supply-chain"].sourceUrl,
       license: PROJECT_IMAGE_METADATA["transparent-supply-chain"].license,
     },
-    github: "https://github.com/soumikbur",
+    github: "https://github.com/soumikbur/AI-enabled-Decentralized-SupplyChain",
     featured: false,
     overview:
       "Global supply chains frequently suffer from counterfeiting, unauthorized substitutions, and opaque custody transitions. Centralized databases remain vulnerable to unauthorized tampering, necessitating a cryptographic, verifiable audit trail.",
