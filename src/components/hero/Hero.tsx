@@ -19,8 +19,8 @@ export function Hero() {
 
       <Container size="hero">
         <GsapHero>
-          {/* Top Identity Block: Grid with Text/CTAs on Left, Developer Dossier Card on Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12 items-start relative z-10">
+          {/* Top Identity Block: Grid with Text/CTAs on Left, Clean Standalone Portrait on Right */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12 items-center relative z-10">
             {/* Left 7 cols: Name, Role, Statement, CTAs */}
             <div className="lg:col-span-7 flex flex-col items-start">
               {/* Eyebrow / Availability Badge with Color Accents */}
@@ -106,84 +106,25 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Right 5 cols: Developer Dossier & Telemetry Card */}
-            <div className="lg:col-span-5 flex justify-start lg:justify-end w-full">
-              <div className="gsap-hero-photo w-full rounded-2xl border border-zinc-800/90 bg-zinc-900/60 p-4 sm:p-5 backdrop-blur-md shadow-2xl ring-1 ring-zinc-700/50 glow-card-emerald">
-                {/* Console Window Header */}
-                <div className="flex items-center justify-between pb-3 mb-3.5 border-b border-zinc-800/80 text-[11px] font-mono text-zinc-400">
-                  <div className="flex items-center gap-2">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-zinc-200 font-semibold">station: ~/soumik.firmware</span>
-                  </div>
-                  <span className="text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded text-[10px] font-mono">
-                    HARDWARE VERIFIED
-                  </span>
-                </div>
+            {/* Right 5 cols: Clean Standalone Portrait */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end w-full">
+              <div className="gsap-hero-photo relative group">
+                {/* Subtle ambient accent glow behind photo */}
+                <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-emerald-500/20 via-cyan-500/15 to-emerald-500/10 blur-xl opacity-70 group-hover:opacity-100 transition duration-500 pointer-events-none" />
 
-                {/* Profile Photo + Verified Credentials */}
-                <div className="flex flex-col sm:flex-row items-center sm:items-start xl:items-center gap-4 sm:gap-5">
-                  <div className="relative rounded-2xl border-2 border-emerald-500/50 bg-zinc-950 p-1.5 shadow-2xl shrink-0 ring-2 ring-emerald-500/30 glow-card-emerald">
-                    <div className="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-36 lg:h-36 xl:w-40 xl:h-40 2xl:w-44 2xl:h-44 rounded-xl overflow-hidden bg-zinc-950">
-                      <Image
-                        src="/images/soumik-ghosh.jpg"
-                        alt="Soumik Ghosh — Embedded Software Developer"
-                        width={384}
-                        height={384}
-                        priority
-                        className="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105"
-                        sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 176px"
-                      />
-                    </div>
+                {/* Clean subtle border/frame */}
+                <div className="relative rounded-2xl sm:rounded-3xl border border-zinc-800/90 bg-zinc-900/60 p-2 sm:p-2.5 backdrop-blur-md shadow-2xl ring-1 ring-zinc-700/50 glow-card-emerald">
+                  <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-72 lg:h-72 xl:w-80 xl:h-80 2xl:w-88 2xl:h-88 rounded-xl sm:rounded-2xl overflow-hidden bg-zinc-950">
+                    <Image
+                      src="/images/soumik-ghosh.jpg"
+                      alt="Soumik Ghosh — Embedded Software Developer"
+                      width={400}
+                      height={400}
+                      priority
+                      className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 240px, (max-width: 768px) 288px, (max-width: 1024px) 320px, (max-width: 1280px) 288px, (max-width: 1536px) 320px, 352px"
+                    />
                   </div>
-                  <div className="space-y-1.5 min-w-0 text-center sm:text-left">
-                    <h3 className="text-lg sm:text-xl xl:text-2xl font-bold text-white tracking-tight">
-                      Soumik Ghosh
-                    </h3>
-                    <p className="text-xs sm:text-sm font-mono text-emerald-400 font-semibold">
-                      Embedded Software Developer
-                    </p>
-                    <p className="text-xs font-mono text-zinc-200">
-                      Panorama Electronics Pvt. Ltd.
-                    </p>
-                    <p className="text-[11px] font-mono text-zinc-400">
-                      Sister Nivedita University · Kolkata
-                    </p>
-                    <div className="pt-1.5 flex justify-center sm:justify-start">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-950/70 border border-emerald-800/80 text-[10px] font-mono text-emerald-300 font-semibold shadow-sm">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        <span>Hardware Verified · In-Field</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Architecture & Telemetry Specs Grid */}
-                <div className="mt-4 pt-3 border-t border-zinc-800/70 grid grid-cols-2 gap-2 text-[11px] font-mono">
-                  <div className="bg-zinc-950/60 border border-zinc-800/80 rounded-lg p-2">
-                    <span className="text-zinc-500 text-[9px] uppercase tracking-wider block">Target MCU</span>
-                    <span className="text-emerald-300 font-semibold truncate block">STM32 &amp; ESP32-S3</span>
-                  </div>
-                  <div className="bg-zinc-950/60 border border-zinc-800/80 rounded-lg p-2">
-                    <span className="text-zinc-500 text-[9px] uppercase tracking-wider block">RTOS Kernel</span>
-                    <span className="text-cyan-300 font-semibold truncate block">FreeRTOS Priority</span>
-                  </div>
-                  <div className="bg-zinc-950/60 border border-zinc-800/80 rounded-lg p-2">
-                    <span className="text-zinc-500 text-[9px] uppercase tracking-wider block">Industrial Bus</span>
-                    <span className="text-blue-300 font-semibold truncate block">RS-485 Modbus RTU</span>
-                  </div>
-                  <div className="bg-zinc-950/60 border border-zinc-800/80 rounded-lg p-2">
-                    <span className="text-zinc-500 text-[9px] uppercase tracking-wider block">Telemetry</span>
-                    <span className="text-violet-300 font-semibold truncate block">Quectel 4G LTE Cat-1</span>
-                  </div>
-                </div>
-
-                {/* Footer Status */}
-                <div className="mt-3 pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-[10px] font-mono text-zinc-400">
-                  <span className="flex items-center gap-1.5 text-zinc-300">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                    <span>8 In-Field Architectures</span>
-                  </span>
-                  <span className="text-zinc-500">Deterministic Timing</span>
                 </div>
               </div>
             </div>
