@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight, MapPin, Terminal } from "lucide-react";
 import { Container } from "../ui/Container";
+import { TiltCard } from "../ui/TiltCard";
 
 export function AboutOverview() {
   return (
@@ -26,7 +27,12 @@ export function AboutOverview() {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-start">
           {/* Left Column: Technical Identity & Quick Info Card */}
-          <div className="lg:col-span-4 rounded-2xl border border-zinc-800/90 bg-zinc-900/50 p-6 sm:p-7 lg:p-8 backdrop-blur-sm shadow-xl hover:border-zinc-700 transition-colors">
+          <TiltCard
+            maxTilt={4}
+            scale={1.015}
+            accentGlow="emerald"
+            className="lg:col-span-4 rounded-2xl border border-zinc-800/90 bg-zinc-900/50 p-6 sm:p-7 lg:p-8 backdrop-blur-sm shadow-xl hover:border-zinc-700 transition-[border-color,background-color,box-shadow]"
+          >
             <div className="flex items-center gap-3.5 sm:gap-4">
               <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-2xl border border-emerald-800/80 bg-emerald-950/60 flex items-center justify-center text-emerald-400 shrink-0 shadow-[0_0_15px_-4px_rgba(16,185,129,0.3)]">
                 <Terminal className="h-6 w-6 sm:h-7 sm:w-7" />
@@ -74,7 +80,7 @@ export function AboutOverview() {
                 <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
-          </div>
+          </TiltCard>
 
           {/* Right Column: Bio Narrative & Technical Pillars */}
           <div className="lg:col-span-8 space-y-6 sm:space-y-8">

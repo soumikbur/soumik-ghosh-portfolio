@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Cpu, Radio, Activity, Monitor, Network, CheckCircle2 } from "lucide-react";
+import { TiltCard } from "../ui/TiltCard";
 
 interface PipelineNode {
   id: string;
@@ -109,7 +110,14 @@ export function TelemetryPipeline() {
   const [activeTab, setActiveTab] = useState<"pipeline" | "logs">("pipeline");
 
   return (
-    <div className="w-full rounded-xl border border-zinc-800/90 bg-zinc-950/90 shadow-2xl overflow-hidden backdrop-blur-md relative">
+    <TiltCard
+      maxTilt={2.8}
+      scale={1.008}
+      perspective={1200}
+      accentGlow="emerald"
+      glareMaxOpacity={0.12}
+      className="w-full rounded-xl border border-zinc-800/90 bg-zinc-950/90 shadow-2xl overflow-hidden backdrop-blur-md relative"
+    >
       {/* Subtle top gradient accent */}
       <div className="h-0.5 w-full bg-gradient-to-r from-emerald-500 via-cyan-500 to-violet-500" />
 
@@ -251,6 +259,6 @@ export function TelemetryPipeline() {
           <span>Target Architecture: ARM Cortex-M4 &amp; Xtensa LX7</span>
         </div>
       </div>
-    </div>
+    </TiltCard>
   );
 }

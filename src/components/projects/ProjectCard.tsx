@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, ExternalLink } from "lucide-react";
 import { GithubIcon } from "../ui/Icons";
 import { Badge } from "../ui/Badge";
+import { TiltCard } from "../ui/TiltCard";
 import { Project } from "@/lib/data/projects";
 
 interface ProjectCardProps {
@@ -83,8 +84,12 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   const statusStyles = getStatusStyles(project.statusVariant);
 
   return (
-    <article
-      className={`group rounded-2xl border border-zinc-800/90 bg-zinc-900/50 p-5 sm:p-7 lg:p-8 backdrop-blur-sm transition-all duration-200 ${theme.hoverBorder} hover:bg-zinc-900/80 shadow-lg flex flex-col justify-between hover:-translate-y-0.5`}
+    <TiltCard
+      as="article"
+      accentGlow={theme.tagVariant}
+      maxTilt={4.5}
+      scale={1.015}
+      className={`group rounded-2xl border border-zinc-800/90 bg-zinc-900/50 p-5 sm:p-7 lg:p-8 backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-200 ${theme.hoverBorder} hover:bg-zinc-900/80 shadow-lg flex flex-col justify-between`}
     >
       <div className="space-y-5 sm:space-y-6">
         {/* Project Top Bar: Status Badge, Category Tag, & Index Number */}
@@ -203,6 +208,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           )}
         </div>
       </div>
-    </article>
+    </TiltCard>
   );
 }

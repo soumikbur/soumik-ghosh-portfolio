@@ -15,6 +15,7 @@ import { GithubIcon } from "../ui/Icons";
 import { Container } from "../ui/Container";
 import { Badge } from "../ui/Badge";
 import { Button } from "../ui/Button";
+import { TiltCard } from "../ui/TiltCard";
 import { Project } from "@/lib/data/projects";
 
 interface CaseStudyViewProps {
@@ -183,7 +184,12 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   {isActual ? "ACTUAL PROJECT SCREENSHOT" : "CONTEXTUAL FIELD COVER"}
                 </span>
               </div>
-              <div className="rounded-xl border border-zinc-800 bg-zinc-950 p-2 sm:p-3 overflow-hidden shadow-2xl">
+              <TiltCard
+                maxTilt={3}
+                scale={1.008}
+                accentGlow="emerald"
+                className="rounded-xl border border-zinc-800 bg-zinc-950 p-2 sm:p-3 overflow-hidden shadow-2xl"
+              >
                 <div className="flex items-center justify-between border-b border-zinc-850 px-2 py-1.5 mb-2 text-[10px] sm:text-xs font-mono text-zinc-400">
                   <span className="text-zinc-200 font-medium">
                     {project.slug}.{isActual ? "interface.view" : "domain.context"}
@@ -212,7 +218,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                     </span>
                   </div>
                 )}
-              </div>
+              </TiltCard>
             </section>
           )}
 
@@ -223,9 +229,12 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {project.techCategories.map((group, i) => (
-                <div
+                <TiltCard
                   key={i}
-                  className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-5 space-y-2.5 hover:border-zinc-700 transition-colors"
+                  maxTilt={4}
+                  scale={1.015}
+                  accentGlow="cyan"
+                  className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-5 space-y-2.5 hover:border-zinc-700 transition-[border-color,background-color,box-shadow]"
                 >
                   <h3 className="font-mono text-xs font-semibold text-zinc-200 uppercase tracking-wider flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -238,7 +247,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                       </Badge>
                     ))}
                   </div>
-                </div>
+                </TiltCard>
               ))}
             </div>
           </section>
@@ -248,11 +257,16 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             <h2 className="font-mono text-xs font-semibold uppercase tracking-wider text-gradient-emerald-cyan">
               Outcome &amp; Purpose
             </h2>
-            <div className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-6 sm:p-7 border-l-4 border-l-emerald-500 shadow-lg">
+            <TiltCard
+              maxTilt={3.5}
+              scale={1.01}
+              accentGlow="emerald"
+              className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-6 sm:p-7 border-l-4 border-l-emerald-500 shadow-lg"
+            >
               <p className="text-sm sm:text-base text-zinc-200 leading-relaxed">
                 {project.outcome}
               </p>
-            </div>
+            </TiltCard>
           </section>
 
           {/* Bottom CTA */}

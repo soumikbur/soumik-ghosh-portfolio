@@ -2,6 +2,7 @@ import React from "react";
 import { Briefcase, MapPin, Calendar, ChevronRight, GraduationCap } from "lucide-react";
 import { Container } from "../ui/Container";
 import { Badge } from "../ui/Badge";
+import { TiltCard } from "../ui/TiltCard";
 
 export function ExperienceSection() {
   const firmwareTech = ["STM32 (Cortex-M)", "ESP32-S3", "FreeRTOS", "C++20"];
@@ -69,7 +70,13 @@ export function ExperienceSection() {
         {/* Timeline Stack */}
         <div className="space-y-10 sm:space-y-12">
           {/* Item 1: Panorama Electronics Pvt. Ltd. */}
-          <article className="rounded-2xl border border-zinc-800/90 bg-zinc-900/50 p-6 sm:p-8 lg:p-10 backdrop-blur-sm shadow-xl space-y-6 sm:space-y-8 hover:border-zinc-700 transition-colors">
+          <TiltCard
+            as="article"
+            accentGlow="emerald"
+            maxTilt={3.5}
+            scale={1.01}
+            className="rounded-2xl border border-zinc-800/90 bg-zinc-900/50 p-6 sm:p-8 lg:p-10 backdrop-blur-sm shadow-xl space-y-6 sm:space-y-8 hover:border-zinc-700 transition-[border-color,background-color,box-shadow]"
+          >
             {/* Header / Role Bar */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-zinc-800 pb-6">
               <div className="flex items-start gap-3.5 sm:gap-4">
@@ -188,10 +195,16 @@ export function ExperienceSection() {
                 </div>
               </div>
             </div>
-          </article>
+          </TiltCard>
 
           {/* Item 2: Education Milestone */}
-          <article className="rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 sm:p-8 backdrop-blur-sm hover:border-zinc-700 transition-colors">
+          <TiltCard
+            as="article"
+            accentGlow="cyan"
+            maxTilt={3.5}
+            scale={1.01}
+            className="rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 sm:p-8 backdrop-blur-sm hover:border-zinc-700 transition-[border-color,background-color,box-shadow]"
+          >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-start gap-3.5 sm:gap-4">
                 <div className="h-12 w-12 rounded-xl border border-blue-900/60 bg-blue-950/40 flex items-center justify-center text-blue-400 shrink-0 mt-0.5 shadow-[0_0_15px_-4px_rgba(59,130,246,0.25)]">
@@ -221,7 +234,7 @@ export function ExperienceSection() {
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mt-5 pt-5 border-t border-zinc-800/60">
               Rigorous technical coursework focusing on electronic circuits, microcontroller architectures, real-time operating systems, digital communication networks, and software engineering principles.
             </p>
-          </article>
+          </TiltCard>
         </div>
       </Container>
     </section>

@@ -1,14 +1,20 @@
 import React from "react";
 import { Container } from "../ui/Container";
+import { TiltCard, TiltAccentColor } from "../ui/TiltCard";
 import { ENGINEERING_APPROACH } from "@/lib/data/projects";
 
-const PHASE_COLORS = [
-  { text: "text-emerald-400", dot: "bg-emerald-400", hover: "hover:border-emerald-600/80 hover:shadow-[0_4px_24px_-6px_rgba(16,185,129,0.18)]" },
-  { text: "text-cyan-400", dot: "bg-cyan-400", hover: "hover:border-cyan-600/80 hover:shadow-[0_4px_24px_-6px_rgba(6,182,212,0.18)]" },
-  { text: "text-blue-400", dot: "bg-blue-400", hover: "hover:border-blue-600/80 hover:shadow-[0_4px_24px_-6px_rgba(59,130,246,0.18)]" },
-  { text: "text-violet-400", dot: "bg-violet-400", hover: "hover:border-violet-600/80 hover:shadow-[0_4px_24px_-6px_rgba(139,92,246,0.18)]" },
-  { text: "text-teal-400", dot: "bg-teal-400", hover: "hover:border-teal-600/80 hover:shadow-[0_4px_24px_-6px_rgba(20,184,166,0.18)]" },
-  { text: "text-amber-400", dot: "bg-amber-400", hover: "hover:border-amber-600/80 hover:shadow-[0_4px_24px_-6px_rgba(245,158,11,0.18)]" },
+const PHASE_COLORS: {
+  text: string;
+  dot: string;
+  hover: string;
+  glow: TiltAccentColor;
+}[] = [
+  { text: "text-emerald-400", dot: "bg-emerald-400", hover: "hover:border-emerald-600/80 hover:shadow-[0_4px_24px_-6px_rgba(16,185,129,0.18)]", glow: "emerald" },
+  { text: "text-cyan-400", dot: "bg-cyan-400", hover: "hover:border-cyan-600/80 hover:shadow-[0_4px_24px_-6px_rgba(6,182,212,0.18)]", glow: "cyan" },
+  { text: "text-blue-400", dot: "bg-blue-400", hover: "hover:border-blue-600/80 hover:shadow-[0_4px_24px_-6px_rgba(59,130,246,0.18)]", glow: "cyan" },
+  { text: "text-violet-400", dot: "bg-violet-400", hover: "hover:border-violet-600/80 hover:shadow-[0_4px_24px_-6px_rgba(139,92,246,0.18)]", glow: "violet" },
+  { text: "text-teal-400", dot: "bg-teal-400", hover: "hover:border-teal-600/80 hover:shadow-[0_4px_24px_-6px_rgba(20,184,166,0.18)]", glow: "cyan" },
+  { text: "text-amber-400", dot: "bg-amber-400", hover: "hover:border-amber-600/80 hover:shadow-[0_4px_24px_-6px_rgba(245,158,11,0.18)]", glow: "amber" },
 ];
 
 export function EngineeringApproach() {
@@ -32,9 +38,12 @@ export function EngineeringApproach() {
           {ENGINEERING_APPROACH.map((step, idx) => {
             const phaseColor = PHASE_COLORS[idx % PHASE_COLORS.length];
             return (
-              <div
+              <TiltCard
                 key={idx}
-                className={`group rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 sm:p-7 lg:p-8 flex flex-col justify-between ${phaseColor.hover} transition-all duration-200 hover:-translate-y-0.5`}
+                accentGlow={phaseColor.glow}
+                maxTilt={4.5}
+                scale={1.015}
+                className={`group rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 sm:p-7 lg:p-8 flex flex-col justify-between ${phaseColor.hover} transition-[border-color,background-color,box-shadow] duration-200`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-3.5 border-b border-zinc-800/70 pb-3">
@@ -50,7 +59,7 @@ export function EngineeringApproach() {
                     {step.description}
                   </p>
                 </div>
-              </div>
+              </TiltCard>
             );
           })}
         </div>

@@ -23,6 +23,7 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 export const metadata: Metadata = {
   title: "About — Soumik Ghosh | Embedded Software Developer",
@@ -249,7 +250,12 @@ export default function AboutPage() {
             description="Verified organization and current engineering responsibilities."
           />
 
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-8 space-y-4 hover:border-zinc-700 transition-colors">
+          <TiltCard
+            accentGlow="emerald"
+            maxTilt={3.5}
+            scale={1.01}
+            className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-8 space-y-4 hover:border-zinc-700 transition-[border-color,background-color,box-shadow]"
+          >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800 pb-4">
               <div>
                 <div className="flex items-center gap-2.5">
@@ -308,7 +314,7 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-          </div>
+          </TiltCard>
         </section>
 
         {/* Section 2: Education */}
@@ -319,7 +325,12 @@ export default function AboutPage() {
             description="Verified university qualification and formal engineering studies."
           />
 
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-8">
+          <TiltCard
+            accentGlow="cyan"
+            maxTilt={3.5}
+            scale={1.01}
+            className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-8"
+          >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-start gap-3">
                 <div className="h-10 w-10 rounded border border-zinc-700 bg-zinc-900 flex items-center justify-center text-emerald-400 shrink-0">
@@ -348,7 +359,7 @@ export default function AboutPage() {
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mt-4 pt-4 border-t border-zinc-800/60">
               Rigorous technical coursework focusing on electronic circuits, microcontroller architectures, real-time operating systems, digital communication networks, and software engineering principles.
             </p>
-          </div>
+          </TiltCard>
         </section>
 
         {/* Section 3: Certifications */}
