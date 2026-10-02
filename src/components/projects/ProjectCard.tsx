@@ -10,9 +10,14 @@ import { Project } from "@/lib/data/projects";
 interface ProjectCardProps {
   project: Project;
   index?: number;
+  enableTilt?: boolean;
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project, index, enableTilt }: ProjectCardProps) {
+  // Selective purposeful tilt: only high-value visual anchor featured project cards tilt (max 3-5 deg, ~1.01 scale).
+  // Supporting/secondary project cards use clean hover border highlight only.
+  const shouldTilt = enableTilt ?? Boolean(project.featured);
+
   // Category-based color accents for purposeful visual differentiation
   const getCategoryTheme = (group: string) => {
     switch (group) {
@@ -83,14 +88,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
   const statusStyles = getStatusStyles(project.statusVariant);
 
-  return (
-    <TiltCard
-      as="article"
-      accentGlow={theme.tagVariant}
-      maxTilt={4.5}
-      scale={1.015}
-      className={`group rounded-2xl border border-zinc-800/90 bg-zinc-900/50 p-5 sm:p-7 lg:p-8 backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-200 ${theme.hoverBorder} hover:bg-zinc-900/80 shadow-lg flex flex-col justify-between`}
-    >
+  const cardInnerContent = (
+    <>
       <div className="space-y-5 sm:space-y-6">
         {/* Project Top Bar: Status Badge, Category Tag, & Index Number */}
         <div className="flex items-center justify-between gap-2 border-b border-zinc-800/60 pb-3.5 sm:pb-4">
@@ -208,6 +207,30 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           )}
         </div>
       </div>
-    </TiltCard>
+    </>
+  );
+
+  const cardClasses = `group rounded-2xl border border-zinc-800/90 bg-zinc-900/50 p-5 sm:p-7 lg:p-8 backdrop-blur-sm transition-[border-color,background-color,box-shadow] duration-200 ${theme.hoverBorder} hover:bg-zinc-900/80 shadow-lg flex flex-col justify-between`;
+
+  if (shouldTilt) {
+    return (
+      <TiltCard
+        as="article"
+        accentGlow={theme.tagVariant}
+        maxTilt={3.8}
+        scale={1.012}
+        className={cardClasses}
+      >
+        {cardInnerContent}
+      </TiltCard>
+    );
+  }
+
+  return (
+    <article className={cardClasses}>
+      <div className="relative h-full flex flex-col justify-between">
+        {cardInnerContent}
+      </div>
+    </article>
   );
 }

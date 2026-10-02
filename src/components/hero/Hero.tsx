@@ -8,6 +8,7 @@ import { Badge } from "../ui/Badge";
 import { GsapHero } from "../animations/GsapHero";
 import { TelemetryPipeline } from "./TelemetryPipeline";
 import { HeroMetrics } from "./HeroMetrics";
+import { TiltCard } from "../ui/TiltCard";
 
 export function Hero() {
   return (
@@ -139,7 +140,12 @@ export function Hero() {
           <div className="mt-14 sm:mt-18 lg:mt-24 xl:mt-28 grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-stretch">
             {/* Left 7 cols: Real Production System UI Preview */}
             <div className="xl:col-span-7 flex flex-col">
-              <div className="gsap-hero-visual h-full w-full rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5 sm:p-6 lg:p-7 xl:p-8 backdrop-blur-md shadow-2xl flex flex-col justify-between">
+              <TiltCard
+                maxTilt={3.2}
+                scale={1.01}
+                accentGlow="emerald"
+                className="gsap-hero-visual h-full w-full rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5 sm:p-6 lg:p-7 xl:p-8 backdrop-blur-md shadow-2xl flex flex-col justify-between"
+              >
                 <div className="flex items-center justify-between border-b border-zinc-800/80 pb-3 mb-4 text-xs font-mono text-zinc-400">
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1.5" aria-hidden="true">
@@ -191,7 +197,7 @@ export function Hero() {
                     <span>4-Tier Role Security</span>
                   </div>
                 </div>
-              </div>
+              </TiltCard>
             </div>
 
             {/* Right 5 cols: Widescreen 2x2 Performance Metrics */}

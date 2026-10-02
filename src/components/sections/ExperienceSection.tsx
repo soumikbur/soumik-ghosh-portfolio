@@ -198,13 +198,7 @@ export function ExperienceSection() {
           </TiltCard>
 
           {/* Item 2: Education Milestone */}
-          <TiltCard
-            as="article"
-            accentGlow="cyan"
-            maxTilt={3.5}
-            scale={1.01}
-            className="rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 sm:p-8 backdrop-blur-sm hover:border-zinc-700 transition-[border-color,background-color,box-shadow]"
-          >
+          <article className="rounded-2xl border border-zinc-800/80 bg-zinc-900/40 p-6 sm:p-8 backdrop-blur-sm hover:border-zinc-700 transition-colors">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex items-start gap-3.5 sm:gap-4">
                 <div className="h-12 w-12 rounded-xl border border-blue-900/60 bg-blue-950/40 flex items-center justify-center text-blue-400 shrink-0 mt-0.5 shadow-[0_0_15px_-4px_rgba(59,130,246,0.25)]">
@@ -234,7 +228,7 @@ export function ExperienceSection() {
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mt-5 pt-5 border-t border-zinc-800/60">
               Rigorous technical coursework focusing on electronic circuits, microcontroller architectures, real-time operating systems, digital communication networks, and software engineering principles.
             </p>
-          </TiltCard>
+          </article>
         </div>
       </Container>
     </section>

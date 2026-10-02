@@ -229,11 +229,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {project.techCategories.map((group, i) => (
-                <TiltCard
+                <div
                   key={i}
-                  maxTilt={4}
-                  scale={1.015}
-                  accentGlow="cyan"
                   className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-5 space-y-2.5 hover:border-zinc-700 transition-[border-color,background-color,box-shadow]"
                 >
                   <h3 className="font-mono text-xs font-semibold text-zinc-200 uppercase tracking-wider flex items-center gap-1.5">
@@ -247,7 +244,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                       </Badge>
                     ))}
                   </div>
-                </TiltCard>
+                </div>
               ))}
             </div>
           </section>
@@ -257,16 +254,11 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             <h2 className="font-mono text-xs font-semibold uppercase tracking-wider text-gradient-emerald-cyan">
               Outcome &amp; Purpose
             </h2>
-            <TiltCard
-              maxTilt={3.5}
-              scale={1.01}
-              accentGlow="emerald"
-              className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-6 sm:p-7 border-l-4 border-l-emerald-500 shadow-lg"
-            >
+            <div className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-6 sm:p-7 border-l-4 border-l-emerald-500 shadow-lg hover:border-zinc-700 transition-[border-color,background-color,box-shadow]">
               <p className="text-sm sm:text-base text-zinc-200 leading-relaxed">
                 {project.outcome}
               </p>
-            </TiltCard>
+            </div>
           </section>
 
           {/* Bottom CTA */}

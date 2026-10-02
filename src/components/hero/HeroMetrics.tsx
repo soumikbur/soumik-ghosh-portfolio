@@ -1,12 +1,10 @@
 import React from "react";
-import { TiltCard, TiltAccentColor } from "../ui/TiltCard";
 
 interface MetricCard {
   context: string;
   value: string;
   label: string;
   sparkline: string;
-  glowColor: TiltAccentColor;
   colorClass: {
     text: string;
     badge: string;
@@ -20,7 +18,6 @@ const METRICS: MetricCard[] = [
   {
     context: "Panorama Electronics · Embedded Firmware",
     value: "Sub-10ms",
-    glowColor: "emerald",
     label:
       "Deterministic sensor acquisition cycle time implemented with FreeRTOS multi-priority tasks and hardware timer interrupts for industrial liquid level telemetry.",
     sparkline: "M2 24 L20 18 L38 20 L56 12 L74 15 L92 8 L110 10 L128 4",
@@ -35,7 +32,6 @@ const METRICS: MetricCard[] = [
   {
     context: "Substation Monitoring · Fieldbus Protocol",
     value: "CRC-16",
-    glowColor: "cyan",
     label:
       "Integrity-verified RS-485 Modbus RTU master communication with zero undetected packet corruption across electrical substation noise environments.",
     sparkline: "M2 8 L20 12 L38 10 L56 18 L74 14 L92 22 L110 18 L128 26",
@@ -50,7 +46,6 @@ const METRICS: MetricCard[] = [
   {
     context: "Autonomous Nodes · Cellular Telemetry",
     value: "TLS 1.2",
-    glowColor: "violet",
     label:
       "Encrypted cloud transmission via Quectel 4G LTE with non-blocking AT command state machines and automated socket reconnection for remote installations.",
     sparkline: "M2 22 L20 20 L38 14 L56 16 L74 8 L92 12 L110 6 L128 4",
@@ -65,7 +60,6 @@ const METRICS: MetricCard[] = [
   {
     context: "Production Portfolio · Complete Architecture",
     value: "8 Systems",
-    glowColor: "amber",
     label:
       "Verified engineering implementations spanning dual-core microcontroller firmware, industrial SCADA, double-entry inventory ledgers, and operations dashboards.",
     sparkline: "M2 26 L20 22 L38 24 L56 16 L74 18 L92 10 L110 8 L128 2",
@@ -107,12 +101,9 @@ export function HeroMetrics({ layout = "banner", className = "" }: HeroMetricsPr
         {/* 2x2 Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 flex-1">
           {METRICS.map((metric, i) => (
-            <TiltCard
+            <div
               key={i}
-              accentGlow={metric.glowColor}
-              maxTilt={4}
-              scale={1.015}
-              className={`group rounded-xl border bg-zinc-950/70 p-3.5 sm:p-4.5 backdrop-blur-sm ${metric.colorClass.border} ${metric.colorClass.hover} transition-[border-color,background-color,box-shadow] duration-200 flex flex-col justify-between`}
+              className={`group rounded-xl border bg-zinc-950/70 p-3.5 sm:p-4.5 backdrop-blur-sm ${metric.colorClass.border} ${metric.colorClass.hover} transition-all duration-200 flex flex-col justify-between`}
             >
               <div>
                 <span className={`font-mono text-[9px] uppercase tracking-wider block mb-1.5 truncate ${metric.colorClass.badge}`}>
@@ -144,7 +135,7 @@ export function HeroMetrics({ layout = "banner", className = "" }: HeroMetricsPr
                   />
                 </svg>
               </div>
-            </TiltCard>
+            </div>
           ))}
         </div>
 
@@ -175,12 +166,9 @@ export function HeroMetrics({ layout = "banner", className = "" }: HeroMetricsPr
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {METRICS.map((metric, i) => (
-          <TiltCard
+          <div
             key={i}
-            accentGlow={metric.glowColor}
-            maxTilt={4}
-            scale={1.015}
-            className={`group rounded-xl border bg-zinc-900/50 p-5 sm:p-6 backdrop-blur-sm ${metric.colorClass.border} ${metric.colorClass.hover} transition-[border-color,background-color,box-shadow] duration-200 flex flex-col justify-between`}
+            className={`group rounded-xl border bg-zinc-900/50 p-5 sm:p-6 backdrop-blur-sm ${metric.colorClass.border} ${metric.colorClass.hover} transition-all duration-200 flex flex-col justify-between`}
           >
             <div>
               <span className={`font-mono text-[10px] uppercase tracking-wider block mb-2 line-clamp-1 ${metric.colorClass.badge}`}>
@@ -212,7 +200,7 @@ export function HeroMetrics({ layout = "banner", className = "" }: HeroMetricsPr
                 />
               </svg>
             </div>
-          </TiltCard>
+          </div>
         ))}
       </div>
     </div>

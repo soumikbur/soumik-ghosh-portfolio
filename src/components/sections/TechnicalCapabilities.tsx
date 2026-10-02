@@ -1,5 +1,5 @@
+import React from "react";
 import { Container } from "../ui/Container";
-import { TiltCard, TiltAccentColor } from "../ui/TiltCard";
 
 interface SkillCategory {
   idx: string;
@@ -152,58 +152,40 @@ export function TechnicalCapabilities() {
 
         {/* Structured Row-by-Row Skills Grid */}
         <div className="space-y-5 sm:space-y-6">
-          {SKILL_CATEGORIES.map((cat) => {
-            const glowColor: TiltAccentColor =
-              cat.idx === "01"
-                ? "emerald"
-                : cat.idx === "02"
-                ? "cyan"
-                : cat.idx === "03"
-                ? "cyan"
-                : cat.idx === "04"
-                ? "violet"
-                : cat.idx === "05"
-                ? "cyan"
-                : "amber";
+          {SKILL_CATEGORIES.map((cat) => (
+            <div
+              key={cat.idx}
+              className={`group rounded-2xl border bg-zinc-900/40 p-5 sm:p-7 lg:p-8 backdrop-blur-sm ${cat.theme.border} ${cat.theme.shadow} transition-all duration-200 flex flex-col lg:flex-row lg:items-start justify-between gap-6 sm:gap-8`}
+            >
+              {/* Category Header with Colored Index */}
+              <div className="lg:w-1/3 xl:w-1/4 shrink-0 flex items-center lg:items-start gap-3.5 sm:gap-4">
+                <span className={`font-mono text-xs font-bold px-3 py-1.5 rounded-lg border ${cat.theme.badge}`}>
+                  {cat.idx}
+                </span>
+                <h3 className={`text-base sm:text-lg font-bold text-zinc-100 ${cat.theme.hoverText} transition-colors`}>
+                  {cat.name}
+                </h3>
+              </div>
 
-            return (
-              <TiltCard
-                key={cat.idx}
-                accentGlow={glowColor}
-                maxTilt={3.5}
-                scale={1.01}
-                className={`group rounded-2xl border bg-zinc-900/40 p-5 sm:p-7 lg:p-8 backdrop-blur-sm ${cat.theme.border} ${cat.theme.shadow} transition-[border-color,background-color,box-shadow] duration-200 flex flex-col lg:flex-row lg:items-start justify-between gap-6 sm:gap-8`}
-              >
-                {/* Category Header with Colored Index */}
-                <div className="lg:w-1/3 xl:w-1/4 shrink-0 flex items-center lg:items-start gap-3.5 sm:gap-4">
-                  <span className={`font-mono text-xs font-bold px-3 py-1.5 rounded-lg border ${cat.theme.badge}`}>
-                    {cat.idx}
-                  </span>
-                  <h3 className={`text-base sm:text-lg font-bold text-zinc-100 ${cat.theme.hoverText} transition-colors`}>
-                    {cat.name}
-                  </h3>
-                </div>
-
-                {/* Skills Chips with Context Notes */}
-                <div className="lg:w-2/3 xl:w-3/4 flex flex-wrap gap-2.5 sm:gap-3">
-                  {cat.skills.map((skill, sIdx) => (
-                    <div
-                      key={sIdx}
-                      className="group/chip inline-flex flex-col px-3.5 py-2 rounded-xl border border-zinc-800 bg-zinc-950/80 hover:border-zinc-700 hover:bg-zinc-900 transition-all duration-150"
-                      title={skill.note}
-                    >
-                      <span className="text-xs font-semibold text-zinc-200 group-hover/chip:text-white">
-                        {skill.name}
-                      </span>
-                      <span className={`text-[11px] font-mono text-zinc-400 ${cat.theme.noteHover} transition-colors mt-0.5`}>
-                        {skill.note}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </TiltCard>
-            );
-          })}
+              {/* Skills Chips with Context Notes */}
+              <div className="lg:w-2/3 xl:w-3/4 flex flex-wrap gap-2.5 sm:gap-3">
+                {cat.skills.map((skill, sIdx) => (
+                  <div
+                    key={sIdx}
+                    className="group/chip inline-flex flex-col px-3.5 py-2 rounded-xl border border-zinc-800 bg-zinc-950/80 hover:border-zinc-700 hover:bg-zinc-900 transition-all duration-150"
+                    title={skill.note}
+                  >
+                    <span className="text-xs font-semibold text-zinc-200 group-hover/chip:text-white">
+                      {skill.name}
+                    </span>
+                    <span className={`text-[11px] font-mono text-zinc-400 ${cat.theme.noteHover} transition-colors mt-0.5`}>
+                      {skill.note}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </Container>
     </section>

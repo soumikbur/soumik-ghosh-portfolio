@@ -3,7 +3,6 @@ import { Mail, ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "../ui/Icons";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
-import { TiltCard } from "../ui/TiltCard";
 
 export function ContactCTA() {
   return (
@@ -82,12 +81,7 @@ export function ContactCTA() {
             </div>
 
             {/* Right 5 cols: Availability & Engineering Scope Panel (Visible on xl) */}
-            <TiltCard
-              accentGlow="cyan"
-              maxTilt={4}
-              scale={1.015}
-              className="xl:col-span-5 rounded-xl border border-zinc-800/90 bg-zinc-950/70 p-5 space-y-4 font-mono text-xs shadow-xl"
-            >
+            <div className="xl:col-span-5 rounded-xl border border-zinc-800/90 bg-zinc-950/70 p-5 space-y-4 font-mono text-xs shadow-xl">
               <div className="flex items-center justify-between pb-3 border-b border-zinc-800/80">
                 <span className="text-zinc-400 font-semibold uppercase tracking-wider text-[11px]">
                   Direct Inquiries &amp; Availability
@@ -136,7 +130,7 @@ export function ContactCTA() {
                   </span>
                 </div>
               </div>
-            </TiltCard>
+            </div>
           </div>
         </div>
       </Container>

@@ -325,12 +325,7 @@ export default function AboutPage() {
             description="Verified university qualification and formal engineering studies."
           />
 
-          <TiltCard
-            accentGlow="cyan"
-            maxTilt={3.5}
-            scale={1.01}
-            className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-8"
-          >
+          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-8 hover:border-zinc-700 transition-colors">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-start gap-3">
                 <div className="h-10 w-10 rounded border border-zinc-700 bg-zinc-900 flex items-center justify-center text-emerald-400 shrink-0">
@@ -359,7 +354,7 @@ export default function AboutPage() {
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mt-4 pt-4 border-t border-zinc-800/60">
               Rigorous technical coursework focusing on electronic circuits, microcontroller architectures, real-time operating systems, digital communication networks, and software engineering principles.
             </p>
-          </TiltCard>
+          </div>
         </section>
 
         {/* Section 3: Certifications */}
