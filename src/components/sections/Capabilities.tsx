@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { Container } from "../ui/Container";
 import { SectionHeader } from "../ui/SectionHeader";
-import { Card } from "../ui/Card";
+import { Card } from "../ui/card";
 import { CAPABILITIES } from "@/lib/data/projects";
 
 export function Capabilities() {
