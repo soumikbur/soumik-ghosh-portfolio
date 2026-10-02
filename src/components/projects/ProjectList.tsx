@@ -53,6 +53,7 @@ export function ProjectList({ projects }: ProjectListProps) {
 
             return (
               <button
+                type="button"
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-3.5 py-2 sm:py-1.5 rounded-lg text-xs font-mono transition-all duration-150 cursor-pointer flex items-center gap-2 whitespace-nowrap min-h-[40px] sm:min-h-auto ${tabClasses}`}

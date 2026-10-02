@@ -28,7 +28,7 @@ export function Footer() {
               Engineering practical software systems across real-time embedded firmware, industrial SCADA, Quectel 4G LTE telemetry, and operational full-stack platforms.
             </p>
             <p className="text-[11px] font-mono text-zinc-400">
-              // Deterministic firmware · Reliable telemetry · Zero-compromise engineering.
+              {"// Deterministic firmware · Reliable telemetry · Zero-compromise engineering."}
             </p>
           </div>
 

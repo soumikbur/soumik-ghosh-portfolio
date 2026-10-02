@@ -141,7 +141,7 @@ export function HeroMetrics({ layout = "banner", className = "" }: HeroMetricsPr
 
         {/* Verification Footer */}
         <div className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between text-[10px] font-mono text-zinc-400">
-          <span>// Verified on hardware test benches &amp; active deployments</span>
+          <span>{"// Verified on hardware test benches & active deployments"}</span>
           <span className="text-zinc-500">ISO/IEC Standardized</span>
         </div>
       </div>
@@ -160,7 +160,7 @@ export function HeroMetrics({ layout = "banner", className = "" }: HeroMetricsPr
           </h2>
         </div>
         <span className="hidden sm:inline font-mono text-xs text-zinc-400">
-          // Fieldbus · Firmware · Telemetry
+          {"// Fieldbus · Firmware · Telemetry"}
         </span>
       </div>
 

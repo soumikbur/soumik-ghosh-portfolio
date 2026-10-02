@@ -1,44 +1,75 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useSyncExternalStore } from "react";
+
+function subscribePointerMatch(callback: () => void) {
+  if (typeof window === "undefined") return () => {};
+  const mqFine = window.matchMedia("(pointer: fine) and (hover: hover)");
+  const mqMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  mqFine.addEventListener("change", callback);
+  mqMotion.addEventListener("change", callback);
+  return () => {
+    mqFine.removeEventListener("change", callback);
+    mqMotion.removeEventListener("change", callback);
+  };
+}
+
+function getPointerSnapshot() {
+  if (typeof window === "undefined") return false;
+  return (
+    window.matchMedia("(pointer: fine) and (hover: hover)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
+
+function getServerSnapshot() {
+  return false;
+}
 
 export function CustomCursor() {
-  const [mounted, setMounted] = useState(false);
+  const isDesktop = useSyncExternalStore(
+    subscribePointerMatch,
+    getPointerSnapshot,
+    getServerSnapshot
+  );
+
   const [isVisible, setIsVisible] = useState(false);
   const [cursorType, setCursorType] = useState<"default" | "pointer" | "card">("default");
-  const [isClicking, setIsClicking] = useState(false);
 
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
+
+  const cursorTypeRef = useRef<"default" | "pointer" | "card">("default");
+  const isClickingRef = useRef(false);
 
   const mousePos = useRef({ x: -100, y: -100 });
   const ringPos = useRef({ x: -100, y: -100 });
   const rafId = useRef<number | null>(null);
 
   useEffect(() => {
-    // Only enable on desktop devices with fine pointer (mouse/trackpad) and hover capability
-    const hasFinePointer = window.matchMedia("(pointer: fine) and (hover: hover)").matches;
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (!hasFinePointer || prefersReducedMotion) {
-      return;
-    }
-
-    setMounted(true);
+    if (!isDesktop) return;
 
     const onMouseMove = (e: MouseEvent) => {
       mousePos.current.x = e.clientX;
       mousePos.current.y = e.clientY;
 
-      if (!isVisible) {
-        setIsVisible(true);
-        ringPos.current.x = e.clientX;
-        ringPos.current.y = e.clientY;
-      }
+      setIsVisible((prev) => {
+        if (!prev) {
+          ringPos.current.x = e.clientX;
+          ringPos.current.y = e.clientY;
+          return true;
+        }
+        return prev;
+      });
     };
 
-    const onMouseDown = () => setIsClicking(true);
-    const onMouseUp = () => setIsClicking(false);
+    const onMouseDown = () => {
+      isClickingRef.current = true;
+    };
+
+    const onMouseUp = () => {
+      isClickingRef.current = false;
+    };
 
     const onMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
@@ -51,12 +82,16 @@ export function CustomCursor() {
         'article, [data-cursor="card"], .glow-card-emerald, .glow-card-cyan'
       );
 
+      let nextType: "default" | "pointer" | "card" = "default";
       if (isInteractive) {
-        setCursorType("pointer");
+        nextType = "pointer";
       } else if (isCard) {
-        setCursorType("card");
-      } else {
-        setCursorType("default");
+        nextType = "card";
+      }
+
+      if (cursorTypeRef.current !== nextType) {
+        cursorTypeRef.current = nextType;
+        setCursorType(nextType);
       }
     };
 
@@ -65,25 +100,27 @@ export function CustomCursor() {
 
     // Smooth physics loop for the visible follower and central dot
     const renderLoop = () => {
-      // Easing / interpolation factor: 0.18 for smooth, fluid trailing without feeling sluggish
       const lerp = 0.18;
       ringPos.current.x += (mousePos.current.x - ringPos.current.x) * lerp;
       ringPos.current.y += (mousePos.current.y - ringPos.current.y) * lerp;
 
+      const currentType = cursorTypeRef.current;
+      const clicking = isClickingRef.current;
+
       if (ringRef.current) {
         let ringScale = 1;
-        if (cursorType === "pointer") ringScale = 1.38;
-        else if (cursorType === "card") ringScale = 1.2;
+        if (currentType === "pointer") ringScale = 1.38;
+        else if (currentType === "card") ringScale = 1.2;
 
-        if (isClicking) ringScale *= 0.85;
+        if (clicking) ringScale *= 0.85;
 
         ringRef.current.style.transform = `translate3d(${ringPos.current.x}px, ${ringPos.current.y}px, 0) translate(-50%, -50%) scale(${ringScale})`;
       }
 
       if (dotRef.current) {
         let dotScale = 1;
-        if (cursorType === "pointer") dotScale = 1.25;
-        if (isClicking) dotScale = 0.8;
+        if (currentType === "pointer") dotScale = 1.25;
+        if (clicking) dotScale = 0.8;
 
         dotRef.current.style.transform = `translate3d(${mousePos.current.x}px, ${mousePos.current.y}px, 0) translate(-50%, -50%) scale(${dotScale})`;
       }
@@ -109,9 +146,9 @@ export function CustomCursor() {
       document.removeEventListener("mouseenter", onMouseEnterWindow);
       if (rafId.current) cancelAnimationFrame(rafId.current);
     };
-  }, [isVisible, cursorType, isClicking]);
+  }, [isDesktop]);
 
-  if (!mounted) return null;
+  if (!isDesktop) return null;
 
   // Noticeable yet elegant styling using emerald & cyan portfolio accents
   const ringVariantStyles = {

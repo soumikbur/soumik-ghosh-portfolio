@@ -1,7 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import {
   Cpu,
   Layers,
@@ -12,8 +11,6 @@ import {
   Activity,
   Briefcase,
   GraduationCap,
-  Award,
-  GitPullRequest,
   MapPin,
   Calendar,
   CheckCircle2,

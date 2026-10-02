@@ -23,6 +23,7 @@ export default function ContactPage() {
 
       <Container size="default" className="relative z-10">
         <SectionHeader
+          as="h1"
           badge="Direct Inquiries"
           badgeVariant="emerald"
           title="Get in Touch"

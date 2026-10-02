@@ -181,7 +181,7 @@ export function TelemetryPipeline() {
                 <span>Deterministic Hardware-to-Cloud Telemetry Architecture</span>
               </span>
               <span className="hidden md:inline text-cyan-400 font-medium">
-                // Continuous telemetry loop: 100ms cycle
+                {"// Continuous telemetry loop: 100ms cycle"}
               </span>
             </div>
 
@@ -225,7 +225,7 @@ export function TelemetryPipeline() {
           /* Firmware Boot Log Terminal View with Accent Tags */
           <div className="font-mono text-xs space-y-2 py-1 text-zinc-300 overflow-x-auto">
             <div className="text-zinc-500 text-[11px] pb-2 border-b border-zinc-800/80 mb-3 flex items-center justify-between">
-              <span>// Target: STM32F411RE &amp; ESP32-S3 Dual-Core FreeRTOS Node</span>
+              <span>{"// Target: STM32F411RE & ESP32-S3 Dual-Core FreeRTOS Node"}</span>
               <span className="text-emerald-400 font-semibold">BUILD SUCCESS</span>
             </div>
             {FIRMWARE_BOOT_LOGS.map((log, index) => (

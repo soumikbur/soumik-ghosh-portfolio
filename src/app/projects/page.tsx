@@ -20,6 +20,7 @@ export default function ProjectsPage() {
 
       <Container size="default" className="relative z-10">
         <SectionHeader
+          as="h1"
           badge="Verified Portfolio Archive"
           badgeVariant="cyan"
           title="Engineering Systems & Case Studies"
