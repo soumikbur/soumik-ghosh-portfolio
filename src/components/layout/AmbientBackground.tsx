@@ -11,6 +11,7 @@ interface NetworkNode {
   baseAlpha: number;
   parallax: number;
   pulsePhase: number;
+  hasGlow: boolean;
 }
 
 // Section color palettes [R, G, B]
@@ -18,22 +19,27 @@ const SECTION_PALETTES = {
   hero: {
     primary: [16, 185, 129], // Emerald
     secondary: [6, 182, 212], // Cyan
+    tertiary: [52, 211, 153], // Mint
   },
   experience: {
     primary: [6, 182, 212], // Cyan
     secondary: [59, 130, 246], // Blue
+    tertiary: [14, 165, 233], // Sky
   },
   projects: {
     primary: [16, 185, 129], // Emerald
     secondary: [139, 92, 246], // Violet
+    tertiary: [6, 182, 212], // Cyan
   },
   skills: {
     primary: [59, 130, 246], // Blue
     secondary: [139, 92, 246], // Violet
+    tertiary: [6, 182, 212], // Cyan
   },
   contact: {
     primary: [16, 185, 129], // Emerald
     secondary: [6, 182, 212], // Cyan
+    tertiary: [52, 211, 153], // Mint
   },
 };
 
@@ -43,8 +49,8 @@ type SectionKey = keyof typeof SECTION_PALETTES;
  * AmbientBackground: Subtle, continuously running ambient technical background.
  * Features:
  *  - Faint, slowly moving coordinate grid with subtle crosshair intersections.
- *  - Slowly drifting constellation network nodes and connection lines.
- *  - Soft, breathing radial accent glows with section-aware color transitions.
+ *  - Slowly drifting constellation network nodes with noticeable, crisp dots and glowing anchor halos.
+ *  - Soft, diffusing radial accent glow pools with section-aware color transitions.
  *  - Slow, atmospheric horizontal energy sweep wave.
  *  - Smooth scroll parallax integration.
  *  - Strict accessibility: respects prefers-reduced-motion (draws static subtle grid/glow).
@@ -61,9 +67,10 @@ export function AmbientBackground() {
   const lastSectionCheckRef = useRef(0);
   const currentSectionRef = useRef<SectionKey>("hero");
 
-  // Interpolated colors
+  // Interpolated colors [R, G, B]
   const currentPrimaryRef = useRef<[number, number, number]>([16, 185, 129]);
   const currentSecondaryRef = useRef<[number, number, number]>([6, 182, 212]);
+  const currentTertiaryRef = useRef<[number, number, number]>([52, 211, 153]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -93,19 +100,27 @@ export function AmbientBackground() {
 
       // Re-populate network nodes for current viewport size
       const isMobile = width < 640;
-      const nodeCount = isMobile ? 22 : 36;
+      const nodeCount = isMobile ? 26 : 42;
       const nodes: NetworkNode[] = [];
 
       for (let i = 0; i < nodeCount; i++) {
+        // Every 4th node is an anchor node with subtle radiant halo
+        const hasGlow = i % 4 === 0;
+
         nodes.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.28,
-          vy: (Math.random() - 0.5) * 0.22,
-          radius: 1.0 + Math.random() * 1.3,
-          baseAlpha: 0.18 + Math.random() * 0.28,
+          vx: (Math.random() - 0.5) * 0.22,
+          vy: (Math.random() - 0.5) * 0.18,
+          radius: hasGlow
+            ? 2.0 + Math.random() * 0.8
+            : 1.4 + Math.random() * 0.8,
+          baseAlpha: hasGlow
+            ? 0.45 + Math.random() * 0.25
+            : 0.30 + Math.random() * 0.25,
           parallax: 0.03 + Math.random() * 0.07,
           pulsePhase: Math.random() * Math.PI * 2,
+          hasGlow,
         });
       }
 
@@ -121,10 +136,10 @@ export function AmbientBackground() {
       ctx.clearRect(0, 0, width, height);
 
       // Soft static radial glow
-      const r1 = Math.max(width, height) * 0.5;
+      const r1 = Math.max(width, height) * 0.55;
       const grad = ctx.createRadialGradient(width * 0.7, height * 0.3, 0, width * 0.7, height * 0.3, r1);
-      grad.addColorStop(0, "rgba(16, 185, 129, 0.05)");
-      grad.addColorStop(0.5, "rgba(6, 182, 212, 0.02)");
+      grad.addColorStop(0, "rgba(16, 185, 129, 0.07)");
+      grad.addColorStop(0.5, "rgba(6, 182, 212, 0.025)");
       grad.addColorStop(1, "rgba(9, 9, 11, 0)");
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, width, height);
@@ -132,7 +147,7 @@ export function AmbientBackground() {
       // Subtle static grid
       const gridSize = 56;
       ctx.lineWidth = 1;
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.02)";
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.025)";
       ctx.beginPath();
       for (let x = 0; x < width; x += gridSize) {
         ctx.moveTo(x + 0.5, 0);
@@ -205,15 +220,17 @@ export function AmbientBackground() {
         currentSectionRef.current = detectActiveSection();
       }
 
-      // Smooth color morphing toward active section palette
+      // Smooth continuous color morphing toward active section palette
       const targetPalette = SECTION_PALETTES[currentSectionRef.current];
-      const lerpFactor = 0.035;
+      const lerpFactor = 0.028;
 
       for (let i = 0; i < 3; i++) {
         currentPrimaryRef.current[i] +=
           (targetPalette.primary[i] - currentPrimaryRef.current[i]) * lerpFactor;
         currentSecondaryRef.current[i] +=
           (targetPalette.secondary[i] - currentSecondaryRef.current[i]) * lerpFactor;
+        currentTertiaryRef.current[i] +=
+          (targetPalette.tertiary[i] - currentTertiaryRef.current[i]) * lerpFactor;
       }
 
       const pR = Math.round(currentPrimaryRef.current[0]);
@@ -224,35 +241,53 @@ export function AmbientBackground() {
       const sG = Math.round(currentSecondaryRef.current[1]);
       const sB = Math.round(currentSecondaryRef.current[2]);
 
+      const tR = Math.round(currentTertiaryRef.current[0]);
+      const tG = Math.round(currentTertiaryRef.current[1]);
+      const tB = Math.round(currentTertiaryRef.current[2]);
+
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Soft Breathing Radial Accent Glows (Section-Aware)
-      // Glow 1: Top-Right primary accent pool
-      const glow1X = width * 0.72 + Math.sin(time * 0.00035) * (width * 0.08);
+      // 1. Soft Atmospheric Radial Glow Pools (Section-Aware & Slow Diffusing)
+      // Glow 1: Top-Right primary accent pool (Emerald / Cyan / Blue)
+      const glow1X = width * 0.72 + Math.sin(time * 0.00032) * (width * 0.08);
       const glow1Y =
-        height * 0.28 + Math.cos(time * 0.00028) * (height * 0.08) - scrollVal * 0.035;
-      const r1 = Math.max(width, height) * 0.46;
+        height * 0.28 + Math.cos(time * 0.00026) * (height * 0.08) - scrollVal * 0.035;
+      const r1 = Math.max(width, height) * 0.48;
       const grad1 = ctx.createRadialGradient(glow1X, glow1Y, 0, glow1X, glow1Y, r1);
-      grad1.addColorStop(0, `rgba(${pR}, ${pG}, ${pB}, 0.065)`);
-      grad1.addColorStop(0.5, `rgba(${pR}, ${pG}, ${pB}, 0.02)`);
+      grad1.addColorStop(0, `rgba(${pR}, ${pG}, ${pB}, 0.08)`);
+      grad1.addColorStop(0.45, `rgba(${pR}, ${pG}, ${pB}, 0.028)`);
       grad1.addColorStop(1, "rgba(9, 9, 11, 0)");
       ctx.fillStyle = grad1;
       ctx.beginPath();
       ctx.arc(glow1X, glow1Y, r1, 0, Math.PI * 2);
       ctx.fill();
 
-      // Glow 2: Bottom-Left secondary accent pool
-      const glow2X = width * 0.25 + Math.cos(time * 0.0003) * (width * 0.07);
+      // Glow 2: Bottom-Left secondary accent pool (Cyan / Blue / Violet)
+      const glow2X = width * 0.25 + Math.cos(time * 0.00028) * (width * 0.07);
       const glow2Y =
-        height * 0.75 + Math.sin(time * 0.00025) * (height * 0.07) - scrollVal * 0.025;
-      const r2 = Math.max(width, height) * 0.5;
+        height * 0.75 + Math.sin(time * 0.00022) * (height * 0.07) - scrollVal * 0.025;
+      const r2 = Math.max(width, height) * 0.52;
       const grad2 = ctx.createRadialGradient(glow2X, glow2Y, 0, glow2X, glow2Y, r2);
-      grad2.addColorStop(0, `rgba(${sR}, ${sG}, ${sB}, 0.055)`);
-      grad2.addColorStop(0.5, `rgba(${sR}, ${sG}, ${sB}, 0.015)`);
+      grad2.addColorStop(0, `rgba(${sR}, ${sG}, ${sB}, 0.07)`);
+      grad2.addColorStop(0.5, `rgba(${sR}, ${sG}, ${sB}, 0.02)`);
       grad2.addColorStop(1, "rgba(9, 9, 11, 0)");
       ctx.fillStyle = grad2;
       ctx.beginPath();
       ctx.arc(glow2X, glow2Y, r2, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Glow 3: Center-Left tertiary soft diffusion pool (Mint / Sky / Violet)
+      const glow3X = width * 0.48 + Math.sin(time * 0.0002) * (width * 0.12);
+      const glow3Y =
+        height * 0.5 + Math.cos(time * 0.00018) * (height * 0.12) - scrollVal * 0.02;
+      const r3 = Math.max(width, height) * 0.55;
+      const grad3 = ctx.createRadialGradient(glow3X, glow3Y, 0, glow3X, glow3Y, r3);
+      grad3.addColorStop(0, `rgba(${tR}, ${tG}, ${tB}, 0.045)`);
+      grad3.addColorStop(0.5, `rgba(${tR}, ${tG}, ${tB}, 0.012)`);
+      grad3.addColorStop(1, "rgba(9, 9, 11, 0)");
+      ctx.fillStyle = grad3;
+      ctx.beginPath();
+      ctx.arc(glow3X, glow3Y, r3, 0, Math.PI * 2);
       ctx.fill();
 
       // 2. Slow-Moving Atmospheric Energy Wave Sweep
@@ -261,7 +296,7 @@ export function AmbientBackground() {
       const sweepY = sweepProgress * (height + 300) - 150;
       const waveGrad = ctx.createLinearGradient(0, sweepY - 90, 0, sweepY + 90);
       waveGrad.addColorStop(0, `rgba(${pR}, ${pG}, ${pB}, 0)`);
-      waveGrad.addColorStop(0.5, `rgba(${pR}, ${pG}, ${pB}, 0.022)`);
+      waveGrad.addColorStop(0.5, `rgba(${pR}, ${pG}, ${pB}, 0.025)`);
       waveGrad.addColorStop(1, `rgba(${pR}, ${pG}, ${pB}, 0)`);
       ctx.fillStyle = waveGrad;
       ctx.fillRect(0, sweepY - 90, width, 180);
@@ -292,7 +327,7 @@ export function AmbientBackground() {
       const crossStartX = -((time * 0.004) % crossStep);
       const crossStartY = -((time * 0.008 + scrollVal * 0.05) % crossStep);
 
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.038)";
+      ctx.strokeStyle = "rgba(255, 255, 255, 0.04)";
       ctx.beginPath();
       for (let x = crossStartX; x < width + crossStep; x += crossStep) {
         for (let y = crossStartY; y < height + crossStep; y += crossStep) {
@@ -306,9 +341,9 @@ export function AmbientBackground() {
       }
       ctx.stroke();
 
-      // 4. Drifting Network Nodes & Constellation Lines
+      // 4. Drifting Network Nodes & Constellation Lines (Crisp & Noticeable Dots)
       const nodes = nodesRef.current;
-      const maxDistance = 120;
+      const maxDistance = 125;
       const maxDistSq = maxDistance * maxDistance;
 
       for (let i = 0; i < nodes.length; i++) {
@@ -325,9 +360,27 @@ export function AmbientBackground() {
         // Parallax position
         const renderY = (node.y - scrollVal * node.parallax + height * 10) % height;
         const pulse = Math.sin(time * 0.0015 + node.pulsePhase) * 0.25 + 0.75;
-        const alpha = node.baseAlpha * pulse;
+        const alpha = Math.min(1, node.baseAlpha * pulse);
 
-        // Draw node dot
+        // Draw soft ambient glow halo around anchor nodes
+        if (node.hasGlow) {
+          const haloGrad = ctx.createRadialGradient(
+            node.x,
+            renderY,
+            0,
+            node.x,
+            renderY,
+            node.radius * 3.4
+          );
+          haloGrad.addColorStop(0, `rgba(${pR}, ${pG}, ${pB}, ${(alpha * 0.35).toFixed(3)})`);
+          haloGrad.addColorStop(1, `rgba(${pR}, ${pG}, ${pB}, 0)`);
+          ctx.fillStyle = haloGrad;
+          ctx.beginPath();
+          ctx.arc(node.x, renderY, node.radius * 3.4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Draw crisp central node dot
         ctx.fillStyle = `rgba(${pR}, ${pG}, ${pB}, ${alpha.toFixed(3)})`;
         ctx.beginPath();
         ctx.arc(node.x, renderY, node.radius, 0, Math.PI * 2);
@@ -343,9 +396,9 @@ export function AmbientBackground() {
 
           if (distSq < maxDistSq) {
             const dist = Math.sqrt(distSq);
-            const lineAlpha = (1 - dist / maxDistance) * 0.06 * pulse;
+            const lineAlpha = (1 - dist / maxDistance) * 0.075 * pulse;
             ctx.strokeStyle = `rgba(${sR}, ${sG}, ${sB}, ${lineAlpha.toFixed(3)})`;
-            ctx.lineWidth = 0.8;
+            ctx.lineWidth = 0.85;
             ctx.beginPath();
             ctx.moveTo(node.x, renderY);
             ctx.lineTo(other.x, otherRenderY);

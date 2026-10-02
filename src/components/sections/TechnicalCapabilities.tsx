@@ -12,7 +12,7 @@ interface DomainMap {
   title: string;
   focus: string;
   description: string;
-  accent: "emerald" | "cyan" | "blue" | "violet";
+  accent: "emerald" | "cyan" | "blue" | "violet" | "amber";
   theme: {
     badge: string;
     border: string;
@@ -97,17 +97,17 @@ const DOMAIN_CAPABILITIES: DomainMap[] = [
       { name: "GNSS / GPS Navigation", desc: "NMEA sentence parsing & precision clock sync" },
       { name: "Wi-Fi & Bluetooth LE", desc: "Local device provisioning & BLE telemetry" },
       { name: "RESTful Telemetry APIs", desc: "Structured JSON endpoints & edge ingestion" },
-      { name: "Next.js & TypeScript", desc: "Full-stack operational monitoring platforms" },
+      { name: "Cloud Telemetry Ingestion", desc: "Transactional logging & operational feeds" },
       { name: "Leaflet GIS & PWA", desc: "Geospatial mapping & offline asset caching" },
       { name: "Socket State Recovery", desc: "Exponential backoff socket reconnection" },
     ],
   },
   {
     idx: "04",
-    title: "Hardware Interfaces & Diagnostics",
-    focus: "Fault Mitigation · Non-Volatile Storage",
+    title: "Web Development & UI Engineering",
+    focus: "Frontend Engineering · Responsive UI · Performance",
     description:
-      "Fail-safe watchdog recovery, external memory logging, analog front-ends, and system diagnostic integrity.",
+      "Modern full-stack web platforms, high-density component design systems, and responsive user interfaces.",
     accent: "violet",
     theme: {
       badge:
@@ -116,6 +116,32 @@ const DOMAIN_CAPABILITIES: DomainMap[] = [
       hoverBorder: "hover:border-violet-600/70",
       dotColor: "bg-violet-400 shadow-[0_0_8px_rgba(139,92,246,0.7)]",
       tagBorder: "border-violet-800/60 text-violet-300 bg-violet-950/40",
+    },
+    skills: [
+      { name: "React 19 & Next.js 16", desc: "App router, Server Components & static generation" },
+      { name: "TypeScript (Strict)", desc: "Strict type models, generic interfaces & API schemas" },
+      { name: "Tailwind CSS v4", desc: "Design token systems, fluid typography & utilities" },
+      { name: "UI/UX & Micro-Interactions", desc: "Tactile hover responses, GSAP transitions & 3D tilt" },
+      { name: "Responsive Layouts", desc: "Fluid breakpoints (320px–1920px) & touch ergonomics" },
+      { name: "Web Performance", desc: "DPR capping, asset optimization & sub-100ms render" },
+      { name: "Accessibility & Standards", desc: "WCAG AA contrast, keyboard focus & reduced motion" },
+      { name: "Git & Edge Deployment", desc: "Atomic commits, CI/CD verification & Vercel hosting" },
+    ],
+  },
+  {
+    idx: "05",
+    title: "Hardware Interfaces & Diagnostics",
+    focus: "Fault Mitigation · Non-Volatile Storage",
+    description:
+      "Fail-safe watchdog recovery, external memory logging, analog front-ends, and system diagnostic integrity.",
+    accent: "amber",
+    theme: {
+      badge:
+        "text-amber-400 bg-amber-950/70 border-amber-800/80 shadow-[0_0_12px_-3px_rgba(245,158,11,0.3)]",
+      border: "border-zinc-800/80 hover:border-amber-700/60",
+      hoverBorder: "hover:border-amber-600/70",
+      dotColor: "bg-amber-400 shadow-[0_0_8px_rgba(245,158,11,0.7)]",
+      tagBorder: "border-amber-800/60 text-amber-300 bg-amber-950/40",
     },
     skills: [
       { name: "SPI NOR Flash (W25Qxx)", desc: "Circular telemetry logging with FATFS" },
@@ -146,11 +172,11 @@ export function TechnicalCapabilities() {
             Technical Competencies &amp; Skills
           </h2>
           <p className="text-sm sm:text-base text-zinc-400 mt-2.5 sm:mt-3 max-w-2xl leading-relaxed">
-            Curated technical capability map organized across deterministic firmware, industrial communication protocols, cellular IoT telemetry, and system-level diagnostics.
+            Curated technical capability map spanning embedded systems, industrial protocols, cellular telemetry, modern web engineering, and hardware reliability.
           </p>
         </div>
 
-        {/* 4 Curated Domain Capability Containers */}
+        {/* 5 Curated Domain Capability Containers */}
         <div className="space-y-6 sm:space-y-8">
           {DOMAIN_CAPABILITIES.map((domain) => (
             <TiltCard
