@@ -84,11 +84,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <article
-      className={`group rounded-xl border border-zinc-800/90 bg-zinc-900/50 p-4 sm:p-6 backdrop-blur-sm transition-all duration-200 ${theme.hoverBorder} hover:bg-zinc-900/80 shadow-lg flex flex-col justify-between hover:-translate-y-0.5`}
+      className={`group rounded-2xl border border-zinc-800/90 bg-zinc-900/50 p-5 sm:p-7 lg:p-8 backdrop-blur-sm transition-all duration-200 ${theme.hoverBorder} hover:bg-zinc-900/80 shadow-lg flex flex-col justify-between hover:-translate-y-0.5`}
     >
-      <div className="space-y-4">
+      <div className="space-y-5 sm:space-y-6">
         {/* Project Top Bar: Status Badge, Category Tag, & Index Number */}
-        <div className="flex items-center justify-between gap-2 border-b border-zinc-800/60 pb-3">
+        <div className="flex items-center justify-between gap-2 border-b border-zinc-800/60 pb-3.5 sm:pb-4">
           <div className="flex items-center gap-2 flex-wrap">
             <span
               className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium border ${statusStyles.badge}`}
@@ -108,7 +108,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
 
         {/* Project Visual Image with Ambient Corner Glow */}
-        <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden border border-zinc-800 bg-zinc-950">
+        <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950">
           <Image
             src={project.image}
             alt={`${project.title} preview`}
@@ -131,7 +131,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
 
         {/* Category & Title */}
-        <div className="space-y-1.5">
+        <div className="space-y-2">
           <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider block">
             {project.category}
           </span>
@@ -148,7 +148,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </p>
 
         {/* Relevant Technology Tags */}
-        <div className="flex flex-wrap gap-1.5 pt-1">
+        <div className="flex flex-wrap gap-2 pt-1">
           {project.technologies.slice(0, 5).map((tech) => (
             <Badge key={tech} variant="neutral" size="sm">
               {tech}
@@ -163,7 +163,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       </div>
 
       {/* Action CTA & External Links */}
-      <div className="pt-4 mt-5 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-3">
+      <div className="pt-4 sm:pt-5 mt-6 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-3">
         <Link
           href={`/projects/${project.slug}`}
           className={`inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-200 ${theme.titleHover} transition-colors`}

@@ -81,9 +81,9 @@ interface HeroMetricsProps {
 export function HeroMetrics({ layout = "banner", className = "" }: HeroMetricsProps) {
   if (layout === "grid2x2") {
     return (
-      <div className={`h-full flex flex-col justify-between rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 sm:p-5 backdrop-blur-md shadow-2xl ${className}`}>
+      <div className={`h-full flex flex-col justify-between rounded-2xl border border-zinc-800 bg-zinc-900/50 p-5 sm:p-6 lg:p-7 xl:p-8 backdrop-blur-md shadow-2xl ${className}`}>
         {/* Header */}
-        <div className="flex items-center justify-between pb-3 mb-3 border-b border-zinc-800/80">
+        <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-zinc-800/80">
           <div>
             <p className="font-mono text-[11px] font-semibold uppercase tracking-wider text-gradient-emerald-cyan">
               Engineering Benchmarks
@@ -92,33 +92,33 @@ export function HeroMetrics({ layout = "banner", className = "" }: HeroMetricsPr
               Production Reliability, Measured
             </h3>
           </div>
-          <span className="font-mono text-[10px] text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded flex items-center gap-1.5">
+          <span className="font-mono text-[10px] text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2.5 py-1 rounded flex items-center gap-1.5 font-medium">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             4/4 BENCHMARKS PASS
           </span>
         </div>
 
         {/* 2x2 Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 flex-1">
           {METRICS.map((metric, i) => (
             <div
               key={i}
-              className={`group rounded-lg border bg-zinc-950/70 p-3 sm:p-3.5 backdrop-blur-sm ${metric.colorClass.border} ${metric.colorClass.hover} transition-all duration-200 flex flex-col justify-between`}
+              className={`group rounded-xl border bg-zinc-950/70 p-3.5 sm:p-4.5 backdrop-blur-sm ${metric.colorClass.border} ${metric.colorClass.hover} transition-all duration-200 flex flex-col justify-between`}
             >
               <div>
-                <span className={`font-mono text-[9px] uppercase tracking-wider block mb-1 truncate ${metric.colorClass.badge}`}>
+                <span className={`font-mono text-[9px] uppercase tracking-wider block mb-1.5 truncate ${metric.colorClass.badge}`}>
                   {metric.context.split("·")[1]?.trim() || metric.context}
                 </span>
                 <div className={`text-xl sm:text-2xl font-extrabold font-mono tracking-tight transition-colors ${metric.colorClass.text}`}>
                   {metric.value}
                 </div>
-                <p className="text-[11px] text-zinc-300 leading-snug mt-1.5 line-clamp-3">
+                <p className="text-[11px] text-zinc-300 leading-snug mt-2 line-clamp-3">
                   {metric.label}
                 </p>
               </div>
 
               {/* Sparkline Waveform */}
-              <div className="mt-2.5 pt-2 border-t border-zinc-800/60">
+              <div className="mt-3 pt-2.5 border-t border-zinc-800/60">
                 <svg
                   className="w-full h-6 overflow-visible opacity-80 group-hover:opacity-100 transition-opacity"
                   viewBox="0 0 130 30"
@@ -140,7 +140,7 @@ export function HeroMetrics({ layout = "banner", className = "" }: HeroMetricsPr
         </div>
 
         {/* Verification Footer */}
-        <div className="mt-3 pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-[10px] font-mono text-zinc-400">
+        <div className="mt-4 pt-3 border-t border-zinc-800/60 flex items-center justify-between text-[10px] font-mono text-zinc-400">
           <span>// Verified on hardware test benches &amp; active deployments</span>
           <span className="text-zinc-500">ISO/IEC Standardized</span>
         </div>
@@ -149,8 +149,8 @@ export function HeroMetrics({ layout = "banner", className = "" }: HeroMetricsPr
   }
 
   return (
-    <div className={`mt-12 sm:mt-16 pt-8 border-t border-zinc-800/80 relative ${className}`}>
-      <div className="flex items-center justify-between mb-6">
+    <div className={`mt-14 sm:mt-18 pt-8 sm:pt-10 border-t border-zinc-800/80 relative ${className}`}>
+      <div className="flex items-center justify-between mb-6 sm:mb-8">
         <div>
           <p className="font-mono text-xs font-semibold uppercase tracking-wider text-gradient-emerald-cyan">
             Verified Engineering Impact &amp; Architecture
@@ -164,11 +164,11 @@ export function HeroMetrics({ layout = "banner", className = "" }: HeroMetricsPr
         </span>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {METRICS.map((metric, i) => (
           <div
             key={i}
-            className={`group rounded-xl border bg-zinc-900/50 p-4 sm:p-5 backdrop-blur-sm ${metric.colorClass.border} ${metric.colorClass.hover} transition-all duration-200 flex flex-col justify-between`}
+            className={`group rounded-xl border bg-zinc-900/50 p-5 sm:p-6 backdrop-blur-sm ${metric.colorClass.border} ${metric.colorClass.hover} transition-all duration-200 flex flex-col justify-between`}
           >
             <div>
               <span className={`font-mono text-[10px] uppercase tracking-wider block mb-2 line-clamp-1 ${metric.colorClass.badge}`}>

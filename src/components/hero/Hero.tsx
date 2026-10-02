@@ -11,7 +11,7 @@ import { HeroMetrics } from "./HeroMetrics";
 
 export function Hero() {
   return (
-    <section className="relative pt-8 pb-12 sm:pt-16 sm:pb-24 border-b border-zinc-800/80 bg-zinc-950 overflow-hidden bg-tech-grid">
+    <section className="relative pt-10 pb-16 sm:pt-16 sm:pb-24 lg:pt-24 lg:pb-32 xl:pt-28 xl:pb-40 border-b border-zinc-800/80 bg-zinc-950 overflow-hidden bg-tech-grid">
       {/* Ambient Radial Color Meshes */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/3 -right-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -20,11 +20,11 @@ export function Hero() {
       <Container size="hero">
         <GsapHero>
           {/* Top Identity Block: Grid with Text/CTAs on Left, Clean Standalone Portrait on Right */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-12 items-center relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 xl:gap-20 2xl:gap-24 items-center relative z-10">
             {/* Left 7 cols: Name, Role, Statement, CTAs */}
             <div className="lg:col-span-7 flex flex-col items-start">
               {/* Eyebrow / Availability Badge with Color Accents */}
-              <div className="gsap-hero-badge flex flex-wrap items-center gap-x-2 gap-y-1 mb-4">
+              <div className="gsap-hero-badge flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mb-4 sm:mb-5 lg:mb-6">
                 <span className="font-mono text-xs text-zinc-500 font-bold mr-1">00 ·</span>
                 <Badge variant="emerald" size="md">
                   Embedded Software Developer
@@ -46,7 +46,7 @@ export function Hero() {
               </h1>
 
               {/* Professional Title with Dual Gradient Accent */}
-              <div className="gsap-hero-role mt-2 font-mono text-sm sm:text-base text-zinc-300 uppercase tracking-wider font-semibold flex flex-wrap items-center gap-2">
+              <div className="gsap-hero-role mt-2.5 sm:mt-3 lg:mt-4 font-mono text-sm sm:text-base text-zinc-300 uppercase tracking-wider font-semibold flex flex-wrap items-center gap-2">
                 <span className="text-emerald-400">&gt;</span>
                 <span className="text-gradient-emerald-cyan font-bold">Embedded Software Developer</span>
                 <span className="text-zinc-600 hidden sm:inline">•</span>
@@ -56,16 +56,16 @@ export function Hero() {
               </div>
 
               {/* Short Technical Positioning Statement (constrained line-length for optimal readability) */}
-              <p className="gsap-hero-desc mt-5 text-base sm:text-lg xl:text-xl text-zinc-200 leading-relaxed max-w-[58ch] font-medium">
+              <p className="gsap-hero-desc mt-6 sm:mt-7 lg:mt-8 text-base sm:text-lg xl:text-xl text-zinc-200 leading-relaxed max-w-[54ch] font-medium">
                 I build practical embedded systems, industrial firmware, and connected operational software where real-world timing, hardware reliability, and data integrity are non-negotiable.
               </p>
 
-              <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-[62ch]">
+              <p className="mt-3 sm:mt-3.5 lg:mt-4 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-[58ch]">
                 Engineering deterministic FreeRTOS task schedules, industrial RS-485 Modbus RTU fieldbuses, Quectel 4G LTE cellular telemetry nodes, and full-stack operational platforms.
               </p>
 
               {/* CTAs & Developer Links */}
-              <div className="gsap-hero-cta mt-6 sm:mt-8 flex flex-wrap items-center gap-3">
+              <div className="gsap-hero-cta mt-8 sm:mt-10 lg:mt-12 flex flex-wrap items-center gap-3.5 sm:gap-4 lg:gap-5">
                 <Button href="#projects" variant="emerald" size="md" icon={<ArrowRight className="h-4 w-4" />}>
                   Explore Projects
                 </Button>
@@ -73,7 +73,7 @@ export function Hero() {
                   Get in Touch
                 </Button>
 
-                <div className="flex items-center gap-2 w-full sm:w-auto mt-2 sm:mt-0 flex-wrap">
+                <div className="flex items-center gap-2 sm:gap-2.5 w-full sm:w-auto mt-2 sm:mt-0 flex-wrap">
                   <a
                     href="https://github.com/soumikbur"
                     target="_blank"
@@ -110,10 +110,10 @@ export function Hero() {
             <div className="lg:col-span-5 flex justify-center lg:justify-end w-full">
               <div className="gsap-hero-photo relative group">
                 {/* Subtle ambient accent glow behind photo */}
-                <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-emerald-500/20 via-cyan-500/15 to-emerald-500/10 blur-xl opacity-70 group-hover:opacity-100 transition duration-500 pointer-events-none" />
+                <div className="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-emerald-500/20 via-cyan-500/15 to-emerald-500/10 blur-2xl opacity-70 group-hover:opacity-100 transition duration-500 pointer-events-none" />
 
                 {/* Clean subtle border/frame */}
-                <div className="relative rounded-2xl sm:rounded-3xl border border-zinc-800/90 bg-zinc-900/60 p-2 sm:p-2.5 backdrop-blur-md shadow-2xl ring-1 ring-zinc-700/50 glow-card-emerald">
+                <div className="relative rounded-2xl sm:rounded-3xl border border-zinc-800/90 bg-zinc-900/60 p-2.5 sm:p-3 backdrop-blur-md shadow-2xl ring-1 ring-zinc-700/50 glow-card-emerald">
                   <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-72 lg:h-72 xl:w-80 xl:h-80 2xl:w-88 2xl:h-88 rounded-xl sm:rounded-2xl overflow-hidden bg-zinc-950">
                     <Image
                       src="/images/soumik-ghosh.jpg"
@@ -131,16 +131,16 @@ export function Hero() {
           </div>
 
           {/* Interactive Hardware-to-Cloud Telemetry Pipeline */}
-          <div className="mt-8 sm:mt-12 w-full">
+          <div className="mt-16 sm:mt-20 lg:mt-28 xl:mt-32 w-full">
             <TelemetryPipeline />
           </div>
 
           {/* Systems UI Preview & Verification Metrics Grid */}
-          <div className="mt-8 sm:mt-12 grid grid-cols-1 xl:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+          <div className="mt-14 sm:mt-18 lg:mt-24 xl:mt-28 grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-stretch">
             {/* Left 7 cols: Real Production System UI Preview */}
             <div className="xl:col-span-7 flex flex-col">
-              <div className="gsap-hero-visual h-full w-full rounded-xl border border-zinc-800 bg-zinc-900/70 p-3 sm:p-5 backdrop-blur-md shadow-2xl flex flex-col justify-between">
-                <div className="flex items-center justify-between border-b border-zinc-800/80 pb-2.5 mb-3 text-xs font-mono text-zinc-400">
+              <div className="gsap-hero-visual h-full w-full rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5 sm:p-6 lg:p-7 xl:p-8 backdrop-blur-md shadow-2xl flex flex-col justify-between">
+                <div className="flex items-center justify-between border-b border-zinc-800/80 pb-3 mb-4 text-xs font-mono text-zinc-400">
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1.5" aria-hidden="true">
                       <span className="h-2 w-2 rounded-full bg-red-500/80" />
@@ -161,7 +161,7 @@ export function Hero() {
                 </div>
 
                 {/* Real UI Screenshot Asset */}
-                <div className="relative w-full rounded-lg overflow-hidden border border-zinc-800 bg-zinc-950 flex-1 min-h-[220px] sm:min-h-[280px]">
+                <div className="relative w-full rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 flex-1 min-h-[240px] sm:min-h-[300px] lg:min-h-[340px]">
                   <Image
                     src="/images/apexflow_preview.jpg"
                     alt="ApexFlow Enterprise Inventory & Order Management Platform UI"
@@ -173,7 +173,7 @@ export function Hero() {
                 </div>
 
                 {/* Architectural Highlights Bar with Multi-Accent Icons */}
-                <div className="mt-3 pt-3 border-t border-zinc-800/60 grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px] font-mono text-zinc-300">
+                <div className="mt-4 pt-4 sm:mt-5 sm:pt-5 border-t border-zinc-800/60 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-[11px] font-mono text-zinc-300">
                   <div className="flex items-center gap-1.5">
                     <ShieldCheck className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
                     <span>Append-Only Ledger</span>
@@ -201,7 +201,7 @@ export function Hero() {
           </div>
 
           {/* Banner layout for mobile/tablet (< xl) */}
-          <div className="xl:hidden">
+          <div className="xl:hidden mt-8 sm:mt-10">
             <HeroMetrics layout="banner" />
           </div>
         </GsapHero>

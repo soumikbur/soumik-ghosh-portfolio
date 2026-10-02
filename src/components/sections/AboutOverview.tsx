@@ -5,31 +5,31 @@ import { Container } from "../ui/Container";
 
 export function AboutOverview() {
   return (
-    <section id="about" className="py-14 sm:py-24 border-b border-zinc-800/80 bg-zinc-950 relative overflow-hidden">
+    <section id="about" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-zinc-950 relative overflow-hidden">
       {/* Subtle ambient lighting */}
       <div className="absolute top-1/3 -right-24 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <Container size="default">
         {/* Section Header with Numbering */}
-        <div className="mb-10 sm:mb-14">
+        <div className="mb-12 sm:mb-16">
           <p className="font-mono text-xs font-semibold tracking-wider uppercase text-gradient-emerald-cyan">
             01 · About
           </p>
-          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mt-1.5">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mt-2 sm:mt-2.5">
             Engineering Profile &amp; Focus
           </h2>
-          <p className="text-sm sm:text-base text-zinc-400 mt-2 max-w-2xl leading-relaxed">
+          <p className="text-sm sm:text-base text-zinc-400 mt-2.5 sm:mt-3 max-w-2xl leading-relaxed">
             Bridging bare-metal microcontroller firmware with connected industrial fieldbuses, cloud telemetry, and responsive operations software.
           </p>
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-start">
           {/* Left Column: Technical Identity & Quick Info Card */}
-          <div className="lg:col-span-4 rounded-xl border border-zinc-800/90 bg-zinc-900/50 p-5 sm:p-6 backdrop-blur-sm shadow-xl hover:border-zinc-700 transition-colors">
-            <div className="flex items-center gap-3.5">
-              <div className="h-12 w-12 rounded-xl border border-emerald-800/80 bg-emerald-950/60 flex items-center justify-center text-emerald-400 shrink-0 shadow-[0_0_15px_-4px_rgba(16,185,129,0.3)]">
-                <Terminal className="h-6 w-6" />
+          <div className="lg:col-span-4 rounded-2xl border border-zinc-800/90 bg-zinc-900/50 p-6 sm:p-7 lg:p-8 backdrop-blur-sm shadow-xl hover:border-zinc-700 transition-colors">
+            <div className="flex items-center gap-3.5 sm:gap-4">
+              <div className="h-12 w-12 sm:h-14 sm:w-14 rounded-2xl border border-emerald-800/80 bg-emerald-950/60 flex items-center justify-center text-emerald-400 shrink-0 shadow-[0_0_15px_-4px_rgba(16,185,129,0.3)]">
+                <Terminal className="h-6 w-6 sm:h-7 sm:w-7" />
               </div>
               <div>
                 <h3 className="text-base sm:text-lg font-bold text-white">Soumik Ghosh</h3>
@@ -43,7 +43,7 @@ export function AboutOverview() {
               </div>
             </div>
 
-            <div className="mt-5 pt-4 border-t border-zinc-800 space-y-2.5 text-xs font-mono text-zinc-300">
+            <div className="mt-6 pt-5 border-t border-zinc-800 space-y-3 text-xs font-mono text-zinc-300">
               <div className="flex items-center justify-between">
                 <span className="text-zinc-500">Role:</span>
                 <span className="text-emerald-300 font-semibold">Embedded Developer</span>
@@ -65,10 +65,10 @@ export function AboutOverview() {
               </div>
             </div>
 
-            <div className="mt-5 pt-4 border-t border-zinc-800">
+            <div className="mt-6 pt-5 border-t border-zinc-800">
               <Link
                 href="/about"
-                className="w-full inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-lg bg-zinc-800 text-zinc-200 hover:bg-emerald-950/60 hover:text-emerald-300 hover:border-emerald-700/60 border border-zinc-700/80 transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 text-xs font-semibold px-4 py-3 rounded-xl bg-zinc-800 text-zinc-200 hover:bg-emerald-950/60 hover:text-emerald-300 hover:border-emerald-700/60 border border-zinc-700/80 transition-colors"
               >
                 <span>View Full Professional Bio</span>
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -77,8 +77,8 @@ export function AboutOverview() {
           </div>
 
           {/* Right Column: Bio Narrative & Technical Pillars */}
-          <div className="lg:col-span-8 space-y-6">
-            <div className="space-y-4 text-sm sm:text-base text-zinc-300 leading-relaxed max-w-[72ch]">
+          <div className="lg:col-span-8 space-y-6 sm:space-y-8">
+            <div className="space-y-4 sm:space-y-5 text-sm sm:text-base text-zinc-300 leading-relaxed max-w-[72ch]">
               <p>
                 I build practical software systems that solve real operational and business problems. Currently working as an Embedded Software Developer at <strong className="text-white font-semibold">Panorama Electronics Pvt. Ltd.</strong> in Kolkata, India.
               </p>
@@ -91,7 +91,7 @@ export function AboutOverview() {
             </div>
 
             {/* Key Fact Bullets (Terminal-style with Colorful Indicators) */}
-            <div className="rounded-lg border border-zinc-800/80 bg-zinc-900/40 p-4 font-mono text-xs space-y-2.5 text-zinc-300">
+            <div className="rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-5 sm:p-6 font-mono text-xs space-y-3 sm:space-y-3.5 text-zinc-300">
               <div className="flex items-start gap-2.5">
                 <span className="text-emerald-400 font-bold shrink-0">▸</span>
                 <span>

@@ -26,27 +26,27 @@ export default function HomePage() {
       <ExperienceSection />
 
       {/* 03 · Featured Projects */}
-      <section id="projects" className="py-14 sm:py-24 border-b border-zinc-800/80 bg-zinc-950">
+      <section id="projects" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-zinc-950">
         <Container size="default">
-          <div className="mb-10 sm:mb-14">
+          <div className="mb-12 sm:mb-16">
             <p className="font-mono text-xs text-emerald-400 font-semibold tracking-wider uppercase">
               03 · Projects
             </p>
-            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mt-1.5">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mt-2 sm:mt-2.5">
               Featured Engineering Systems
             </h2>
-            <p className="text-sm sm:text-base text-zinc-400 mt-2 max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-base text-zinc-400 mt-2.5 sm:mt-3 max-w-2xl leading-relaxed">
               Representative production systems spanning embedded industrial firmware, SCADA desktop monitoring, enterprise inventory platforms, and operations dashboards.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
             {featuredProjects.map((project, index) => (
               <ProjectCard key={project.slug} project={project} index={index} />
             ))}
           </div>
 
-          <div className="mt-12 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-14 sm:mt-18 pt-8 sm:pt-10 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-5">
             <div className="text-xs font-mono text-zinc-400">
               Complete archive contains {PROJECTS.length} verified projects across embedded firmware, industrial IIoT, full-stack systems, and geospatial tools.
             </div>

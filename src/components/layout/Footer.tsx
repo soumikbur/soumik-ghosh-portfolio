@@ -6,9 +6,9 @@ import { Container } from "../ui/Container";
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-zinc-800/80 bg-zinc-950/90 py-10 sm:py-16 text-zinc-400">
+    <footer className="w-full border-t border-zinc-800/80 bg-zinc-950/90 py-12 sm:py-16 lg:py-20 xl:py-24 text-zinc-400">
       <Container size="default">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 xl:gap-14 mb-10 sm:mb-14 lg:mb-16">
           {/* Column 1: Moniker & Positioning */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-zinc-100">

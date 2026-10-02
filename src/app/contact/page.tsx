@@ -16,7 +16,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative py-12 sm:py-24 bg-zinc-950 text-zinc-100 overflow-hidden">
+    <div className="relative py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 bg-zinc-950 text-zinc-100 overflow-hidden">
       {/* Ambient background accents */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -z-0" />
       <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none -z-0" />

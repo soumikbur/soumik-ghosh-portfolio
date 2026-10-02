@@ -134,7 +134,7 @@ export function TelemetryPipeline() {
             <button
               type="button"
               onClick={() => setActiveTab("pipeline")}
-              className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${
+              className={`px-2.5 py-1 rounded transition-colors cursor-pointer ${
                 activeTab === "pipeline"
                   ? "bg-zinc-800 text-emerald-300 font-semibold border border-zinc-700/60"
                   : "text-zinc-400 hover:text-zinc-200"
@@ -145,7 +145,7 @@ export function TelemetryPipeline() {
             <button
               type="button"
               onClick={() => setActiveTab("logs")}
-              className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${
+              className={`px-2.5 py-1 rounded transition-colors cursor-pointer ${
                 activeTab === "logs"
                   ? "bg-zinc-800 text-cyan-300 font-semibold border border-zinc-700/60"
                   : "text-zinc-400 hover:text-zinc-200"
@@ -156,7 +156,7 @@ export function TelemetryPipeline() {
           </div>
 
           {/* System status pill */}
-          <div className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/80 text-[10px] font-mono text-emerald-400">
+          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-950/60 border border-emerald-800/80 text-[10px] font-mono text-emerald-400">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             <span>SYS_OK · TESTS PASS</span>
           </div>
@@ -164,10 +164,10 @@ export function TelemetryPipeline() {
       </div>
 
       {/* Body: Pipeline Flow or Boot Log */}
-      <div className="p-3 sm:p-5">
+      <div className="p-4 sm:p-6 lg:p-7 xl:p-8">
         {activeTab === "pipeline" ? (
           <div>
-            <div className="flex items-center justify-between mb-3 text-[11px] font-mono text-zinc-400">
+            <div className="flex items-center justify-between mb-4 sm:mb-5 lg:mb-6 text-[11px] font-mono text-zinc-400">
               <span className="text-zinc-300 font-semibold uppercase tracking-wider flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-emerald-400" />
                 <span>Deterministic Hardware-to-Cloud Telemetry Architecture</span>
@@ -178,16 +178,16 @@ export function TelemetryPipeline() {
             </div>
 
             {/* Horizontal Pipeline Grid with Per-Node Accent Colors */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 relative">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-4 xl:gap-5 relative">
               {PIPELINE_NODES.map((node) => (
                 <div
                   key={node.id}
-                  className={`group relative rounded-lg border border-zinc-800/90 bg-zinc-900/60 p-3.5 ${node.accentClass.hover} transition-all duration-200 flex flex-col justify-between`}
+                  className={`group relative rounded-xl border border-zinc-800/90 bg-zinc-900/60 p-4 sm:p-5 ${node.accentClass.hover} transition-all duration-200 flex flex-col justify-between`}
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-2.5">
+                    <div className="flex items-center justify-between mb-3 sm:mb-3.5">
                       <div className="flex items-center gap-2">
-                        <div className="p-1 rounded bg-zinc-950 border border-zinc-800">
+                        <div className="p-1.5 rounded bg-zinc-950 border border-zinc-800">
                           {node.icon}
                         </div>
                         <span className="text-[10px] font-mono text-zinc-500 font-bold">
@@ -196,15 +196,15 @@ export function TelemetryPipeline() {
                       </div>
                       <span className={`h-1.5 w-1.5 rounded-full ${node.accentClass.dot}`} />
                     </div>
-                    <div className={`text-xs font-bold text-zinc-100 ${node.accentClass.text} transition-colors`}>
+                    <div className={`text-xs sm:text-sm font-bold text-zinc-100 ${node.accentClass.text} transition-colors`}>
                       {node.label}
                     </div>
-                    <div className="text-[11px] font-mono text-zinc-400 mt-0.5">
+                    <div className="text-[11px] font-mono text-zinc-400 mt-1">
                       {node.sub}
                     </div>
                   </div>
 
-                  <div className="mt-3 pt-2.5 border-t border-zinc-800/60">
+                  <div className="mt-4 pt-3 border-t border-zinc-800/60">
                     <span className="text-[10px] font-mono text-zinc-300 block truncate">
                       {node.tech}
                     </span>
@@ -215,20 +215,20 @@ export function TelemetryPipeline() {
           </div>
         ) : (
           /* Firmware Boot Log Terminal View with Accent Tags */
-          <div className="font-mono text-xs space-y-1.5 py-1 text-zinc-300 overflow-x-auto">
-            <div className="text-zinc-500 text-[11px] pb-1 border-b border-zinc-800/80 mb-2 flex items-center justify-between">
+          <div className="font-mono text-xs space-y-2 py-1 text-zinc-300 overflow-x-auto">
+            <div className="text-zinc-500 text-[11px] pb-2 border-b border-zinc-800/80 mb-3 flex items-center justify-between">
               <span>// Target: STM32F411RE &amp; ESP32-S3 Dual-Core FreeRTOS Node</span>
               <span className="text-emerald-400 font-semibold">BUILD SUCCESS</span>
             </div>
             {FIRMWARE_BOOT_LOGS.map((log, index) => (
-              <div key={index} className="flex items-start gap-2 whitespace-nowrap">
+              <div key={index} className="flex items-start gap-2.5 whitespace-nowrap">
                 <span className="text-zinc-500">[{log.time}]</span>
                 <span className={`${log.color} font-semibold`}>{log.scope}:</span>
                 <span className="text-zinc-200">{log.message}</span>
                 <span className="text-emerald-400 ml-auto hidden sm:inline">✓</span>
               </div>
             ))}
-            <div className="pt-2 text-zinc-400 text-[11px] flex items-center gap-1.5">
+            <div className="pt-3 text-zinc-400 text-[11px] flex items-center gap-1.5">
               <span className="text-emerald-400">soumik@telemetry-engine:</span>
               <span className="text-cyan-400">~$</span>
               <span className="h-3.5 w-2 bg-emerald-400 animate-pulse ml-0.5" />
@@ -238,7 +238,7 @@ export function TelemetryPipeline() {
       </div>
 
       {/* Terminal Footer Status Bar */}
-      <div className="border-t border-zinc-800/80 px-3 sm:px-4 py-2.5 bg-zinc-950 flex flex-wrap items-center justify-between gap-2 text-[10px] sm:text-[11px] font-mono text-zinc-400">
+      <div className="border-t border-zinc-800/80 px-4 sm:px-6 py-3 sm:py-3.5 bg-zinc-950 flex flex-wrap items-center justify-between gap-3 text-[10px] sm:text-[11px] font-mono text-zinc-400">
         <div className="flex items-center gap-3">
           <span className="text-emerald-400 flex items-center gap-1.5 font-medium">
             <CheckCircle2 className="h-3 w-3 shrink-0" />

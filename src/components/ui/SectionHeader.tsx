@@ -31,17 +31,17 @@ export function SectionHeader({
     alignment === "center" ? "text-center items-center mx-auto" : "text-left items-start";
 
   return (
-    <div className={`flex flex-col mb-8 sm:mb-14 max-w-3xl ${alignClasses} ${className}`}>
+    <div className={`flex flex-col mb-10 sm:mb-16 max-w-3xl ${alignClasses} ${className}`}>
       {badge && (
-        <div className="mb-3">
+        <div className="mb-3.5">
           <Badge variant={badgeVariant}>{badge}</Badge>
         </div>
       )}
-      <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">
+      <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-zinc-100">
         {title}
       </h2>
       {description && (
-        <p className="mt-3 text-sm sm:text-base text-zinc-400 leading-relaxed max-w-[65ch]">
+        <p className="mt-3.5 text-sm sm:text-base text-zinc-400 leading-relaxed max-w-[65ch]">
           {description}
         </p>
       )}
