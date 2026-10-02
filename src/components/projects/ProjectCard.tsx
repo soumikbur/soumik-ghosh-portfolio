@@ -11,7 +11,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="group rounded-xl border border-zinc-800/90 bg-zinc-900/40 p-6 sm:p-7 backdrop-blur-sm transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-900/70 shadow-lg flex flex-col justify-between">
+    <div className="group rounded-xl border border-zinc-800/90 bg-zinc-900/40 p-4 sm:p-7 backdrop-blur-sm transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-900/70 shadow-lg flex flex-col justify-between">
       <div className="space-y-4">
         {/* Project Image */}
         <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden border border-zinc-800 bg-zinc-950 mb-5">

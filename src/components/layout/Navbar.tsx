@@ -109,13 +109,13 @@ export function Navbar() {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-zinc-800 py-4 px-2 space-y-2 bg-zinc-950">
+          <div className="md:hidden border-t border-zinc-800 py-3 px-2 space-y-1 bg-zinc-950 animate-[slideDown_0.2s_ease-out]">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2 text-sm font-medium rounded-md ${
+                className={`block px-4 py-3 text-sm font-medium rounded-md ${
                   isActive(link.href)
                     ? "text-zinc-100 bg-zinc-800"
                     : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900"
@@ -129,7 +129,7 @@ export function Navbar() {
                 href="https://www.linkedin.com/in/soumik-ghosh-883a1a22b/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2 rounded border border-zinc-800 bg-zinc-900 text-zinc-300 hover:text-white"
+                className="w-full flex items-center justify-center gap-2 text-xs font-semibold px-4 py-3 rounded border border-zinc-800 bg-zinc-900 text-zinc-300 hover:text-white"
               >
                 <LinkedinIcon className="h-3.5 w-3.5 text-[#0a66c2]" />
                 <span>LinkedIn Profile</span>
@@ -138,7 +138,7 @@ export function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 text-xs font-semibold px-4 py-2.5 rounded bg-zinc-100 text-zinc-950 hover:bg-white"
+                className="w-full flex items-center justify-center gap-2 text-xs font-semibold px-4 py-3 rounded bg-zinc-100 text-zinc-950 hover:bg-white"
               >
                 <span>Get in Touch</span>
                 <ArrowUpRight className="h-3.5 w-3.5" />

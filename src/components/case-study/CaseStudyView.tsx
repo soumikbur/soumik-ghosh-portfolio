@@ -23,7 +23,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
   const isActual = project.imageType === "actual";
 
   return (
-    <article className="py-12 sm:py-20 bg-zinc-950 text-zinc-100">
+    <article className="py-10 sm:py-20 bg-zinc-950 text-zinc-100">
       <Container size="default">
         {/* Navigation Breadcrumb */}
         <div className="mb-8">
@@ -47,7 +47,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-5xl font-extrabold tracking-tight text-white">
             {project.title}
           </h1>
 
@@ -91,7 +91,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
         </header>
 
         {/* Main Case Study Content */}
-        <div className="mt-12 space-y-14 max-w-4xl">
+        <div className="mt-8 sm:mt-12 space-y-10 sm:space-y-14 max-w-4xl">
           {/* 1. Project Overview */}
           <section className="space-y-3">
             <h2 className="font-mono text-xs font-semibold uppercase tracking-wider text-emerald-400 flex items-center gap-2">
@@ -160,7 +160,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           {/* 5. Visual Asset Section (Actual Screenshot vs Context Representation) */}
           {project.image && (
             <section className="space-y-3">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                 <h2 className="font-mono text-xs font-semibold uppercase tracking-wider text-emerald-400">
                   {isActual ? "Verified System Interface" : "Domain & Context Representation"}
                 </h2>
@@ -174,8 +174,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                   {isActual ? "ACTUAL PROJECT SCREENSHOT" : "CONTEXTUAL FIELD COVER"}
                 </span>
               </div>
-              <div className="rounded-xl border border-zinc-800 bg-zinc-950 p-2 sm:p-3 overflow-hidden shadow-2xl">
-                <div className="flex items-center justify-between border-b border-zinc-850 px-2 py-1.5 mb-2 text-xs font-mono text-zinc-400">
+              <div className="rounded-xl border border-zinc-800 bg-zinc-950 p-1.5 sm:p-3 overflow-hidden shadow-2xl">
+                <div className="flex items-center justify-between border-b border-zinc-850 px-2 py-1.5 mb-2 text-[10px] sm:text-xs font-mono text-zinc-400">
                   <span className="text-zinc-300 font-medium">
                     {project.slug}.{isActual ? "interface.view" : "domain.context"}
                   </span>
@@ -246,8 +246,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
           </section>
 
           {/* Bottom CTA */}
-          <section className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-8 text-center space-y-4">
-            <h3 className="text-xl font-bold text-white">
+          <section className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 text-center space-y-4">
+            <h3 className="text-lg sm:text-xl font-bold text-white">
               Interested in discussing this implementation?
             </h3>
             <p className="text-sm text-zinc-400 max-w-xl mx-auto">

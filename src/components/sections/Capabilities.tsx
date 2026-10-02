@@ -31,7 +31,7 @@ export function Capabilities() {
   };
 
   return (
-    <section id="capabilities" className="py-20 sm:py-28 border-b border-zinc-800/80 bg-zinc-950">
+    <section id="capabilities" className="py-14 sm:py-28 border-b border-zinc-800/80 bg-zinc-950">
       <Container size="default">
         <SectionHeader
           badge="Engineering Scope"
@@ -39,7 +39,7 @@ export function Capabilities() {
           description="Practical, production-oriented software systems where data accuracy, transaction integrity, and deterministic execution are critical."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {CAPABILITIES.map((cap, i) => (
             <Card key={i} hoverable className="flex flex-col justify-between">
               <div>

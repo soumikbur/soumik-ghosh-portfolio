@@ -20,7 +20,7 @@ export function SectionHeader({
     alignment === "center" ? "text-center items-center mx-auto" : "text-left items-start";
 
   return (
-    <div className={`flex flex-col mb-10 sm:mb-14 max-w-3xl ${alignClasses} ${className}`}>
+    <div className={`flex flex-col mb-8 sm:mb-14 max-w-3xl ${alignClasses} ${className}`}>
       {badge && (
         <div className="mb-3">
           <Badge variant="technical">{badge}</Badge>

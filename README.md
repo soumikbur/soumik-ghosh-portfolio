@@ -246,6 +246,14 @@ The interface uses a dark, technical visual language designed to reflect systems
 - **LinkedIn**: [https://www.linkedin.com/in/soumik-ghosh-883a1a22b/](https://www.linkedin.com/in/soumik-ghosh-883a1a22b/)
 - **GitHub**: [https://github.com/soumikbur](https://github.com/soumikbur)
 
+## Version History
+
+| Version | Date | Summary |
+|---------|------|---------|
+| **v1.2.0** | 2026-10-03 | **Mobile UI/UX Optimization** — Comprehensive mobile-first responsive overhaul across all pages. Reduced heading sizes, section padding, and card padding for 320px–430px viewports. Made project category filter tabs horizontally scrollable. Improved mobile navigation touch targets (44px minimum), added slide-down drawer animation, truncated long URLs, and stacked CTA buttons vertically on small screens. Fixed timeline node positioning on mobile. Added global mobile CSS utilities (tap highlight removal, scroll-container, overflow prevention). Fixed Next.js smooth scroll warning with `data-scroll-behavior` attribute. |
+| **v1.1.0** | 2026-10-02 | **Professional Profile & shadcn/ui Integration** — Updated portfolio with verified LinkedIn professional details (experience, education, certifications, community activities, milestones). Integrated shadcn/ui components (`spotlight`, `splite`, `card`). Installed Spline 3D, Framer Motion, and utility dependencies. |
+| **v1.0.0** | 2026-10-01 | **Initial Production Release** — Complete portfolio with 8 verified engineering projects, 4 pages (Overview, Projects, About, Contact), dynamic case study routes, project category filters, GSAP page transitions, SEO metadata (Open Graph, JSON-LD, sitemap, robots), production-ready Vercel deployment configuration, and comprehensive README documentation. |
+
 ---
 
 ## License

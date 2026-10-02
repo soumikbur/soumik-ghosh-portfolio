@@ -92,6 +92,41 @@ body {
   background: #3f3f46;
 }
 
+/* Mobile touch optimizations */
+@media (max-width: 640px) {
+  /* Prevent horizontal overflow on mobile */
+  html, body {
+    max-width: 100vw;
+  }
+
+  /* Remove tap highlight on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Improve touch targets */
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Allow inline elements (badge-like spans, icons) to be smaller */
+  span, .badge-inline {
+    min-height: auto;
+    min-width: auto;
+  }
+}
+
+/* Horizontal scroll container for filter tabs on mobile */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
 /* Spline Scene Fallback Loader */
 .loader {
   width: 32px;
@@ -106,5 +141,16 @@ body {
 @keyframes spline-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

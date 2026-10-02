@@ -20,7 +20,7 @@ export default function HomePage() {
       <Hero />
 
       {/* 2. Selected Work */}
-      <section id="projects" className="py-20 sm:py-28 border-b border-zinc-800/80 bg-zinc-950">
+      <section id="projects" className="py-14 sm:py-28 border-b border-zinc-800/80 bg-zinc-950">
         <Container size="default">
           <SectionHeader
             badge="Selected Work"

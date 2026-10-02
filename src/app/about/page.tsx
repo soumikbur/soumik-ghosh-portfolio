@@ -150,7 +150,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="py-16 sm:py-24 bg-zinc-950 text-zinc-100">
+    <div className="py-12 sm:py-24 bg-zinc-950 text-zinc-100">
       <Container size="default">
         {/* Header / Identity Banner */}
         <div className="border-b border-zinc-800 pb-12">
@@ -171,7 +171,7 @@ export default function AboutPage() {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+              <h1 className="text-2xl sm:text-5xl font-extrabold tracking-tight text-white">
                 Soumik Ghosh
               </h1>
 
@@ -191,7 +191,7 @@ export default function AboutPage() {
                 Currently working as an Embedded Software Developer at <strong className="text-zinc-200 font-medium">Panorama Electronics Pvt. Ltd.</strong> in Kolkata, India. Rather than treating firmware and application software as disconnected disciplines, I engineer integrated architectures—connecting physical sensors, microcontrollers, and real-time operating systems with cloud telemetry, industrial fieldbuses, and responsive operational tools.
               </p>
 
-              <div className="flex flex-wrap items-center gap-3 pt-3">
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-3">
                 <Button
                   href="/projects"
                   variant="primary"
@@ -240,14 +240,14 @@ export default function AboutPage() {
         </div>
 
         {/* Section 1: Professional Experience */}
-        <section className="py-14 border-b border-zinc-800/80 space-y-6">
+        <section className="py-10 sm:py-14 border-b border-zinc-800/80 space-y-6">
           <SectionHeader
             badge="Employment"
             title="Professional Experience"
             description="Verified organization and current engineering responsibilities."
           />
 
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8 space-y-4">
+          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-8 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800 pb-4">
               <div>
                 <div className="flex items-center gap-2.5">
@@ -310,14 +310,14 @@ export default function AboutPage() {
         </section>
 
         {/* Section 2: Education */}
-        <section className="py-14 border-b border-zinc-800/80 space-y-6">
+        <section className="py-10 sm:py-14 border-b border-zinc-800/80 space-y-6">
           <SectionHeader
             badge="Academic Background"
             title="Education"
             description="Verified university qualification and formal engineering studies."
           />
 
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8">
+          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-8">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-start gap-3">
                 <div className="h-10 w-10 rounded border border-zinc-700 bg-zinc-900 flex items-center justify-center text-emerald-400 shrink-0">
@@ -350,14 +350,14 @@ export default function AboutPage() {
         </section>
 
         {/* Section 3: Certifications */}
-        <section className="py-14 border-b border-zinc-800/80 space-y-6">
+        <section className="py-10 sm:py-14 border-b border-zinc-800/80 space-y-6">
           <SectionHeader
             badge="Verified Credentials"
             title="Certifications"
             description="Professional certifications verified on LinkedIn across artificial intelligence, cloud platforms, and mobile engineering."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {certifications.map((cert) => (
               <div
                 key={cert.title}
@@ -387,7 +387,7 @@ export default function AboutPage() {
         </section>
 
         {/* Section 4: Open Source & Community */}
-        <section className="py-14 border-b border-zinc-800/80 space-y-6">
+        <section className="py-10 sm:py-14 border-b border-zinc-800/80 space-y-6">
           <SectionHeader
             badge="Contributions & Engagement"
             title="Open Source & Community"
@@ -398,7 +398,7 @@ export default function AboutPage() {
             {communityActivities.map((act) => (
               <div
                 key={act.title}
-                className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-6 space-y-3"
+                className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-4 sm:p-6 space-y-3"
               >
                 <div className="flex items-center justify-between gap-2">
                   <span className="font-mono text-xs text-emerald-400 font-semibold uppercase tracking-wider">
@@ -420,19 +420,19 @@ export default function AboutPage() {
         </section>
 
         {/* Section 5: Career & Milestones Timeline */}
-        <section className="py-14 border-b border-zinc-800/80 space-y-6">
+        <section className="py-10 sm:py-14 border-b border-zinc-800/80 space-y-6">
           <SectionHeader
             badge="Chronology"
             title="Career & Engineering Milestones"
             description="Chronological journey spanning academic foundations, open-source initiatives, technical certifications, and professional engineering practice."
           />
 
-          <div className="relative pl-6 sm:pl-8 border-l border-zinc-800 space-y-8 my-6">
+          <div className="relative pl-4 sm:pl-8 border-l border-zinc-800 space-y-6 sm:space-y-8 my-6">
             {milestones.map((item, idx) => (
               <div key={idx} className="relative group">
                 {/* Timeline node */}
                 <div
-                  className={`absolute -left-[31px] sm:-left-[39px] top-1.5 h-3.5 w-3.5 rounded-full border-2 ${
+                  className={`absolute -left-[23px] sm:-left-[39px] top-1.5 h-3 w-3 sm:h-3.5 sm:w-3.5 rounded-full border-2 ${
                     item.highlight
                       ? "border-emerald-400 bg-emerald-500 shadow-lg shadow-emerald-500/30"
                       : "border-zinc-700 bg-zinc-950 group-hover:border-zinc-500"
@@ -465,14 +465,14 @@ export default function AboutPage() {
         </section>
 
         {/* Section 6: Engineering Scope & What I Build */}
-        <section className="py-14 border-b border-zinc-800/80 space-y-6">
+        <section className="py-10 sm:py-14 border-b border-zinc-800/80 space-y-6">
           <SectionHeader
             badge="Disciplines"
             title="Engineering Scope"
             description="Systems designed for operational environments where data accuracy, timing precision, and reliable state recovery are essential."
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-6 space-y-3">
               <div className="h-9 w-9 rounded border border-zinc-700 bg-zinc-900 flex items-center justify-center text-zinc-300">
                 <Cpu className="h-5 w-5 text-emerald-400" />
@@ -548,7 +548,7 @@ export default function AboutPage() {
         </section>
 
         {/* Section 7: Technical Capabilities Matrix */}
-        <section className="py-14 border-b border-zinc-800/80 space-y-6">
+        <section className="py-10 sm:py-14 border-b border-zinc-800/80 space-y-6">
           <SectionHeader
             badge="Verified Technologies"
             title="Technical Capabilities"
@@ -611,9 +611,9 @@ export default function AboutPage() {
         </section>
 
         {/* Bottom CTA Card */}
-        <section className="pt-14">
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-8 text-center space-y-4">
-            <h3 className="text-xl font-bold text-white">
+        <section className="pt-10 sm:pt-14">
+          <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5 sm:p-8 text-center space-y-4">
+            <h3 className="text-lg sm:text-xl font-bold text-white">
               Interested in discussing an engineering challenge or project?
             </h3>
             <p className="text-sm text-zinc-400 max-w-xl mx-auto">

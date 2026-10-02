@@ -13,7 +13,7 @@ export function TechnicalCapabilities() {
   ];
 
   return (
-    <section id="technical-capabilities" className="py-20 sm:py-28 border-b border-zinc-800/80 bg-zinc-950">
+    <section id="technical-capabilities" className="py-14 sm:py-28 border-b border-zinc-800/80 bg-zinc-950">
       <Container size="default">
         <SectionHeader
           badge="Verified Stack"
@@ -21,7 +21,7 @@ export function TechnicalCapabilities() {
           description="Technologies and domains demonstrated across embedded systems, full-stack business applications, backend APIs, and transactional databases."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5">
           {groups.map((group, idx) => (
             <div
               key={idx}

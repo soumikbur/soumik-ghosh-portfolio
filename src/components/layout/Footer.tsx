@@ -6,9 +6,9 @@ import { Container } from "../ui/Container";
 
 export function Footer() {
   return (
-    <footer className="w-full border-t border-zinc-800/80 bg-zinc-950/90 py-12 sm:py-16 text-zinc-400">
+    <footer className="w-full border-t border-zinc-800/80 bg-zinc-950/90 py-10 sm:py-16 text-zinc-400">
       <Container size="default">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 sm:mb-12">
           {/* Column 1: Moniker & Positioning */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-zinc-100">
@@ -145,7 +145,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono text-zinc-400">
+        <div className="pt-6 sm:pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-[11px] font-mono text-zinc-400">
           <div>Soumik Ghosh — Embedded Software Developer</div>
           <div>Built with Next.js, TypeScript, Tailwind CSS & GSAP</div>
         </div>

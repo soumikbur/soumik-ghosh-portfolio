@@ -16,7 +16,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="py-16 sm:py-24 bg-zinc-950 text-zinc-100">
+    <div className="py-12 sm:py-24 bg-zinc-950 text-zinc-100">
       <Container size="default">
         <SectionHeader
           badge="Direct Contact"
@@ -26,7 +26,7 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Direct Message Form */}
-          <div className="lg:col-span-7 rounded-xl border border-zinc-800 bg-zinc-900/50 p-6 sm:p-8 backdrop-blur-sm">
+          <div className="lg:col-span-7 rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 sm:p-8 backdrop-blur-sm">
             {formSubmitted ? (
               <div className="py-12 text-center space-y-4 font-mono text-xs">
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-emerald-950/60 border border-emerald-800 text-emerald-400">
@@ -138,7 +138,7 @@ export default function ContactPage() {
 
           {/* Right Column: Direct Channels & Engineering Commitments */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 space-y-4 font-mono text-xs">
+            <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-6 space-y-4 font-mono text-xs">
               <div className="text-zinc-300 font-semibold uppercase tracking-wider">
                 Direct Channels
               </div>
@@ -163,15 +163,15 @@ export default function ContactPage() {
                   href="https://www.linkedin.com/in/soumik-ghosh-883a1a22b/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 text-zinc-200 hover:text-white transition-colors"
+                  className="flex items-center gap-2.5 text-zinc-200 hover:text-white transition-colors min-w-0"
                 >
-                  <LinkedinIcon className="h-4 w-4 text-zinc-400" />
-                  <span>linkedin.com/in/soumik-ghosh-883a1a22b</span>
+                  <LinkedinIcon className="h-4 w-4 text-zinc-400 shrink-0" />
+                  <span className="truncate">linkedin.com/in/soumik-ghosh</span>
                 </a>
               </div>
             </div>
 
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6 space-y-4">
+            <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-6 space-y-4">
               <div className="flex items-center gap-2 text-zinc-300 font-mono text-xs uppercase tracking-wider">
                 <ShieldCheck className="h-4 w-4 text-emerald-400" />
                 <span>Engineering Standards</span>

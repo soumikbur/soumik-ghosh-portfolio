@@ -6,22 +6,22 @@ import { Button } from "../ui/Button";
 
 export function ContactCTA() {
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-zinc-950">
+    <section id="contact" className="py-14 sm:py-28 bg-zinc-950">
       <Container size="default">
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-8 sm:p-12 backdrop-blur-md">
+        <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-5 sm:p-12 backdrop-blur-md">
           <div className="max-w-3xl">
             <span className="font-mono text-xs uppercase tracking-wider text-emerald-400">
               Direct Contact
             </span>
-            <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-zinc-100 mt-2">
+            <h2 className="text-xl sm:text-4xl font-bold tracking-tight text-zinc-100 mt-2">
               Have a software system that needs to be built?
             </h2>
-            <p className="mt-4 text-base text-zinc-400 leading-relaxed">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-zinc-400 leading-relaxed">
               I build practical software systems that solve real operational and business problems.
               Whether you need full-stack business applications, backend REST APIs, inventory and order fulfillment portals, or embedded software engineering, get in touch to discuss your technical requirements.
             </p>
 
-            <div className="mt-6 flex flex-wrap gap-4 text-xs font-mono text-zinc-400">
+            <div className="mt-4 sm:mt-6 flex flex-wrap gap-3 sm:gap-4 text-xs font-mono text-zinc-400">
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
                 Practical System Architecture
@@ -36,7 +36,7 @@ export function ContactCTA() {
               </span>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
               <Button href="/contact" variant="primary" size="lg" icon={<ArrowRight className="h-4 w-4" />}>
                 Send a Message
               </Button>
@@ -51,7 +51,7 @@ export function ContactCTA() {
               </Button>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-zinc-800 flex items-center gap-6 text-xs text-zinc-400">
+            <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-6 text-xs text-zinc-400">
               <a
                 href="https://github.com/soumikbur"
                 target="_blank"

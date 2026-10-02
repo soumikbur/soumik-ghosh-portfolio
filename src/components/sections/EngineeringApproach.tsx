@@ -5,7 +5,7 @@ import { ENGINEERING_APPROACH } from "@/lib/data/projects";
 
 export function EngineeringApproach() {
   return (
-    <section id="approach" className="py-20 sm:py-28 border-b border-zinc-800/80 bg-zinc-950">
+    <section id="approach" className="py-14 sm:py-28 border-b border-zinc-800/80 bg-zinc-950">
       <Container size="default">
         <SectionHeader
           badge="Methodology"
