@@ -13,7 +13,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-zinc-100">
               <div className="flex h-7 w-7 items-center justify-center rounded border border-zinc-700 bg-zinc-900">
-                <Terminal className="h-3.5 w-3.5 text-zinc-300" />
+                <Terminal className="h-3.5 w-3.5 text-emerald-400" />
               </div>
               <div className="flex flex-col">
                 <span className="text-sm font-semibold tracking-tight">
@@ -25,34 +25,42 @@ export function Footer() {
               </div>
             </div>
             <p className="text-xs text-zinc-400 max-w-sm leading-relaxed">
-              Practical software systems across real-time embedded firmware, full-stack business applications, backend APIs, and transactional databases.
+              Engineering practical software systems across real-time embedded firmware, industrial SCADA, Quectel 4G LTE telemetry, and operational full-stack platforms.
+            </p>
+            <p className="text-[11px] font-mono text-zinc-400">
+              // Deterministic firmware · Reliable telemetry · Zero-compromise engineering.
             </p>
           </div>
 
-          {/* Column 2: Navigation */}
+          {/* Column 2: Navigation Sections */}
           <div className="space-y-3">
             <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-300">
-              Navigation
+              Sections
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs font-mono">
               <li>
-                <Link href="/" className="hover:text-zinc-200 transition-colors">
-                  Overview
+                <Link href="/#about" className="hover:text-emerald-400 transition-colors">
+                  01 · About
                 </Link>
               </li>
               <li>
-                <Link href="/projects" className="hover:text-zinc-200 transition-colors">
-                  Projects (8 Systems)
+                <Link href="/#experience" className="hover:text-emerald-400 transition-colors">
+                  02 · Experience
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-zinc-200 transition-colors">
-                  About
+                <Link href="/#projects" className="hover:text-emerald-400 transition-colors">
+                  03 · Projects
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-zinc-200 transition-colors">
-                  Contact
+                <Link href="/#skills" className="hover:text-emerald-400 transition-colors">
+                  04 · Skills
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact" className="hover:text-emerald-400 transition-colors">
+                  05 · Contact
                 </Link>
               </li>
             </ul>
@@ -61,7 +69,7 @@ export function Footer() {
           {/* Column 3: Featured Systems */}
           <div className="space-y-3">
             <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-300">
-              Featured Systems
+              Verified Systems
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
@@ -146,8 +154,8 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-6 sm:pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-[11px] font-mono text-zinc-400">
-          <div>Soumik Ghosh — Embedded Software Developer</div>
-          <div>Built with Next.js, TypeScript, Tailwind CSS & GSAP</div>
+          <div>Soumik Ghosh — Embedded Software Developer @ Panorama Electronics</div>
+          <div>Next.js 16 · TypeScript · Tailwind CSS · GSAP</div>
         </div>
       </Container>
     </footer>

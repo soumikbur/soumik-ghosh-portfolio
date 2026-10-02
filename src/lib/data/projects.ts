@@ -23,6 +23,8 @@ export interface Project {
   github?: string;
   demo?: string;
   featured: boolean;
+  status: string;
+  statusVariant?: "emerald" | "blue" | "cyan" | "amber";
 
   // High-Level Case Study Content (Protected / Executive Summary)
   overview: string;
@@ -47,6 +49,8 @@ export const PROJECTS: Project[] = [
     title: "Panorama Water Tank Monitor",
     category: "Embedded Systems & SCADA",
     categoryGroup: "Embedded Systems",
+    status: "Hardware Verified",
+    statusVariant: "emerald",
     shortDescription:
       "Industrial desktop SCADA interface and dual-core ESP32-S3 firmware engineered for liquid volume telemetry and infrastructure monitoring.",
     technologies: ["C++20", "Qt 6 / QML", "ESP32-S3", "FreeRTOS", "4G LTE", "Modbus RTU"],
@@ -85,6 +89,8 @@ export const PROJECTS: Project[] = [
     title: "Railway Water Level Indicator & Telemetry Unit",
     category: "Firmware & Embedded IoT",
     categoryGroup: "Embedded Systems",
+    status: "Hardware Verified",
+    statusVariant: "emerald",
     shortDescription:
       "Autonomous low-power microcontroller telemetry unit designed for railway track and coach reservoir monitoring with GNSS and cellular reporting.",
     technologies: ["STM32", "FreeRTOS", "ARM Cortex-M4", "Quectel 4G LTE", "GNSS / GPS", "MQTT over TLS"],
@@ -129,6 +135,8 @@ export const PROJECTS: Project[] = [
     title: "Industrial Substation Asset Monitor",
     category: "Industrial Embedded & IIoT",
     categoryGroup: "Embedded Systems",
+    status: "Production Deployed",
+    statusVariant: "cyan",
     shortDescription:
       "Multi-sensor diagnostic and power telemetry system for industrial transformers and tap-changers with SPI flash storage and Modbus RTU.",
     technologies: ["STM32", "Modbus RTU", "SPI NOR Flash", "FATFS", "Power Meter", "MQTT"],
@@ -173,6 +181,8 @@ export const PROJECTS: Project[] = [
     title: "ApexFlow",
     category: "Enterprise Inventory & Order Platform",
     categoryGroup: "Full-Stack Applications",
+    status: "Production Ready",
+    statusVariant: "emerald",
     shortDescription:
       "Enterprise inventory and order management platform designed to streamline stock control, purchasing, fulfillment, invoicing, and reporting.",
     technologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "RBAC", "Docker"],
@@ -211,6 +221,8 @@ export const PROJECTS: Project[] = [
     title: "Business Analytics & Operations Dashboard",
     category: "Business Analytics & Internal Tools",
     categoryGroup: "Dashboards & Tools",
+    status: "Production Ready",
+    statusVariant: "emerald",
     shortDescription:
       "Operational intelligence and analytics application delivering real-time business performance indicators, revenue metrics, and user management.",
     technologies: ["Next.js", "React", "Prisma", "PostgreSQL", "NextAuth v5", "Tailwind CSS"],
@@ -249,6 +261,8 @@ export const PROJECTS: Project[] = [
     title: "PujoPath — Transit & Geospatial PWA",
     category: "Geospatial & Web Applications",
     categoryGroup: "Geospatial & Web",
+    status: "Deployed PWA",
+    statusVariant: "blue",
     shortDescription:
       "Progressive web application providing interactive GIS transit navigation and crowd route mapping across Kolkata Metro corridors.",
     technologies: ["Next.js", "React", "Leaflet GIS", "TypeScript", "PWA", "Service Workers"],
@@ -287,6 +301,8 @@ export const PROJECTS: Project[] = [
     title: "Transparent Supply Chain Platform",
     category: "Distributed Systems & Web3",
     categoryGroup: "Full-Stack Applications",
+    status: "Verified Contract",
+    statusVariant: "blue",
     shortDescription:
       "Decentralized product traceability platform designed to verify provenance and maintain immutable chain-of-custody across multi-tier supplier networks.",
     technologies: ["Solidity", "Ethereum", "IPFS", "React.js", "Web3.js"],
@@ -331,6 +347,8 @@ export const PROJECTS: Project[] = [
     title: "Sarvak — AI Emergency Safety Platform",
     category: "Intelligent Systems & Mobile",
     categoryGroup: "Geospatial & Web",
+    status: "Hackathon Finalist",
+    statusVariant: "amber",
     shortDescription:
       "Real-time incident response and automated distress tracking platform developed for Smart India Hackathon public safety challenges.",
     technologies: ["React", "Flutter", "Firebase", "Computer Vision", "Telemetry"],

@@ -1,11 +1,13 @@
 import React from "react";
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, ShieldCheck, Mail } from "lucide-react";
-import { LinkedinIcon } from "../ui/Icons";
+import { ArrowRight, ArrowUpRight, ShieldCheck, Mail, FileText } from "lucide-react";
+import { LinkedinIcon, GithubIcon } from "../ui/Icons";
 import { Container } from "../ui/Container";
 import { Button } from "../ui/Button";
 import { Badge } from "../ui/Badge";
 import { GsapHero } from "../animations/GsapHero";
+import { TelemetryPipeline } from "./TelemetryPipeline";
+import { HeroMetrics } from "./HeroMetrics";
 
 export function Hero() {
   return (
@@ -16,14 +18,15 @@ export function Hero() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left 8 cols: Name, Role, Statement, CTAs */}
             <div className="lg:col-span-8 flex flex-col items-start">
-              {/* Eyebrow / Availability Badge */}
+              {/* Eyebrow / Availability Badge with Terminal Indicator */}
               <div className="gsap-hero-badge flex flex-wrap items-center gap-x-2 gap-y-1 mb-4">
+                <span className="font-mono text-xs text-zinc-500 font-semibold mr-1">00 ·</span>
                 <Badge variant="technical" size="md">
                   Embedded Software Developer
                 </Badge>
                 <span className="text-zinc-600 font-mono text-xs hidden sm:inline">•</span>
                 <span className="text-emerald-400 font-mono text-xs flex items-center gap-1.5">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                   <span className="break-words">Panorama Electronics Pvt. Ltd.</span>
                 </span>
                 <span className="text-zinc-600 font-mono text-xs hidden sm:inline">•</span>
@@ -37,44 +40,58 @@ export function Hero() {
                 SOUMIK GHOSH
               </h1>
 
-              {/* Role */}
-              <div className="gsap-hero-role mt-2 font-mono text-sm sm:text-base text-zinc-400 uppercase tracking-wider font-semibold">
-                Embedded Software Developer
+              {/* Professional Title */}
+              <div className="gsap-hero-role mt-2 font-mono text-sm sm:text-base text-zinc-400 uppercase tracking-wider font-semibold flex items-center gap-2">
+                <span className="text-emerald-400">&gt;</span>
+                <span>Embedded Software Developer · Firmware &amp; Industrial IoT</span>
               </div>
 
-              {/* Short Positioning Statement */}
+              {/* Short Technical Positioning Statement */}
               <p className="gsap-hero-desc mt-5 text-lg sm:text-xl text-zinc-200 leading-relaxed max-w-2xl font-medium">
-                I build practical software systems that solve real operational and business problems.
+                I build practical embedded systems, industrial firmware, and connected operational software where real-world timing, hardware reliability, and data integrity are non-negotiable.
               </p>
 
               <p className="mt-2 text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-2xl">
-                Engineering reliable embedded software, industrial IoT systems, connected telemetry, and operational full-stack applications.
+                Engineering deterministic FreeRTOS task schedules, industrial RS-485 Modbus RTU fieldbuses, Quectel 4G LTE cellular telemetry nodes, and full-stack operational platforms.
               </p>
 
-              {/* CTAs */}
+              {/* CTAs & Developer Links */}
               <div className="gsap-hero-cta mt-6 sm:mt-8 flex flex-wrap items-center gap-3">
                 <Button href="#projects" variant="primary" size="md" icon={<ArrowRight className="h-4 w-4" />}>
-                  View Projects
+                  Explore Projects
                 </Button>
-                <Button href="/contact" variant="outline" size="md" icon={<ArrowUpRight className="h-4 w-4" />}>
-                  Contact Me
+                <Button href="#contact" variant="outline" size="md" icon={<ArrowUpRight className="h-4 w-4" />}>
+                  Get in Touch
                 </Button>
-                <div className="flex items-center gap-3 w-full sm:w-auto mt-1 sm:mt-0">
+
+                <div className="flex items-center gap-2.5 w-full sm:w-auto mt-2 sm:mt-0 flex-wrap">
+                  <a
+                    href="https://github.com/soumikbur"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-zinc-100 transition-colors py-2 px-2.5 rounded bg-zinc-900 border border-zinc-800 hover:border-zinc-700"
+                    title="GitHub Profile"
+                  >
+                    <GithubIcon className="h-3.5 w-3.5 text-zinc-300" />
+                    <span>GitHub</span>
+                  </a>
                   <a
                     href="https://www.linkedin.com/in/soumik-ghosh-883a1a22b/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-zinc-200 transition-colors py-2"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-zinc-100 transition-colors py-2 px-2.5 rounded bg-zinc-900 border border-zinc-800 hover:border-zinc-700"
+                    title="LinkedIn Profile"
                   >
                     <LinkedinIcon className="h-3.5 w-3.5 text-[#0a66c2]" />
                     <span>LinkedIn</span>
                   </a>
                   <a
-                    href="mailto:soumik.bur@gmail.com"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-zinc-200 transition-colors py-2 truncate"
+                    href="/about"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-zinc-100 transition-colors py-2 px-2.5 rounded bg-zinc-900 border border-zinc-800 hover:border-zinc-700"
+                    title="Detailed Engineering Profile"
                   >
-                    <Mail className="h-3.5 w-3.5 text-zinc-400 shrink-0" />
-                    <span className="truncate">soumik.bur@gmail.com</span>
+                    <FileText className="h-3.5 w-3.5 text-emerald-400" />
+                    <span>Profile &amp; Bio</span>
                   </a>
                 </div>
               </div>
@@ -98,20 +115,25 @@ export function Hero() {
                 </div>
                 <div className="mt-3 flex items-center gap-2 text-[11px] font-mono text-zinc-400">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  <span>Soumik Ghosh • Production Engineer</span>
+                  <span>Soumik Ghosh • Embedded Software Developer</span>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Interactive Hardware-to-Cloud Telemetry Pipeline */}
+          <div className="mt-10 sm:mt-14">
+            <TelemetryPipeline />
+          </div>
+
           {/* Real Production System UI Preview */}
-          <div className="gsap-hero-visual mt-10 sm:mt-16 w-full rounded-xl border border-zinc-800 bg-zinc-900/70 p-2.5 sm:p-4 backdrop-blur-md shadow-2xl">
+          <div className="gsap-hero-visual mt-8 sm:mt-10 w-full rounded-xl border border-zinc-800 bg-zinc-900/70 p-2.5 sm:p-4 backdrop-blur-md shadow-2xl">
             <div className="flex items-center justify-between border-b border-zinc-800/80 pb-2.5 mb-3 text-xs font-mono text-zinc-400">
               <div className="flex items-center gap-2">
-                <div className="flex gap-1.5">
-                  <span className="h-2 w-2 rounded-full bg-zinc-700" />
-                  <span className="h-2 w-2 rounded-full bg-zinc-700" />
-                  <span className="h-2 w-2 rounded-full bg-zinc-700" />
+                <div className="flex gap-1.5" aria-hidden="true">
+                  <span className="h-2 w-2 rounded-full bg-red-500/80" />
+                  <span className="h-2 w-2 rounded-full bg-amber-500/80" />
+                  <span className="h-2 w-2 rounded-full bg-emerald-500/80" />
                 </div>
                 <span className="text-zinc-300 font-medium ml-1">
                   apexflow.production.telemetry
@@ -158,6 +180,9 @@ export function Hero() {
               </div>
             </div>
           </div>
+
+          {/* Developer Metrics Banner */}
+          <HeroMetrics />
         </GsapHero>
       </Container>
     </section>

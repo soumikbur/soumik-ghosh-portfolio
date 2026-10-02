@@ -1,45 +1,126 @@
 import React from "react";
 import { Container } from "../ui/Container";
-import { SectionHeader } from "../ui/SectionHeader";
-import { TECHNICAL_CAPABILITIES } from "@/lib/data/projects";
+
+interface SkillCategory {
+  idx: string;
+  name: string;
+  skills: { name: string; note: string }[];
+}
+
+const SKILL_CATEGORIES: SkillCategory[] = [
+  {
+    idx: "01",
+    name: "Embedded & Firmware Engineering",
+    skills: [
+      { name: "STM32 (ARM Cortex-M)", note: "STM32F411 & STM32L431 bare-metal & HAL" },
+      { name: "ESP32 & ESP32-S3", note: "Dual-core FreeRTOS & Wi-Fi/BLE" },
+      { name: "FreeRTOS Kernel", note: "Multi-task priority scheduling, queues, semaphores" },
+      { name: "C++20 & Embedded C", note: "Deterministic memory, bit manipulation, defensive coding" },
+      { name: "Hardware Timers & ISR", note: "Microsecond interrupt-driven sensor sampling" },
+    ],
+  },
+  {
+    idx: "02",
+    name: "Industrial Protocols & Fieldbuses",
+    skills: [
+      { name: "RS-485 Modbus RTU", note: "Master/Slave protocol with CRC-16 verification" },
+      { name: "I2C & SPI Serial Bus", note: "Peripheral sensor & memory integration" },
+      { name: "UART / AT Commands", note: "Resilient non-blocking modem state machines" },
+      { name: "4-20mA Current Loops", note: "Precision industrial transducer front-ends" },
+    ],
+  },
+  {
+    idx: "03",
+    name: "Wireless, Cellular & Cloud Telemetry",
+    skills: [
+      { name: "Quectel 4G LTE Cat-1", note: "Automated socket reconnection & cloud dispatch" },
+      { name: "GNSS / GPS Tracking", note: "Coordinate decoding & precision clock sync" },
+      { name: "MQTT over TLS 1.2", note: "Encrypted low-overhead broker communication" },
+      { name: "RESTful Endpoints", note: "Structured JSON telemetry and ingestion handlers" },
+    ],
+  },
+  {
+    idx: "04",
+    name: "Hardware Interfaces, Memory & Diagnostics",
+    skills: [
+      { name: "SPI NOR Flash Storage", note: "W25Qxx external flash with FATFS logging" },
+      { name: "Hardware Watchdog", note: "Fail-safe recovery & peripheral fault mitigation" },
+      { name: "Precision ADC Front-End", note: "Analog signal filtering & noise cancellation" },
+      { name: "Self-Diagnostic Matrices", note: "Startup hardware integrity checks & alarms" },
+    ],
+  },
+  {
+    idx: "05",
+    name: "Desktop SCADA & Full-Stack Interfaces",
+    skills: [
+      { name: "Qt 6 / QML Desktop SCADA", note: "Cross-platform industrial operator consoles" },
+      { name: "Next.js 16 & React 19", note: "Server & client components, SSR, static generation" },
+      { name: "TypeScript", note: "Strict type safety across models, APIs, and components" },
+      { name: "Tailwind CSS", note: "High-density responsive design systems" },
+      { name: "Leaflet GIS & PWA", note: "Interactive transit mapping & offline caching" },
+    ],
+  },
+  {
+    idx: "06",
+    name: "Data Systems, Architecture & Quality",
+    skills: [
+      { name: "PostgreSQL & Prisma ORM", note: "ACID transactions, indexed schemas, constraints" },
+      { name: "Double-Entry Ledgers", note: "Strict debit/credit stock models & audit tracking" },
+      { name: "Finite State Machines", note: "Deterministic status transitions for orders & modems" },
+      { name: "Docker Containerization", note: "Reproducible microservice runtimes" },
+      { name: "Playwright & CI/CD", note: "Automated browser workflow validation & GitHub Actions" },
+    ],
+  },
+];
 
 export function TechnicalCapabilities() {
-  const groups = [
-    { title: "Embedded & Systems", items: TECHNICAL_CAPABILITIES.embedded },
-    { title: "Backend & API Systems", items: TECHNICAL_CAPABILITIES.backend },
-    { title: "Frontend Engineering", items: TECHNICAL_CAPABILITIES.frontend },
-    { title: "Data Storage & Relational Logic", items: TECHNICAL_CAPABILITIES.data },
-    { title: "Reliability & Architecture", items: TECHNICAL_CAPABILITIES.engineering }
-  ];
-
   return (
-    <section id="technical-capabilities" className="py-14 sm:py-28 border-b border-zinc-800/80 bg-zinc-950">
+    <section id="skills" className="py-14 sm:py-24 border-b border-zinc-800/80 bg-zinc-950">
       <Container size="default">
-        <SectionHeader
-          badge="Verified Stack"
-          title="Technical Competencies"
-          description="Technologies and domains demonstrated across embedded systems, full-stack business applications, backend APIs, and transactional databases."
-        />
+        {/* Section Header with Numbering */}
+        <div className="mb-10 sm:mb-14">
+          <p className="font-mono text-xs text-emerald-400 font-semibold tracking-wider uppercase">
+            04 · Skills
+          </p>
+          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mt-1.5">
+            Technical Competencies &amp; Toolbox
+          </h2>
+          <p className="text-sm sm:text-base text-zinc-400 mt-2 max-w-2xl leading-relaxed">
+            Systematic technical competencies organized across firmware, industrial communication protocols, telemetry, operational interfaces, and data architectures.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-5">
-          {groups.map((group, idx) => (
+        {/* Structured Row-by-Row Skills Grid */}
+        <div className="space-y-4">
+          {SKILL_CATEGORIES.map((cat) => (
             <div
-              key={idx}
-              className="rounded-lg border border-zinc-800 bg-zinc-900/30 p-5 space-y-4"
+              key={cat.idx}
+              className="group rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-4 sm:p-6 backdrop-blur-sm hover:border-zinc-700 hover:bg-zinc-900/70 transition-all flex flex-col lg:flex-row lg:items-start justify-between gap-4"
             >
-              <h3 className="font-mono text-xs font-semibold uppercase tracking-wider text-zinc-300 border-b border-zinc-800 pb-2.5">
-                {group.title}
-              </h3>
+              {/* Category Header with Index */}
+              <div className="lg:w-1/3 shrink-0 flex items-center lg:items-start gap-3">
+                <span className="font-mono text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-900/60 px-2.5 py-1 rounded">
+                  {cat.idx}
+                </span>
+                <h3 className="text-sm sm:text-base font-bold text-zinc-100 group-hover:text-emerald-300 transition-colors">
+                  {cat.name}
+                </h3>
+              </div>
 
-              <div className="space-y-3">
-                {group.items.map((item, itemIdx) => (
-                  <div key={itemIdx} className="space-y-0.5">
-                    <div className="text-sm font-medium text-zinc-100">
-                      {item.name}
-                    </div>
-                    <div className="text-[11px] font-mono text-zinc-400">
-                      {item.note}
-                    </div>
+              {/* Skills Chips with Context Notes */}
+              <div className="lg:w-2/3 flex flex-wrap gap-2">
+                {cat.skills.map((skill, sIdx) => (
+                  <div
+                    key={sIdx}
+                    className="group/chip inline-flex flex-col px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-950/80 hover:border-zinc-650 hover:bg-zinc-900 transition-all"
+                    title={skill.note}
+                  >
+                    <span className="text-xs font-medium text-zinc-200 group-hover/chip:text-white">
+                      {skill.name}
+                    </span>
+                    <span className="text-[10px] font-mono text-zinc-400 group-hover/chip:text-emerald-400 transition-colors">
+                      {skill.note}
+                    </span>
                   </div>
                 ))}
               </div>

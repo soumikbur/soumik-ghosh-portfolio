@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight, Terminal } from "lucide-react";
-import { LinkedinIcon } from "../ui/Icons";
+import { LinkedinIcon, GithubIcon } from "../ui/Icons";
 import { Container } from "../ui/Container";
 
 export function Navbar() {
@@ -12,24 +12,28 @@ export function Navbar() {
   const pathname = usePathname();
 
   const navLinks = [
-    { label: "Overview", href: "/" },
-    { label: "Projects", href: "/projects" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "About", href: "/#about" },
+    { label: "Experience", href: "/#experience" },
+    { label: "Projects", href: "/#projects" },
+    { label: "Skills", href: "/#skills" },
+    { label: "Contact", href: "/#contact" },
   ];
 
   const isActive = (href: string) => {
-    if (href === "/") {
-      return pathname === "/";
+    if (href === "/#projects" && (pathname === "/projects" || pathname.startsWith("/projects/"))) {
+      return true;
     }
-    if (href === "/projects") {
-      return pathname === "/projects" || pathname.startsWith("/projects/");
+    if (href === "/#about" && pathname === "/about") {
+      return true;
     }
-    return pathname === href;
+    if (href === "/#contact" && pathname === "/contact") {
+      return true;
+    }
+    return false;
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-zinc-800/80 bg-zinc-950/85 backdrop-blur-md">
       <Container size="default">
         <div className="flex h-16 items-center justify-between">
           {/* Logo / Brand */}
@@ -38,7 +42,7 @@ export function Navbar() {
             className="group flex items-center gap-2.5 text-zinc-100 hover:text-white transition-colors"
           >
             <div className="flex h-8 w-8 items-center justify-center rounded border border-zinc-700 bg-zinc-900 group-hover:border-zinc-500 transition-colors">
-              <Terminal className="h-4 w-4 text-zinc-300 group-hover:text-white transition-colors" />
+              <Terminal className="h-4 w-4 text-emerald-400 group-hover:text-emerald-300 transition-colors" />
             </div>
             <div className="flex flex-col">
               <span className="text-sm font-semibold tracking-tight">
@@ -50,17 +54,17 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          {/* Desktop Navigation: Clean Section Links */}
+          <nav className="hidden md:flex items-center gap-1 font-mono text-xs">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               return (
                 <Link
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
-                  className={`px-3.5 py-1.5 text-xs font-medium rounded-md transition-colors ${
+                  className={`px-3 py-1.5 rounded-md transition-colors ${
                     active
-                      ? "text-zinc-100 bg-zinc-800/90 border border-zinc-700/70"
+                      ? "text-emerald-400 bg-emerald-950/40 border border-emerald-900/60 font-semibold"
                       : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/60"
                   }`}
                 >
@@ -77,6 +81,16 @@ export function Navbar() {
               <span>Panorama Electronics</span>
             </div>
             <a
+              href="https://github.com/soumikbur"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1.5 rounded border border-zinc-800 bg-zinc-900/80 text-zinc-400 hover:text-white hover:border-zinc-700 transition-colors"
+              aria-label="Soumik Ghosh GitHub"
+              title="GitHub Profile"
+            >
+              <GithubIcon className="h-3.5 w-3.5" />
+            </a>
+            <a
               href="https://www.linkedin.com/in/soumik-ghosh-883a1a22b/"
               target="_blank"
               rel="noopener noreferrer"
@@ -87,10 +101,10 @@ export function Navbar() {
               <LinkedinIcon className="h-3.5 w-3.5 text-[#0a66c2]" />
             </a>
             <Link
-              href="/contact"
-              className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-1.5 rounded bg-zinc-100 text-zinc-950 hover:bg-white transition-colors font-semibold"
+              href="/#contact"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded bg-zinc-100 text-zinc-950 hover:bg-white transition-colors"
             >
-              <span>Get in Touch</span>
+              <span>Contact</span>
               <ArrowUpRight className="h-3 w-3" />
             </Link>
           </div>
@@ -99,7 +113,7 @@ export function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-zinc-400 hover:text-zinc-100 cursor-pointer"
+            className="md:hidden p-2 text-zinc-400 hover:text-zinc-100 cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Toggle Navigation Menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -112,33 +126,44 @@ export function Navbar() {
           <div className="md:hidden border-t border-zinc-800 py-3 px-2 space-y-1 bg-zinc-950 animate-[slideDown_0.2s_ease-out]">
             {navLinks.map((link) => (
               <Link
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-4 py-3 text-sm font-medium rounded-md ${
+                className={`block px-4 py-3 text-sm font-mono rounded-md min-h-[44px] flex items-center ${
                   isActive(link.href)
-                    ? "text-zinc-100 bg-zinc-800"
-                    : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900"
+                    ? "text-emerald-400 bg-emerald-950/40 border border-emerald-900/60 font-semibold"
+                    : "text-zinc-300 hover:text-white hover:bg-zinc-900"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
+
             <div className="pt-3 border-t border-zinc-800 mt-2 space-y-2">
-              <a
-                href="https://www.linkedin.com/in/soumik-ghosh-883a1a22b/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 text-xs font-semibold px-4 py-3 rounded border border-zinc-800 bg-zinc-900 text-zinc-300 hover:text-white"
-              >
-                <LinkedinIcon className="h-3.5 w-3.5 text-[#0a66c2]" />
-                <span>LinkedIn Profile</span>
-                <ArrowUpRight className="h-3 w-3 opacity-60" />
-              </a>
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href="https://github.com/soumikbur"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 text-xs font-mono px-3 py-2.5 rounded border border-zinc-800 bg-zinc-900 text-zinc-300 hover:text-white min-h-[44px]"
+                >
+                  <GithubIcon className="h-3.5 w-3.5" />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/soumik-ghosh-883a1a22b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 text-xs font-mono px-3 py-2.5 rounded border border-zinc-800 bg-zinc-900 text-zinc-300 hover:text-white min-h-[44px]"
+                >
+                  <LinkedinIcon className="h-3.5 w-3.5 text-[#0a66c2]" />
+                  <span>LinkedIn</span>
+                </a>
+              </div>
               <Link
-                href="/contact"
+                href="/#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 text-xs font-semibold px-4 py-3 rounded bg-zinc-100 text-zinc-950 hover:bg-white"
+                className="w-full flex items-center justify-center gap-2 text-xs font-semibold px-4 py-3 rounded bg-zinc-100 text-zinc-950 hover:bg-white min-h-[44px]"
               >
                 <span>Get in Touch</span>
                 <ArrowUpRight className="h-3.5 w-3.5" />

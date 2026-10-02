@@ -55,8 +55,8 @@ export function ProjectList({ projects }: ProjectListProps) {
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-        {filteredProjects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+        {filteredProjects.map((project, index) => (
+          <ProjectCard key={project.slug} project={project} index={index} />
         ))}
       </div>
     </div>
