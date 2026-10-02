@@ -176,11 +176,13 @@ export default function AboutPage() {
               </h1>
 
               <div className="flex flex-wrap items-center gap-2 font-mono text-sm text-zinc-300">
-                <span className="text-emerald-400 font-semibold uppercase tracking-wider">
+                <span className="text-gradient-emerald-cyan font-bold uppercase tracking-wider">
                   Embedded Software Developer
                 </span>
                 <span className="text-zinc-600">|</span>
-                <span className="text-zinc-400">Firmware & Industrial IoT</span>
+                <span className="text-cyan-400">Firmware</span>
+                <span className="text-zinc-600">&amp;</span>
+                <span className="text-violet-400">Industrial IoT</span>
               </div>
 
               <p className="text-base sm:text-lg text-zinc-300 max-w-2xl leading-relaxed pt-2">
@@ -188,13 +190,13 @@ export default function AboutPage() {
               </p>
 
               <p className="text-sm text-zinc-400 max-w-2xl leading-relaxed">
-                Currently working as an Embedded Software Developer at <strong className="text-zinc-200 font-medium">Panorama Electronics Pvt. Ltd.</strong> in Kolkata, India. Rather than treating firmware and application software as disconnected disciplines, I engineer integrated architectures—connecting physical sensors, microcontrollers, and real-time operating systems with cloud telemetry, industrial fieldbuses, and responsive operational tools.
+                Currently working as an Embedded Software Developer at <strong className="text-zinc-100 font-medium">Panorama Electronics Pvt. Ltd.</strong> in Kolkata, India. Rather than treating firmware and application software as disconnected disciplines, I engineer integrated architectures—connecting physical sensors, microcontrollers, and real-time operating systems with cloud telemetry, industrial fieldbuses, and responsive operational tools.
               </p>
 
               <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-3">
                 <Button
                   href="/projects"
-                  variant="primary"
+                  variant="emerald"
                   size="md"
                   icon={<ArrowUpRight className="h-4 w-4" />}
                 >
@@ -204,7 +206,7 @@ export default function AboutPage() {
                   href="https://www.linkedin.com/in/soumik-ghosh-883a1a22b/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 text-xs font-semibold text-zinc-200 transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 text-xs font-semibold text-blue-300 hover:text-white transition-colors"
                 >
                   <LinkedinIcon className="h-4 w-4 text-[#0a66c2]" />
                   <span>LinkedIn Profile</span>
@@ -214,7 +216,7 @@ export default function AboutPage() {
                   href="https://github.com/soumikbur"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 text-xs font-semibold text-zinc-200 transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-zinc-700 bg-zinc-900/80 hover:bg-zinc-800 text-xs font-semibold text-zinc-200 hover:text-white transition-colors"
                 >
                   <GithubIcon className="h-4 w-4 text-zinc-300" />
                   <span>GitHub Profile</span>
@@ -225,7 +227,7 @@ export default function AboutPage() {
 
             {/* Right: Verified Profile Photo */}
             <div className="lg:col-span-4 flex justify-center lg:justify-end">
-              <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl">
+              <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl ring-1 ring-emerald-500/30 glow-card-emerald">
                 <Image
                   src="/images/soumik-ghosh.jpg"
                   alt="Soumik Ghosh — Embedded Software Developer"
@@ -247,11 +249,11 @@ export default function AboutPage() {
             description="Verified organization and current engineering responsibilities."
           />
 
-          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-8 space-y-4">
+          <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-8 space-y-4 hover:border-zinc-700 transition-colors">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800 pb-4">
               <div>
                 <div className="flex items-center gap-2.5">
-                  <div className="h-8 w-8 rounded border border-zinc-700 bg-zinc-900 flex items-center justify-center text-emerald-400">
+                  <div className="h-10 w-10 rounded-lg border border-emerald-800/80 bg-emerald-950/50 flex items-center justify-center text-emerald-400 shadow-[0_0_15px_-4px_rgba(16,185,129,0.3)]">
                     <Briefcase className="h-4 w-4" />
                   </div>
                   <div>
@@ -266,10 +268,10 @@ export default function AboutPage() {
               </div>
               <div className="flex items-center gap-3 text-xs font-mono text-zinc-400">
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="h-3.5 w-3.5 text-zinc-500" />
+                  <MapPin className="h-3.5 w-3.5 text-cyan-400" />
                   Kolkata, West Bengal, India
                 </span>
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-800 text-[11px] text-emerald-400 font-semibold">
+                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-800 text-[11px] text-emerald-300 font-semibold shadow-[0_0_10px_-3px_rgba(16,185,129,0.3)]">
                   Current Role
                 </span>
               </div>
@@ -280,7 +282,7 @@ export default function AboutPage() {
                 Engaged in the development and firmware architecture of embedded systems, industrial monitoring controllers, and connected IoT telemetry solutions.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 pt-2">
-                <div className="rounded border border-zinc-800/80 bg-zinc-950/60 p-3 space-y-1">
+                <div className="rounded border border-emerald-900/60 bg-emerald-950/30 p-3.5 space-y-1 hover:border-emerald-700 transition-colors">
                   <div className="font-mono text-[11px] text-emerald-400 uppercase font-semibold">
                     Core Hardware & RTOS
                   </div>
@@ -288,16 +290,16 @@ export default function AboutPage() {
                     STM32 (Cortex-M), ESP32-S3, FreeRTOS deterministic task scheduling
                   </div>
                 </div>
-                <div className="rounded border border-zinc-800/80 bg-zinc-950/60 p-3 space-y-1">
-                  <div className="font-mono text-[11px] text-emerald-400 uppercase font-semibold">
+                <div className="rounded border border-cyan-900/60 bg-cyan-950/30 p-3.5 space-y-1 hover:border-cyan-700 transition-colors">
+                  <div className="font-mono text-[11px] text-cyan-400 uppercase font-semibold">
                     Industrial Communication
                   </div>
                   <div className="text-xs text-zinc-300">
                     RS-485 Modbus RTU, Quectel 4G LTE Cat-1, MQTT over TLS 1.2
                   </div>
                 </div>
-                <div className="rounded border border-zinc-800/80 bg-zinc-950/60 p-3 space-y-1">
-                  <div className="font-mono text-[11px] text-emerald-400 uppercase font-semibold">
+                <div className="rounded border border-violet-900/60 bg-violet-950/30 p-3.5 space-y-1 hover:border-violet-700 transition-colors">
+                  <div className="font-mono text-[11px] text-violet-400 uppercase font-semibold">
                     System Applications
                   </div>
                   <div className="text-xs text-zinc-300">

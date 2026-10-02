@@ -4,6 +4,14 @@ import { Container } from "../ui/Container";
 interface SkillCategory {
   idx: string;
   name: string;
+  theme: {
+    badge: string;
+    border: string;
+    hoverBorder: string;
+    hoverText: string;
+    noteHover: string;
+    shadow: string;
+  };
   skills: { name: string; note: string }[];
 }
 
@@ -11,6 +19,14 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     idx: "01",
     name: "Embedded & Firmware Engineering",
+    theme: {
+      badge: "text-emerald-400 bg-emerald-950/60 border-emerald-800/80 shadow-[0_0_12px_-3px_rgba(16,185,129,0.3)]",
+      border: "border-zinc-800/80 hover:border-emerald-600/80",
+      hoverBorder: "hover:border-emerald-650",
+      hoverText: "group-hover:text-emerald-300",
+      noteHover: "group-hover/chip:text-emerald-400",
+      shadow: "hover:shadow-[0_4px_24px_-6px_rgba(16,185,129,0.18)]",
+    },
     skills: [
       { name: "STM32 (ARM Cortex-M)", note: "STM32F411 & STM32L431 bare-metal & HAL" },
       { name: "ESP32 & ESP32-S3", note: "Dual-core FreeRTOS & Wi-Fi/BLE" },
@@ -22,6 +38,14 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     idx: "02",
     name: "Industrial Protocols & Fieldbuses",
+    theme: {
+      badge: "text-cyan-400 bg-cyan-950/60 border-cyan-800/80 shadow-[0_0_12px_-3px_rgba(6,182,212,0.3)]",
+      border: "border-zinc-800/80 hover:border-cyan-600/80",
+      hoverBorder: "hover:border-cyan-650",
+      hoverText: "group-hover:text-cyan-300",
+      noteHover: "group-hover/chip:text-cyan-400",
+      shadow: "hover:shadow-[0_4px_24px_-6px_rgba(6,182,212,0.18)]",
+    },
     skills: [
       { name: "RS-485 Modbus RTU", note: "Master/Slave protocol with CRC-16 verification" },
       { name: "I2C & SPI Serial Bus", note: "Peripheral sensor & memory integration" },
@@ -32,6 +56,14 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     idx: "03",
     name: "Wireless, Cellular & Cloud Telemetry",
+    theme: {
+      badge: "text-blue-400 bg-blue-950/60 border-blue-800/80 shadow-[0_0_12px_-3px_rgba(59,130,246,0.3)]",
+      border: "border-zinc-800/80 hover:border-blue-600/80",
+      hoverBorder: "hover:border-blue-650",
+      hoverText: "group-hover:text-blue-300",
+      noteHover: "group-hover/chip:text-blue-400",
+      shadow: "hover:shadow-[0_4px_24px_-6px_rgba(59,130,246,0.18)]",
+    },
     skills: [
       { name: "Quectel 4G LTE Cat-1", note: "Automated socket reconnection & cloud dispatch" },
       { name: "GNSS / GPS Tracking", note: "Coordinate decoding & precision clock sync" },
@@ -42,6 +74,14 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     idx: "04",
     name: "Hardware Interfaces, Memory & Diagnostics",
+    theme: {
+      badge: "text-violet-400 bg-violet-950/60 border-violet-800/80 shadow-[0_0_12px_-3px_rgba(139,92,246,0.3)]",
+      border: "border-zinc-800/80 hover:border-violet-600/80",
+      hoverBorder: "hover:border-violet-650",
+      hoverText: "group-hover:text-violet-300",
+      noteHover: "group-hover/chip:text-violet-400",
+      shadow: "hover:shadow-[0_4px_24px_-6px_rgba(139,92,246,0.18)]",
+    },
     skills: [
       { name: "SPI NOR Flash Storage", note: "W25Qxx external flash with FATFS logging" },
       { name: "Hardware Watchdog", note: "Fail-safe recovery & peripheral fault mitigation" },
@@ -52,6 +92,14 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     idx: "05",
     name: "Desktop SCADA & Full-Stack Interfaces",
+    theme: {
+      badge: "text-teal-400 bg-teal-950/60 border-teal-800/80 shadow-[0_0_12px_-3px_rgba(20,184,166,0.3)]",
+      border: "border-zinc-800/80 hover:border-teal-600/80",
+      hoverBorder: "hover:border-teal-650",
+      hoverText: "group-hover:text-teal-300",
+      noteHover: "group-hover/chip:text-teal-400",
+      shadow: "hover:shadow-[0_4px_24px_-6px_rgba(20,184,166,0.18)]",
+    },
     skills: [
       { name: "Qt 6 / QML Desktop SCADA", note: "Cross-platform industrial operator consoles" },
       { name: "Next.js 16 & React 19", note: "Server & client components, SSR, static generation" },
@@ -63,6 +111,14 @@ const SKILL_CATEGORIES: SkillCategory[] = [
   {
     idx: "06",
     name: "Data Systems, Architecture & Quality",
+    theme: {
+      badge: "text-amber-400 bg-amber-950/60 border-amber-800/80 shadow-[0_0_12px_-3px_rgba(245,158,11,0.3)]",
+      border: "border-zinc-800/80 hover:border-amber-600/80",
+      hoverBorder: "hover:border-amber-650",
+      hoverText: "group-hover:text-amber-300",
+      noteHover: "group-hover/chip:text-amber-400",
+      shadow: "hover:shadow-[0_4px_24px_-6px_rgba(245,158,11,0.18)]",
+    },
     skills: [
       { name: "PostgreSQL & Prisma ORM", note: "ACID transactions, indexed schemas, constraints" },
       { name: "Double-Entry Ledgers", note: "Strict debit/credit stock models & audit tracking" },
@@ -75,11 +131,15 @@ const SKILL_CATEGORIES: SkillCategory[] = [
 
 export function TechnicalCapabilities() {
   return (
-    <section id="skills" className="py-14 sm:py-24 border-b border-zinc-800/80 bg-zinc-950">
+    <section id="skills" className="py-14 sm:py-24 border-b border-zinc-800/80 bg-zinc-950 relative overflow-hidden">
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-1/4 -right-28 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-28 w-96 h-96 bg-violet-500/5 rounded-full blur-3xl pointer-events-none" />
+
       <Container size="default">
         {/* Section Header with Numbering */}
         <div className="mb-10 sm:mb-14">
-          <p className="font-mono text-xs text-emerald-400 font-semibold tracking-wider uppercase">
+          <p className="font-mono text-xs font-semibold tracking-wider uppercase text-gradient-emerald-cyan">
             04 · Skills
           </p>
           <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mt-1.5">
@@ -95,30 +155,30 @@ export function TechnicalCapabilities() {
           {SKILL_CATEGORIES.map((cat) => (
             <div
               key={cat.idx}
-              className="group rounded-xl border border-zinc-800/80 bg-zinc-900/40 p-4 sm:p-6 backdrop-blur-sm hover:border-zinc-700 hover:bg-zinc-900/70 transition-all flex flex-col lg:flex-row lg:items-start justify-between gap-4"
+              className={`group rounded-xl border bg-zinc-900/40 p-4 sm:p-6 backdrop-blur-sm ${cat.theme.border} ${cat.theme.shadow} transition-all duration-200 flex flex-col lg:flex-row lg:items-start justify-between gap-4`}
             >
-              {/* Category Header with Index */}
-              <div className="lg:w-1/3 shrink-0 flex items-center lg:items-start gap-3">
-                <span className="font-mono text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-900/60 px-2.5 py-1 rounded">
+              {/* Category Header with Colored Index */}
+              <div className="lg:w-1/3 xl:w-1/4 shrink-0 flex items-center lg:items-start gap-3">
+                <span className={`font-mono text-xs font-bold px-2.5 py-1 rounded border ${cat.theme.badge}`}>
                   {cat.idx}
                 </span>
-                <h3 className="text-sm sm:text-base font-bold text-zinc-100 group-hover:text-emerald-300 transition-colors">
+                <h3 className={`text-sm sm:text-base font-bold text-zinc-100 ${cat.theme.hoverText} transition-colors`}>
                   {cat.name}
                 </h3>
               </div>
 
               {/* Skills Chips with Context Notes */}
-              <div className="lg:w-2/3 flex flex-wrap gap-2">
+              <div className="lg:w-2/3 xl:w-3/4 flex flex-wrap gap-2">
                 {cat.skills.map((skill, sIdx) => (
                   <div
                     key={sIdx}
-                    className="group/chip inline-flex flex-col px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-950/80 hover:border-zinc-650 hover:bg-zinc-900 transition-all"
+                    className="group/chip inline-flex flex-col px-3 py-1.5 rounded-lg border border-zinc-800 bg-zinc-950/80 hover:border-zinc-700 hover:bg-zinc-900 transition-all duration-150"
                     title={skill.note}
                   >
                     <span className="text-xs font-medium text-zinc-200 group-hover/chip:text-white">
                       {skill.name}
                     </span>
-                    <span className="text-[10px] font-mono text-zinc-400 group-hover/chip:text-emerald-400 transition-colors">
+                    <span className={`text-[10px] font-mono text-zinc-400 ${cat.theme.noteHover} transition-colors`}>
                       {skill.note}
                     </span>
                   </div>

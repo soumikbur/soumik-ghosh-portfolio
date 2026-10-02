@@ -102,7 +102,7 @@ export function Navbar() {
             </a>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded bg-zinc-100 text-zinc-950 hover:bg-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded bg-emerald-500 text-zinc-950 hover:bg-emerald-400 shadow-sm shadow-emerald-500/20 transition-all"
             >
               <span>Contact</span>
               <ArrowUpRight className="h-3 w-3" />
@@ -163,7 +163,7 @@ export function Navbar() {
               <Link
                 href="/#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 text-xs font-semibold px-4 py-3 rounded bg-zinc-100 text-zinc-950 hover:bg-white min-h-[44px]"
+                className="w-full flex items-center justify-center gap-2 text-xs font-semibold px-4 py-3 rounded bg-emerald-500 text-zinc-950 hover:bg-emerald-400 shadow-sm shadow-emerald-500/20 min-h-[44px] transition-all"
               >
                 <span>Get in Touch</span>
                 <ArrowUpRight className="h-3.5 w-3.5" />

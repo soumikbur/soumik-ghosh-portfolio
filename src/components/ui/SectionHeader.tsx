@@ -3,6 +3,16 @@ import { Badge } from "./Badge";
 
 interface SectionHeaderProps {
   badge?: string;
+  badgeVariant?:
+    | "neutral"
+    | "technical"
+    | "accent"
+    | "success"
+    | "emerald"
+    | "cyan"
+    | "violet"
+    | "amber"
+    | "blue";
   title: string;
   description?: string;
   alignment?: "left" | "center";
@@ -11,6 +21,7 @@ interface SectionHeaderProps {
 
 export function SectionHeader({
   badge,
+  badgeVariant = "emerald",
   title,
   description,
   alignment = "left",
@@ -23,7 +34,7 @@ export function SectionHeader({
     <div className={`flex flex-col mb-8 sm:mb-14 max-w-3xl ${alignClasses} ${className}`}>
       {badge && (
         <div className="mb-3">
-          <Badge variant="technical">{badge}</Badge>
+          <Badge variant={badgeVariant}>{badge}</Badge>
         </div>
       )}
       <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100">

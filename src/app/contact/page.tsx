@@ -16,12 +16,17 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="py-12 sm:py-24 bg-zinc-950 text-zinc-100">
-      <Container size="default">
+    <div className="relative py-12 sm:py-24 bg-zinc-950 text-zinc-100 overflow-hidden">
+      {/* Ambient background accents */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none -z-0" />
+      <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none -z-0" />
+
+      <Container size="default" className="relative z-10">
         <SectionHeader
-          badge="Direct Contact"
+          badge="Direct Inquiries"
+          badgeVariant="emerald"
           title="Get in Touch"
-          description="Have an embedded software project, internal business application, dashboard, or backend system to build? Contact me directly or submit a project message."
+          description="Have an embedded software project, internal business application, telemetry system, or backend infrastructure to engineer? Contact me directly or submit a project message."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -121,13 +126,13 @@ export default function ContactPage() {
                     required
                     rows={4}
                     placeholder="Describe what you are looking to build: e.g. system architecture, inventory/order logic, database needs, APIs, or embedded requirements..."
-                    className="w-full rounded border border-zinc-800 bg-zinc-950/80 px-3.5 py-2.5 text-xs text-zinc-100 placeholder:text-zinc-600 focus:border-zinc-600 focus:outline-none resize-none leading-relaxed"
+                    className="w-full rounded border border-zinc-800 bg-zinc-950/80 px-3.5 py-2.5 text-xs text-zinc-100 placeholder:text-zinc-600 focus:border-emerald-500/60 focus:ring-1 focus:ring-emerald-500/30 focus:outline-none resize-none leading-relaxed transition-colors"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 rounded bg-zinc-100 py-3 text-xs font-semibold text-zinc-950 hover:bg-white transition-colors cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 rounded bg-emerald-500 py-3 text-xs font-semibold text-zinc-950 hover:bg-emerald-400 shadow-md shadow-emerald-500/20 transition-all cursor-pointer"
                 >
                   <span>Submit Message</span>
                   <ArrowRight className="h-4 w-4" />
@@ -139,33 +144,34 @@ export default function ContactPage() {
           {/* Right Column: Direct Channels & Engineering Commitments */}
           <div className="lg:col-span-5 space-y-6">
             <div className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-6 space-y-4 font-mono text-xs">
-              <div className="text-zinc-300 font-semibold uppercase tracking-wider">
-                Direct Channels
+              <div className="text-zinc-300 font-semibold uppercase tracking-wider flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-cyan-400"></span>
+                <span>Direct Channels</span>
               </div>
               <div className="space-y-3 text-zinc-400">
                 <a
                   href="mailto:soumik.bur@gmail.com"
-                  className="flex items-center gap-2.5 text-zinc-200 hover:text-white transition-colors"
+                  className="flex items-center gap-2.5 text-zinc-200 hover:text-cyan-300 transition-colors group"
                 >
-                  <Mail className="h-4 w-4 text-zinc-400" />
+                  <Mail className="h-4 w-4 text-cyan-400 group-hover:scale-110 transition-transform" />
                   <span>soumik.bur@gmail.com</span>
                 </a>
                 <a
                   href="https://github.com/soumikbur"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 text-zinc-200 hover:text-white transition-colors"
+                  className="flex items-center gap-2.5 text-zinc-200 hover:text-violet-300 transition-colors group"
                 >
-                  <GithubIcon className="h-4 w-4 text-zinc-400" />
+                  <GithubIcon className="h-4 w-4 text-violet-400 group-hover:scale-110 transition-transform" />
                   <span>github.com/soumikbur</span>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/soumik-ghosh-883a1a22b/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 text-zinc-200 hover:text-white transition-colors min-w-0"
+                  className="flex items-center gap-2.5 text-zinc-200 hover:text-emerald-300 transition-colors min-w-0 group"
                 >
-                  <LinkedinIcon className="h-4 w-4 text-zinc-400 shrink-0" />
+                  <LinkedinIcon className="h-4 w-4 text-emerald-400 shrink-0 group-hover:scale-110 transition-transform" />
                   <span className="truncate">linkedin.com/in/soumik-ghosh</span>
                 </a>
               </div>

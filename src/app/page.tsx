@@ -52,7 +52,7 @@ export default function HomePage() {
             </div>
             <Button
               href="/projects"
-              variant="outline"
+              variant="outline-cyan"
               size="md"
               icon={<ArrowRight className="h-4 w-4" />}
             >

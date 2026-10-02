@@ -12,6 +12,47 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
+  // Category-based color accents for purposeful visual differentiation
+  const getCategoryTheme = (group: string) => {
+    switch (group) {
+      case "Embedded Systems":
+        return {
+          hoverBorder: "hover:border-emerald-600/80 hover:shadow-[0_4px_28px_-6px_rgba(16,185,129,0.22)]",
+          titleHover: "group-hover:text-emerald-300",
+          tagVariant: "emerald" as const,
+          indexColor: "text-emerald-400/80",
+          dotColor: "bg-emerald-400",
+        };
+      case "Dashboards & Tools":
+        return {
+          hoverBorder: "hover:border-cyan-600/80 hover:shadow-[0_4px_28px_-6px_rgba(6,182,212,0.22)]",
+          titleHover: "group-hover:text-cyan-300",
+          tagVariant: "cyan" as const,
+          indexColor: "text-cyan-400/80",
+          dotColor: "bg-cyan-400",
+        };
+      case "Full-Stack Applications":
+        return {
+          hoverBorder: "hover:border-violet-600/80 hover:shadow-[0_4px_28px_-6px_rgba(139,92,246,0.22)]",
+          titleHover: "group-hover:text-violet-300",
+          tagVariant: "violet" as const,
+          indexColor: "text-violet-400/80",
+          dotColor: "bg-violet-400",
+        };
+      case "Geospatial & Web":
+      default:
+        return {
+          hoverBorder: "hover:border-amber-600/80 hover:shadow-[0_4px_28px_-6px_rgba(245,158,11,0.22)]",
+          titleHover: "group-hover:text-amber-300",
+          tagVariant: "amber" as const,
+          indexColor: "text-amber-400/80",
+          dotColor: "bg-amber-400",
+        };
+    }
+  };
+
+  const theme = getCategoryTheme(project.categoryGroup);
+
   // Status style mapping based on project statusVariant
   const getStatusStyles = (variant?: string) => {
     switch (variant) {
@@ -42,9 +83,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   const statusStyles = getStatusStyles(project.statusVariant);
 
   return (
-    <article className="group rounded-xl border border-zinc-800/90 bg-zinc-900/40 p-4 sm:p-6 backdrop-blur-sm transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-900/70 shadow-lg flex flex-col justify-between hover:-translate-y-0.5">
+    <article
+      className={`group rounded-xl border border-zinc-800/90 bg-zinc-900/50 p-4 sm:p-6 backdrop-blur-sm transition-all duration-200 ${theme.hoverBorder} hover:bg-zinc-900/80 shadow-lg flex flex-col justify-between hover:-translate-y-0.5`}
+    >
       <div className="space-y-4">
-        {/* Project Header: Status & Index Number */}
+        {/* Project Top Bar: Status Badge, Category Tag, & Index Number */}
         <div className="flex items-center justify-between gap-2 border-b border-zinc-800/60 pb-3">
           <div className="flex items-center gap-2 flex-wrap">
             <span
@@ -53,20 +96,18 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               <span className={`h-1.5 w-1.5 rounded-full ${statusStyles.dot} animate-pulse shrink-0`} />
               <span>{project.status || "Production Ready"}</span>
             </span>
-            {project.featured && (
-              <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/50 border border-emerald-900/60 px-2 py-0.5 rounded font-medium">
-                Featured
-              </span>
-            )}
+            <Badge variant={theme.tagVariant} size="sm">
+              {project.categoryGroup}
+            </Badge>
           </div>
           {typeof index === "number" && (
-            <span className="font-mono text-xs text-zinc-500 font-semibold tracking-wider shrink-0">
+            <span className={`font-mono text-xs font-bold tracking-wider shrink-0 ${theme.indexColor}`}>
               {String(index + 1).padStart(2, "0")}
             </span>
           )}
         </div>
 
-        {/* Project Visual Image */}
+        {/* Project Visual Image with Ambient Corner Glow */}
         <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden border border-zinc-800 bg-zinc-950">
           <Image
             src={project.image}
@@ -80,7 +121,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <span
               className={`text-[10px] font-mono px-2 py-0.5 rounded backdrop-blur-md border ${
                 project.imageType === "actual"
-                  ? "bg-zinc-950/85 text-emerald-400 border-emerald-900/60"
+                  ? "bg-zinc-950/85 text-emerald-300 border-emerald-800/70"
                   : "bg-zinc-950/85 text-zinc-300 border-zinc-700/60"
               }`}
             >
@@ -94,7 +135,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           <span className="text-[11px] font-mono text-zinc-400 uppercase tracking-wider block">
             {project.category}
           </span>
-          <h3 className="text-lg sm:text-xl font-bold tracking-tight text-zinc-100 group-hover:text-emerald-300 transition-colors">
+          <h3 className={`text-lg sm:text-xl font-bold tracking-tight text-white ${theme.titleHover} transition-colors`}>
             <Link href={`/projects/${project.slug}`}>
               {project.title}
             </Link>
@@ -125,7 +166,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="pt-4 mt-5 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-3">
         <Link
           href={`/projects/${project.slug}`}
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-200 group-hover:text-emerald-400 transition-colors"
+          className={`inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-200 ${theme.titleHover} transition-colors`}
         >
           <span>View Case Study</span>
           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
@@ -137,7 +178,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[11px] font-mono text-zinc-400 hover:text-zinc-100 transition-colors px-2 py-1 rounded bg-zinc-800/60 border border-zinc-700/60 hover:border-zinc-500"
+              className="inline-flex items-center gap-1 text-[11px] font-mono text-zinc-300 hover:text-white transition-colors px-2 py-1 rounded bg-zinc-800/70 border border-zinc-700/70 hover:border-zinc-500"
               title="View GitHub Repository"
               aria-label={`${project.title} GitHub repository`}
             >
@@ -151,7 +192,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 hover:text-emerald-300 transition-colors px-2 py-1 rounded bg-emerald-950/50 border border-emerald-900/60 hover:border-emerald-700"
+              className="inline-flex items-center gap-1 text-[11px] font-mono text-cyan-300 hover:text-cyan-200 transition-colors px-2 py-1 rounded bg-cyan-950/60 border border-cyan-800/80 hover:border-cyan-600"
               title="Open Live Demonstration"
               aria-label={`${project.title} Live Demonstration`}
             >
