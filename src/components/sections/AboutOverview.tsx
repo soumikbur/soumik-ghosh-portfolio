@@ -28,14 +28,14 @@ export function AboutOverview() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column: Avatar & Quick Info Card */}
           <div className="lg:col-span-4 rounded-xl border border-zinc-800/90 bg-zinc-900/50 p-5 sm:p-6 backdrop-blur-sm shadow-xl hover:border-zinc-700 transition-colors">
-            <div className="flex items-center gap-4">
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden border border-emerald-800/60 bg-zinc-950 shrink-0 ring-1 ring-emerald-500/30">
+            <div className="flex items-center gap-4 sm:gap-5">
+              <div className="relative w-20 h-20 sm:w-24 sm:h-24 xl:w-28 xl:h-28 rounded-2xl overflow-hidden border-2 border-emerald-500/50 bg-zinc-950 shrink-0 ring-2 ring-emerald-500/30 glow-card-emerald shadow-xl">
                 <Image
                   src="/images/soumik-ghosh.jpg"
                   alt="Soumik Ghosh"
                   fill
-                  sizes="80px"
-                  className="object-cover"
+                  sizes="(max-width: 640px) 80px, 112px"
+                  className="object-cover transition-transform duration-300 hover:scale-105"
                 />
               </div>
               <div>

@@ -159,6 +159,20 @@ body {
   }
 }
 
+/* Hide custom cursor on touch and coarse pointer devices */
+@media (pointer: coarse), (hover: none) {
+  .custom-cursor-container {
+    display: none !important;
+  }
+}
+
+/* Disable custom cursor if reduced motion is requested */
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor-container {
+    display: none !important;
+  }
+}
+
 /* Horizontal scroll container for filter tabs on mobile */
 .scroll-container {
   -webkit-overflow-scrolling: touch;

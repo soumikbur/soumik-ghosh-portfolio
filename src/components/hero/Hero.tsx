@@ -121,32 +121,39 @@ export function Hero() {
                 </div>
 
                 {/* Profile Photo + Verified Credentials */}
-                <div className="flex items-center gap-4">
-                  <div className="relative rounded-xl border border-emerald-500/40 bg-zinc-950 p-1.5 shadow-lg shrink-0 glow-card-emerald">
-                    <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-lg overflow-hidden bg-zinc-950">
+                <div className="flex flex-col sm:flex-row items-center sm:items-start xl:items-center gap-4 sm:gap-5">
+                  <div className="relative rounded-2xl border-2 border-emerald-500/50 bg-zinc-950 p-1.5 shadow-2xl shrink-0 ring-2 ring-emerald-500/30 glow-card-emerald">
+                    <div className="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 rounded-xl overflow-hidden bg-zinc-950">
                       <Image
                         src="/images/soumik-ghosh.jpg"
                         alt="Soumik Ghosh — Embedded Software Developer"
-                        width={224}
-                        height={224}
+                        width={384}
+                        height={384}
                         priority
-                        className="w-full h-full object-cover object-center"
+                        className="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105"
+                        sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 192px"
                       />
                     </div>
                   </div>
-                  <div className="space-y-1 min-w-0">
-                    <h3 className="text-base sm:text-lg font-bold text-white tracking-tight truncate">
+                  <div className="space-y-1.5 min-w-0 text-center sm:text-left">
+                    <h3 className="text-lg sm:text-xl xl:text-2xl font-bold text-white tracking-tight">
                       Soumik Ghosh
                     </h3>
-                    <p className="text-xs font-mono text-emerald-400 font-medium">
+                    <p className="text-xs sm:text-sm font-mono text-emerald-400 font-semibold">
                       Embedded Software Developer
                     </p>
-                    <p className="text-[11px] font-mono text-zinc-300 truncate">
+                    <p className="text-xs font-mono text-zinc-200">
                       Panorama Electronics Pvt. Ltd.
                     </p>
-                    <p className="text-[10px] font-mono text-zinc-400">
-                      Sister Nivedita Univ · Kolkata, India
+                    <p className="text-[11px] font-mono text-zinc-400">
+                      Sister Nivedita University · Kolkata
                     </p>
+                    <div className="pt-1.5 flex justify-center sm:justify-start">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-950/70 border border-emerald-800/80 text-[10px] font-mono text-emerald-300 font-semibold shadow-sm">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>Hardware Verified · In-Field</span>
+                      </span>
+                    </div>
                   </div>
                 </div>
 
