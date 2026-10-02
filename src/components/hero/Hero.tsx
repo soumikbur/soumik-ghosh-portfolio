@@ -123,7 +123,7 @@ export function Hero() {
                 {/* Profile Photo + Verified Credentials */}
                 <div className="flex flex-col sm:flex-row items-center sm:items-start xl:items-center gap-4 sm:gap-5">
                   <div className="relative rounded-2xl border-2 border-emerald-500/50 bg-zinc-950 p-1.5 shadow-2xl shrink-0 ring-2 ring-emerald-500/30 glow-card-emerald">
-                    <div className="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 rounded-xl overflow-hidden bg-zinc-950">
+                    <div className="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-36 lg:h-36 xl:w-40 xl:h-40 2xl:w-44 2xl:h-44 rounded-xl overflow-hidden bg-zinc-950">
                       <Image
                         src="/images/soumik-ghosh.jpg"
                         alt="Soumik Ghosh — Embedded Software Developer"
@@ -131,7 +131,7 @@ export function Hero() {
                         height={384}
                         priority
                         className="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105"
-                        sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 192px"
+                        sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 176px"
                       />
                     </div>
                   </div>

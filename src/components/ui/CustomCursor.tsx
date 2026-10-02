@@ -8,7 +8,6 @@ export function CustomCursor() {
   const [cursorType, setCursorType] = useState<"default" | "pointer" | "card">("default");
   const [isClicking, setIsClicking] = useState(false);
 
-  const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
   const mousePos = useRef({ x: -100, y: -100 });
@@ -16,7 +15,7 @@ export function CustomCursor() {
   const rafId = useRef<number | null>(null);
 
   useEffect(() => {
-    // Only enable on desktop with a fine pointer (mouse/trackpad) and hover capability
+    // Only enable on desktop devices with fine pointer (mouse/trackpad) and hover capability
     const hasFinePointer = window.matchMedia("(pointer: fine) and (hover: hover)").matches;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -34,11 +33,6 @@ export function CustomCursor() {
         setIsVisible(true);
         ringPos.current.x = e.clientX;
         ringPos.current.y = e.clientY;
-      }
-
-      // Update inner dot immediately for 0ms latency precision
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
       }
     };
 
@@ -68,19 +62,19 @@ export function CustomCursor() {
     const onMouseLeaveWindow = () => setIsVisible(false);
     const onMouseEnterWindow = () => setIsVisible(true);
 
-    // Smooth physics loop for the trailing outer ring
+    // Smooth physics loop for the understated follower
     const renderLoop = () => {
-      // Linear interpolation (lerp factor: 0.18 for smooth, fluid trailing)
-      const lerp = 0.18;
+      // Gentle linear interpolation (lerp: 0.15 for subtle, silky lag)
+      const lerp = 0.15;
       ringPos.current.x += (mousePos.current.x - ringPos.current.x) * lerp;
       ringPos.current.y += (mousePos.current.y - ringPos.current.y) * lerp;
 
       if (ringRef.current) {
         let scale = 1;
-        if (cursorType === "pointer") scale = 1.45;
-        else if (cursorType === "card") scale = 1.25;
+        if (cursorType === "pointer") scale = 1.2;
+        else if (cursorType === "card") scale = 1.1;
 
-        if (isClicking) scale *= 0.85;
+        if (isClicking) scale *= 0.9;
 
         ringRef.current.style.transform = `translate3d(${ringPos.current.x}px, ${ringPos.current.y}px, 0) translate(-50%, -50%) scale(${scale})`;
       }
@@ -110,17 +104,11 @@ export function CustomCursor() {
 
   if (!mounted) return null;
 
-  // Visual styling based on interaction state
+  // Understated micro-interaction styling
   const ringVariantStyles = {
-    default: "border-emerald-500/50 bg-emerald-500/5 shadow-[0_0_10px_rgba(16,185,129,0.2)]",
-    pointer: "border-cyan-400 bg-cyan-400/15 shadow-[0_0_16px_rgba(6,182,212,0.45)] ring-1 ring-cyan-400/40",
-    card: "border-emerald-400/70 bg-emerald-500/10 shadow-[0_0_14px_rgba(16,185,129,0.3)]",
-  };
-
-  const dotVariantStyles = {
-    default: "bg-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.9)]",
-    pointer: "bg-cyan-300 shadow-[0_0_10px_rgba(6,182,212,1)] scale-125",
-    card: "bg-emerald-300 shadow-[0_0_8px_rgba(16,185,129,0.9)]",
+    default: "border-emerald-500/30 bg-emerald-500/[0.02] shadow-[0_0_8px_rgba(16,185,129,0.18)]",
+    pointer: "border-cyan-400/50 bg-cyan-400/[0.06] shadow-[0_0_12px_rgba(6,182,212,0.25)]",
+    card: "border-emerald-400/40 bg-emerald-500/[0.04] shadow-[0_0_10px_rgba(16,185,129,0.2)]",
   };
 
   return (
@@ -129,16 +117,10 @@ export function CustomCursor() {
       style={{ opacity: isVisible ? 1 : 0 }}
       aria-hidden="true"
     >
-      {/* Smooth Trailing Follower Ring */}
+      {/* Small, understated follower aura (20px diameter) */}
       <div
         ref={ringRef}
-        className={`fixed top-0 left-0 h-8 w-8 rounded-full border transition-[border-color,background-color,box-shadow] duration-200 ease-out will-change-transform ${ringVariantStyles[cursorType]}`}
-      />
-
-      {/* Immediate Micro-Precision Center Dot */}
-      <div
-        ref={dotRef}
-        className={`fixed top-0 left-0 h-1.5 w-1.5 rounded-full transition-[background-color,box-shadow,transform] duration-150 will-change-transform ${dotVariantStyles[cursorType]}`}
+        className={`fixed top-0 left-0 h-5 w-5 rounded-full border transition-[border-color,background-color,box-shadow] duration-200 ease-out will-change-transform ${ringVariantStyles[cursorType]}`}
       />
     </div>
   );
