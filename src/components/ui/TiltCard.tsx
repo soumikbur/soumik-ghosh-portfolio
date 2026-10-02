@@ -2,14 +2,14 @@
 
 import React, { useRef, useEffect, useCallback } from "react";
 
-export type TiltAccentColor = "emerald" | "cyan" | "violet" | "amber" | "neutral" | "none";
+export type TiltAccentColor = "emerald" | "cyan" | "blue" | "violet" | "amber" | "neutral" | "none";
 
 export interface TiltCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   as?: "div" | "article" | "section";
-  maxTilt?: number; // In degrees, default: 4.5 (restrained 3-6 range)
-  scale?: number; // Hover scale, default: 1.015 (subtle 1.01-1.02 range)
+  maxTilt?: number; // In degrees, default: 3.8 (restrained 2-4 range)
+  scale?: number; // Hover scale, default: 1.01 (subtle 1.005-1.015 range)
   perspective?: number; // Perspective distance in px, default: 1000
   glare?: boolean; // Enable cursor-following specular sheen
   glareMaxOpacity?: number; // Specular highlight opacity, default: 0.14
@@ -21,6 +21,7 @@ export interface TiltCardProps extends React.HTMLAttributes<HTMLDivElement> {
 const GLOW_COLORS: Record<TiltAccentColor, string> = {
   emerald: "rgba(16, 185, 129, 0.20)",
   cyan: "rgba(6, 182, 212, 0.20)",
+  blue: "rgba(59, 130, 246, 0.20)",
   violet: "rgba(139, 92, 246, 0.20)",
   amber: "rgba(245, 158, 11, 0.20)",
   neutral: "rgba(255, 255, 255, 0.08)",
