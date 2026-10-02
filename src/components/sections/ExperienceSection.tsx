@@ -48,11 +48,7 @@ export function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-zinc-950 relative overflow-hidden">
-      {/* Subtle ambient lighting */}
-      <div className="absolute top-1/2 -left-24 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 -right-24 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
-
+    <section id="experience" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-transparent relative overflow-hidden">
       <Container size="default">
         {/* Section Header with Numbering */}
         <div className="mb-12 sm:mb-16">

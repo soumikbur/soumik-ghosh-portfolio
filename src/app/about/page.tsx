@@ -151,7 +151,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 bg-zinc-950 text-zinc-100">
+    <div className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 bg-transparent text-zinc-100">
       <Container size="default">
         {/* Header / Identity Banner */}
         <div className="border-b border-zinc-800 pb-12">

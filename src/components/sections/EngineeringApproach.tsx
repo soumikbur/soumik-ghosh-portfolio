@@ -13,7 +13,7 @@ const PHASE_COLORS = [
 
 export function EngineeringApproach() {
   return (
-    <section id="methodology" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-zinc-950">
+    <section id="methodology" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-transparent">
       <Container size="default">
         {/* Section Header with Numbering */}
         <div className="mb-12 sm:mb-16">

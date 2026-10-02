@@ -6,7 +6,7 @@ import { Button } from "../ui/Button";
 
 export function ContactCTA() {
   return (
-    <section id="contact" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 bg-zinc-950 relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 bg-transparent relative overflow-hidden">
       <Container size="default">
         <div className="rounded-3xl border border-zinc-800 bg-zinc-900/60 p-6 sm:p-10 lg:p-12 xl:p-14 2xl:p-16 backdrop-blur-md shadow-2xl relative overflow-hidden">
           {/* Subtle multi-color background glow */}

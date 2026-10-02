@@ -26,7 +26,7 @@ export default function HomePage() {
       <ExperienceSection />
 
       {/* 03 · Featured Projects */}
-      <section id="projects" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-zinc-950">
+      <section id="projects" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-transparent">
         <Container size="default">
           <div className="mb-12 sm:mb-16">
             <p className="font-mono text-xs text-emerald-400 font-semibold tracking-wider uppercase">

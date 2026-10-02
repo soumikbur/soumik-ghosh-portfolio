@@ -134,12 +134,8 @@ export function TechnicalCapabilities() {
   return (
     <section
       id="skills"
-      className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-zinc-950 relative overflow-hidden"
+      className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-transparent relative overflow-hidden"
     >
-      {/* Subtle ambient lighting */}
-      <div className="absolute top-1/4 -right-28 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 -left-28 w-96 h-96 bg-violet-500/5 rounded-full blur-3xl pointer-events-none" />
-
       <Container size="default">
         {/* Section Header with Numbering */}
         <div className="mb-12 sm:mb-16">

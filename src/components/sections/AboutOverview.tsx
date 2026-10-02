@@ -5,9 +5,7 @@ import { Container } from "../ui/Container";
 
 export function AboutOverview() {
   return (
-    <section id="about" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-zinc-950 relative overflow-hidden">
-      {/* Subtle ambient lighting */}
-      <div className="absolute top-1/3 -right-24 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+    <section id="about" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-transparent relative overflow-hidden">
 
       <Container size="default">
         {/* Section Header with Numbering */}

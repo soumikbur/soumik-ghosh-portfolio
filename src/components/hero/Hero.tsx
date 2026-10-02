@@ -12,12 +12,7 @@ import { TiltCard } from "../ui/TiltCard";
 
 export function Hero() {
   return (
-    <section className="relative pt-10 pb-16 sm:pt-16 sm:pb-24 lg:pt-24 lg:pb-32 xl:pt-28 xl:pb-40 border-b border-zinc-800/80 bg-zinc-950 overflow-hidden bg-tech-grid">
-      {/* Ambient Radial Color Meshes */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 -right-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[600px] h-64 bg-violet-500/5 rounded-full blur-3xl pointer-events-none" />
-
+    <section className="relative pt-10 pb-16 sm:pt-16 sm:pb-24 lg:pt-24 lg:pb-32 xl:pt-28 xl:pb-40 border-b border-zinc-800/80 bg-transparent overflow-hidden">
       <Container size="hero">
         <GsapHero>
           {/* Top Identity Block: Grid with Text/CTAs on Left, Clean Standalone Portrait on Right */}

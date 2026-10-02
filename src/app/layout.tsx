@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { CustomCursor } from "@/components/ui/CustomCursor";
+import { AmbientBackground } from "@/components/layout/AmbientBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -132,9 +133,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-100 selection:bg-zinc-800 selection:text-white">
+      <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-100 selection:bg-zinc-800 selection:text-white relative">
+        <AmbientBackground />
         <Navbar />
-        <main className="flex-1 flex flex-col">
+        <main className="flex-1 flex flex-col relative z-10">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />
