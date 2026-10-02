@@ -11,7 +11,6 @@ interface NetworkNode {
   baseAlpha: number;
   parallax: number;
   pulsePhase: number;
-  hasGlow: boolean;
 }
 
 // Section color palettes [R, G, B]
@@ -49,7 +48,7 @@ type SectionKey = keyof typeof SECTION_PALETTES;
  * AmbientBackground: Subtle, continuously running ambient technical background.
  * Features:
  *  - Faint, slowly moving coordinate grid with subtle crosshair intersections.
- *  - Slowly drifting constellation network nodes with noticeable, crisp dots and glowing anchor halos.
+ *  - Slowly drifting constellation network nodes and connection lines.
  *  - Soft, diffusing radial accent glow pools with section-aware color transitions.
  *  - Slow, atmospheric horizontal energy sweep wave.
  *  - Smooth scroll parallax integration.
@@ -100,27 +99,19 @@ export function AmbientBackground() {
 
       // Re-populate network nodes for current viewport size
       const isMobile = width < 640;
-      const nodeCount = isMobile ? 26 : 42;
+      const nodeCount = isMobile ? 22 : 36;
       const nodes: NetworkNode[] = [];
 
       for (let i = 0; i < nodeCount; i++) {
-        // Every 4th node is an anchor node with subtle radiant halo
-        const hasGlow = i % 4 === 0;
-
         nodes.push({
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.22,
-          vy: (Math.random() - 0.5) * 0.18,
-          radius: hasGlow
-            ? 2.0 + Math.random() * 0.8
-            : 1.4 + Math.random() * 0.8,
-          baseAlpha: hasGlow
-            ? 0.45 + Math.random() * 0.25
-            : 0.30 + Math.random() * 0.25,
+          vx: (Math.random() - 0.5) * 0.28,
+          vy: (Math.random() - 0.5) * 0.22,
+          radius: 1.0 + Math.random() * 1.3,
+          baseAlpha: 0.18 + Math.random() * 0.28,
           parallax: 0.03 + Math.random() * 0.07,
           pulsePhase: Math.random() * Math.PI * 2,
-          hasGlow,
         });
       }
 
@@ -341,9 +332,9 @@ export function AmbientBackground() {
       }
       ctx.stroke();
 
-      // 4. Drifting Network Nodes & Constellation Lines (Crisp & Noticeable Dots)
+      // 4. Drifting Network Nodes & Constellation Lines
       const nodes = nodesRef.current;
-      const maxDistance = 125;
+      const maxDistance = 120;
       const maxDistSq = maxDistance * maxDistance;
 
       for (let i = 0; i < nodes.length; i++) {
@@ -360,27 +351,9 @@ export function AmbientBackground() {
         // Parallax position
         const renderY = (node.y - scrollVal * node.parallax + height * 10) % height;
         const pulse = Math.sin(time * 0.0015 + node.pulsePhase) * 0.25 + 0.75;
-        const alpha = Math.min(1, node.baseAlpha * pulse);
+        const alpha = node.baseAlpha * pulse;
 
-        // Draw soft ambient glow halo around anchor nodes
-        if (node.hasGlow) {
-          const haloGrad = ctx.createRadialGradient(
-            node.x,
-            renderY,
-            0,
-            node.x,
-            renderY,
-            node.radius * 3.4
-          );
-          haloGrad.addColorStop(0, `rgba(${pR}, ${pG}, ${pB}, ${(alpha * 0.35).toFixed(3)})`);
-          haloGrad.addColorStop(1, `rgba(${pR}, ${pG}, ${pB}, 0)`);
-          ctx.fillStyle = haloGrad;
-          ctx.beginPath();
-          ctx.arc(node.x, renderY, node.radius * 3.4, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        // Draw crisp central node dot
+        // Draw node dot
         ctx.fillStyle = `rgba(${pR}, ${pG}, ${pB}, ${alpha.toFixed(3)})`;
         ctx.beginPath();
         ctx.arc(node.x, renderY, node.radius, 0, Math.PI * 2);
@@ -396,9 +369,9 @@ export function AmbientBackground() {
 
           if (distSq < maxDistSq) {
             const dist = Math.sqrt(distSq);
-            const lineAlpha = (1 - dist / maxDistance) * 0.075 * pulse;
+            const lineAlpha = (1 - dist / maxDistance) * 0.06 * pulse;
             ctx.strokeStyle = `rgba(${sR}, ${sG}, ${sB}, ${lineAlpha.toFixed(3)})`;
-            ctx.lineWidth = 0.85;
+            ctx.lineWidth = 0.8;
             ctx.beginPath();
             ctx.moveTo(node.x, renderY);
             ctx.lineTo(other.x, otherRenderY);
