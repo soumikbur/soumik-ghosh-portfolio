@@ -12,6 +12,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   const navLinks = [
+    { label: "Home", href: "/" },
     { label: "About", href: "/#about" },
     { label: "Experience", href: "/#experience" },
     { label: "Projects", href: "/#projects" },
@@ -20,6 +21,9 @@ export function Navbar() {
   ];
 
   const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
     if (href === "/#projects" && (pathname === "/projects" || pathname.startsWith("/projects/"))) {
       return true;
     }
@@ -39,7 +43,9 @@ export function Navbar() {
           {/* Logo / Brand */}
           <Link
             href="/"
-            className="group flex items-center gap-2.5 text-zinc-100 hover:text-white transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+            className="group flex items-center gap-2.5 text-zinc-100 hover:text-white transition-colors cursor-pointer"
+            aria-label="Soumik Ghosh — Back to Home"
           >
             <div className="flex h-8 w-8 items-center justify-center rounded border border-zinc-700 bg-zinc-900 group-hover:border-zinc-500 transition-colors">
               <Terminal className="h-4 w-4 text-emerald-400 group-hover:text-emerald-300 transition-colors" />
@@ -76,7 +82,7 @@ export function Navbar() {
 
           {/* CTA & Status Badge */}
           <div className="hidden md:flex items-center gap-2.5">
-            <div className="flex items-center gap-2 px-2.5 py-1 rounded border border-emerald-900/60 bg-emerald-950/40 text-[11px] font-mono text-emerald-400">
+            <div className="hidden lg:flex items-center gap-2 px-2.5 py-1 rounded border border-emerald-900/60 bg-emerald-950/40 text-[11px] font-mono text-emerald-400">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span>Panorama Electronics</span>
             </div>

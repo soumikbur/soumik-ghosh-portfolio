@@ -102,13 +102,18 @@ export function PageTransition({ children }: PageTransitionProps) {
         const dest = new URL(link.href, window.location.origin);
         const currentPath = window.location.pathname;
 
-        // If clicking link to the exact same page, don't re-animate
-        if (dest.pathname === currentPath && dest.hash === window.location.hash) {
+        // If navigating to an anchor on current page e.g. "/#projects" — let browser handle it
+        if (dest.pathname === currentPath && dest.hash) {
           return;
         }
 
-        // If navigating to an anchor on current page e.g. "/#projects"
-        if (dest.pathname === currentPath && dest.hash) {
+        // If clicking link to the exact same page with no hash (e.g. logo/home click),
+        // scroll to top and reset hash — don't re-animate the page transition
+        if (dest.pathname === currentPath && !dest.hash) {
+          e.preventDefault();
+          const prefersRM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          window.history.replaceState(null, "", dest.pathname);
+          window.scrollTo({ top: 0, left: 0, behavior: prefersRM ? "instant" : "smooth" });
           return;
         }
 

@@ -111,8 +111,8 @@ export function TelemetryPipeline() {
 
   return (
     <TiltCard
-      maxTilt={2.8}
-      scale={1.008}
+      maxTilt={2}
+      scale={1.005}
       perspective={1200}
       accentGlow="emerald"
       glareMaxOpacity={0.12}

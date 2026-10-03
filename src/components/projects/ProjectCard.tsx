@@ -170,10 +170,10 @@ export function ProjectCard({ project, index, enableTilt }: ProjectCardProps) {
       <div className="pt-4 sm:pt-5 mt-6 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-3">
         <Link
           href={`/projects/${project.slug}`}
-          className={`inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-200 ${theme.titleHover} transition-colors`}
+          className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2.5 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-500/25 hover:border-emerald-400 hover:text-emerald-100 transition-all duration-150 shadow-sm shadow-emerald-950/40 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
         >
           <span>View Case Study</span>
-          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
         </Link>
 
         <div className="flex items-center gap-2">
@@ -182,13 +182,13 @@ export function ProjectCard({ project, index, enableTilt }: ProjectCardProps) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[11px] font-mono text-zinc-300 hover:text-white transition-colors px-2 py-1 rounded bg-zinc-800/70 border border-zinc-700/70 hover:border-zinc-500"
+              className="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-zinc-300 hover:text-white transition-colors px-3 py-2 rounded-lg bg-zinc-800/80 border border-zinc-700/80 hover:bg-zinc-700/80 hover:border-zinc-500 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
               title="View GitHub Repository"
               aria-label={`${project.title} GitHub repository`}
             >
-              <GithubIcon className="h-3 w-3" />
+              <GithubIcon className="h-3.5 w-3.5" />
               <span>Code</span>
-              <ArrowUpRight className="h-2.5 w-2.5 opacity-60" />
+              <ArrowUpRight className="h-3 w-3 opacity-70" />
             </a>
           )}
           {project.demo && (
@@ -196,13 +196,13 @@ export function ProjectCard({ project, index, enableTilt }: ProjectCardProps) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[11px] font-mono text-cyan-300 hover:text-cyan-200 transition-colors px-2 py-1 rounded bg-cyan-950/60 border border-cyan-800/80 hover:border-cyan-600"
+              className="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium text-cyan-300 hover:text-cyan-100 transition-colors px-3 py-2 rounded-lg bg-cyan-950/50 border border-cyan-800/60 hover:bg-cyan-900/60 hover:border-cyan-600 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
               title="Open Live Demonstration"
               aria-label={`${project.title} Live Demonstration`}
             >
-              <ExternalLink className="h-3 w-3" />
+              <ExternalLink className="h-3.5 w-3.5" />
               <span>Demo</span>
-              <ArrowUpRight className="h-2.5 w-2.5 opacity-60" />
+              <ArrowUpRight className="h-3 w-3 opacity-70" />
             </a>
           )}
         </div>
@@ -217,8 +217,8 @@ export function ProjectCard({ project, index, enableTilt }: ProjectCardProps) {
       <TiltCard
         as="article"
         accentGlow={theme.tagVariant}
-        maxTilt={3.8}
-        scale={1.012}
+        maxTilt={1.8}
+        scale={1.005}
         className={cardClasses}
       >
         {cardInnerContent}

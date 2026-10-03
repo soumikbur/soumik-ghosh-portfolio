@@ -249,8 +249,8 @@ export default function AboutPage() {
 
           <TiltCard
             accentGlow="emerald"
-            maxTilt={3.5}
-            scale={1.01}
+            maxTilt={1.5}
+            scale={1.005}
             className="rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 sm:p-8 space-y-4 hover:border-zinc-700 transition-[border-color,background-color,box-shadow]"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800 pb-4">

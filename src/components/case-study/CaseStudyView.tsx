@@ -185,8 +185,8 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 </span>
               </div>
               <TiltCard
-                maxTilt={3}
-                scale={1.008}
+                maxTilt={2}
+                scale={1.005}
                 accentGlow="emerald"
                 className="rounded-xl border border-zinc-800 bg-zinc-950 p-2 sm:p-3 overflow-hidden shadow-2xl"
               >

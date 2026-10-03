@@ -8,8 +8,8 @@ export interface TiltCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   as?: "div" | "article" | "section";
-  maxTilt?: number; // In degrees, default: 3.8 (restrained 2-4 range)
-  scale?: number; // Hover scale, default: 1.01 (subtle 1.005-1.015 range)
+  maxTilt?: number; // In degrees, default: 1.5 (subtle, text-readable range)
+  scale?: number; // Hover scale, default: 1.005 (barely perceptible)
   perspective?: number; // Perspective distance in px, default: 1000
   glare?: boolean; // Enable cursor-following specular sheen
   glareMaxOpacity?: number; // Specular highlight opacity, default: 0.14
@@ -37,8 +37,8 @@ export function TiltCard({
   children,
   className = "",
   as: Component = "div",
-  maxTilt = 3.8,
-  scale = 1.01,
+  maxTilt = 1.5,
+  scale = 1.005,
   perspective = 1000,
   glare = true,
   glareMaxOpacity = 0.14,
