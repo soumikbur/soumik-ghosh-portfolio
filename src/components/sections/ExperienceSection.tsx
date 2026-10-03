@@ -50,25 +50,34 @@ export function ExperienceSection() {
   return (
     <section id="experience" className="py-16 sm:py-24 lg:py-28 xl:py-32 2xl:py-36 border-b border-zinc-800/80 bg-transparent relative overflow-hidden">
       <Container size="default">
-        {/* Section Header */}
-        <div className="mb-12 sm:mb-16">
-          <p className="font-mono text-xs font-semibold tracking-wider uppercase text-gradient-emerald-cyan">
-            02 · Experience
-          </p>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mt-2 sm:mt-2.5">
-            Professional Experience &amp; Engineering Track Record
-          </h2>
+        {/* Section Header with restrained subtle tilt treatment */}
+        <div className="mb-12 sm:mb-16 relative">
+          {/* Decorative backdrop carrying slightly more of the visual tilt (-0.85deg) */}
+          <div
+            aria-hidden="true"
+            className="absolute -inset-x-2 -inset-y-1.5 -z-10 rounded-xl bg-gradient-to-r from-emerald-500/[0.035] via-cyan-500/[0.02] to-transparent pointer-events-none transform -rotate-[0.45deg] sm:-rotate-[0.85deg] origin-left"
+          />
+
+          {/* Heading Block with subtle rotation (-0.35deg mobile, -0.65deg desktop) */}
+          <div className="transform -rotate-[0.35deg] sm:-rotate-[0.65deg] origin-left transition-transform duration-300 ease-out hover:-rotate-[0.4deg] backface-hidden [transform:translateZ(0)]">
+            <p className="font-mono text-xs font-semibold tracking-wider uppercase text-gradient-emerald-cyan">
+              02 · Experience
+            </p>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mt-2 sm:mt-2.5 antialiased">
+              Professional Experience &amp; Engineering Track Record
+            </h2>
+          </div>
           <p className="text-sm sm:text-base text-zinc-400 mt-2.5 sm:mt-3 max-w-2xl leading-relaxed">
             Engineering real-time embedded firmware, industrial fieldbus networks, and operations software deployed in demanding production environments.
           </p>
         </div>
 
         <div className="space-y-10 sm:space-y-12">
-          {/* Item 1: Full-Time Production Engineering Experience Card (Restrained subtle tilt, stable text) */}
+          {/* Item 1: Full-Time Production Engineering Experience Card (Restrained subtle tilt, max 0.75deg, stable text) */}
           <TiltCard
             as="article"
-            maxTilt={1.5}
-            scale={1.005}
+            maxTilt={0.75}
+            scale={1.002}
             accentGlow="emerald"
             className="rounded-2xl sm:rounded-3xl border border-zinc-800/90 bg-zinc-900/60 p-6 sm:p-8 lg:p-10 backdrop-blur-md shadow-2xl relative overflow-hidden"
           >

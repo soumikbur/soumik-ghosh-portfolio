@@ -255,7 +255,7 @@ export function TiltCard({
       )}
 
       {/* Card Content (z-20 ensures all links, buttons, and text remain fully clickable) */}
-      <div className="relative z-20 h-full flex flex-col justify-between">
+      <div className="relative z-20 h-full flex flex-col justify-between [transform:translateZ(0)]">
         {children}
       </div>
     </Component>
