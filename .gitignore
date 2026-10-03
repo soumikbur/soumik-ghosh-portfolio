@@ -46,3 +46,7 @@ next-env.d.ts
 *.swp
 *.swo
 Thumbs.db
+
+# Agent files
+AGENTS.md
+CLAUDE.md

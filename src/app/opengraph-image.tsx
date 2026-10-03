@@ -66,15 +66,15 @@ export default function OpenGraphImage() {
           </h1>
           <p
             style={{
-              fontSize: "28px",
-              fontWeight: 600,
+              fontSize: "26px",
+              fontWeight: 700,
               color: "#34d399",
               margin: 0,
               letterSpacing: "1px",
               textTransform: "uppercase",
             }}
           >
-            Embedded Software Developer
+            Embedded Systems / Industrial IoT / Full-Stack
           </p>
           <p
             style={{
@@ -85,7 +85,7 @@ export default function OpenGraphImage() {
               lineHeight: 1.4,
             }}
           >
-            Practical software systems: Real-time embedded firmware, industrial telemetry, and full-stack business applications.
+            Practical software systems: Real-time embedded firmware, industrial telemetry, and full-stack operational platforms.
           </p>
         </div>
 
@@ -103,9 +103,9 @@ export default function OpenGraphImage() {
           <div style={{ display: "flex", gap: "24px" }}>
             <span style={{ color: "#a1a1aa" }}>STM32 &bull; ESP32 &bull; FreeRTOS</span>
             <span style={{ color: "#a1a1aa" }}>Modbus RTU &bull; 4G LTE</span>
-            <span style={{ color: "#a1a1aa" }}>Next.js &bull; PostgreSQL</span>
+            <span style={{ color: "#a1a1aa" }}>Next.js &bull; TypeScript</span>
           </div>
-          <span style={{ color: "#34d399", fontWeight: 600 }}>soumikbur.github.io</span>
+          <span style={{ color: "#34d399", fontWeight: 600 }}>soumik-ghosh-portfolio.vercel.app</span>
         </div>
       </div>
     ),
