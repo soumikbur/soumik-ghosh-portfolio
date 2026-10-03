@@ -27,17 +27,12 @@ This repository contains the complete source code for Soumik Ghosh's engineering
 
 ---
 
-## Versions
+## Version
 
 ### V0 — Original Portfolio
-The original portfolio implementation preserved as the baseline version.
+The original portfolio implementation representing the baseline engineering portfolio.
 
 Tag: `v0.0.0`
-
-### V1 — Bento Engineering Portfolio
-Complete UI/UX redesign based on the new dashboard/bento engineering interface.
-
-Tag: `v1.0.0`
 
 ---
 
