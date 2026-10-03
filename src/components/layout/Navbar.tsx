@@ -17,8 +17,9 @@ interface NavSection {
 const SECTIONS: NavSection[] = [
   { id: "home", label: "Home", shortLabel: "HOME", href: "/" },
   { id: "about", label: "About", shortLabel: "ABOUT", href: "/#about" },
-  { id: "experience", label: "Experience", shortLabel: "EXP.", href: "/#experience" },
+  { id: "experience", label: "Experience", shortLabel: "EXPERIENCE", href: "/#experience" },
   { id: "projects", label: "Projects", shortLabel: "PROJECTS", href: "/#projects" },
+  { id: "skills", label: "Skills", shortLabel: "SKILLS", href: "/#skills" },
   { id: "contact", label: "Contact", shortLabel: "CONTACT", href: "/#contact" },
 ];
 
@@ -55,7 +56,7 @@ export function Navbar() {
 
       const element = document.getElementById(sectionId);
       if (element) {
-        // 72px offset ensures the heading is comfortably below the 64px sticky header
+        // 72px offset ensures the section heading is comfortably below the 64px sticky header
         const targetTop = element.getBoundingClientRect().top + window.scrollY - 72;
         window.history.replaceState(null, "", `/#${sectionId}`);
         window.scrollTo({ top: targetTop, behavior: prefersRM ? "instant" : "smooth" });
@@ -76,7 +77,7 @@ export function Navbar() {
         window.requestAnimationFrame(() => {
           const scrollY = window.scrollY;
 
-          // Hysteresis threshold to switch between top horizontal nav and vertical side rail
+          // Hysteresis threshold to switch between top horizontal nav and left-side rail
           if (scrollY > 280) {
             setIsScrolled(true);
           } else if (scrollY < 220) {
@@ -158,7 +159,7 @@ export function Navbar() {
                   onClick={handleReload}
                   aria-label="Reload page"
                   title="Reload page"
-                  className="flex h-8 w-8 items-center justify-center rounded border border-zinc-700 bg-zinc-900 text-emerald-400 hover:text-emerald-300 hover:border-emerald-500/60 hover:bg-zinc-850 hover:shadow-[0_0_12px_rgba(16,185,129,0.25)] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 cursor-pointer"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-700 bg-zinc-900 text-emerald-400 hover:text-emerald-300 hover:border-emerald-500/60 hover:bg-zinc-850 hover:shadow-[0_0_12px_rgba(16,185,129,0.25)] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 cursor-pointer"
                 >
                   <RotateCcw className="h-3.5 w-3.5 transition-transform duration-300 group-hover/refresh:-rotate-90 group-active/refresh:rotate-180" />
                   <span className="sr-only">Reload page</span>
@@ -332,21 +333,21 @@ export function Navbar() {
         </Container>
       </header>
 
-      {/* Vertical Side Tab System — Desktop & Tablet only on Homepage */}
+      {/* Vertical Navigation Rail — Positioned on the LEFT side of the viewport */}
       {pathname === "/" && (
         <aside
           aria-label="Section navigation rail"
-          className={`hidden md:flex fixed right-3 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-40 flex-col items-end transition-all duration-300 ease-out motion-reduce:transition-none ${
+          className={`hidden lg:flex fixed left-3 sm:left-4 xl:left-6 top-1/2 -translate-y-1/2 z-40 flex-col items-start transition-all duration-200 ease-out motion-reduce:transition-none ${
             isScrolled
               ? "opacity-100 translate-x-0 pointer-events-auto scale-100"
-              : "opacity-0 translate-x-4 pointer-events-none scale-95"
+              : "opacity-0 -translate-x-3 pointer-events-none scale-95"
           }`}
         >
-          <div className="flex flex-col gap-1 p-1.5 rounded-xl border border-zinc-800/90 bg-zinc-950/90 backdrop-blur-md shadow-2xl shadow-black/60 ring-1 ring-white/5">
-            {/* Rail Micro-Header */}
-            <div className="px-2.5 py-1 flex items-center justify-between border-b border-zinc-800/60 mb-0.5">
-              <span className="font-mono text-[9px] uppercase tracking-wider text-zinc-400 font-semibold">
-                Nav
+          <div className="w-[114px] flex flex-col gap-0.5 p-1.5 rounded-xl border border-zinc-800/90 bg-zinc-950/90 backdrop-blur-md shadow-2xl shadow-black/80 ring-1 ring-white/5">
+            {/* Rail Micro-Header: NAV ● */}
+            <div className="px-2.5 py-1.5 flex items-center justify-between border-b border-zinc-800/80 mb-1">
+              <span className="font-mono text-[9px] uppercase tracking-wider text-zinc-400 font-bold">
+                NAV
               </span>
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
             </div>
@@ -362,15 +363,15 @@ export function Navbar() {
                   tabIndex={isScrolled ? 0 : -1}
                   aria-current={active ? "true" : undefined}
                   aria-label={`Jump to ${section.label} section`}
-                  className={`group relative flex items-center justify-between gap-3 px-3 py-1.5 rounded-lg text-xs font-mono transition-all duration-150 cursor-pointer min-w-[104px] ${
+                  className={`group relative flex items-center justify-between gap-1.5 px-2.5 py-1.5 rounded-lg text-[10px] font-mono transition-all duration-150 cursor-pointer w-full text-left ${
                     active
-                      ? "bg-emerald-950/70 text-emerald-300 border border-emerald-700/70 font-semibold shadow-[0_0_12px_-2px_rgba(16,185,129,0.3)]"
+                      ? "bg-emerald-950/80 text-emerald-300 border border-emerald-600/80 font-bold shadow-[0_0_12px_-2px_rgba(16,185,129,0.35)]"
                       : "text-zinc-400 hover:text-zinc-100 hover:bg-zinc-900/80 border border-transparent"
                   } focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-1 focus-visible:ring-offset-zinc-950`}
                 >
-                  <span className="tracking-wider">{section.shortLabel}</span>
+                  <span className="tracking-wider truncate">{section.shortLabel}</span>
                   <span
-                    className={`h-1.5 w-1.5 rounded-full transition-all duration-200 ${
+                    className={`h-1.5 w-1.5 rounded-full shrink-0 transition-all duration-200 ${
                       active
                         ? "bg-emerald-400 scale-100 shadow-[0_0_6px_#10b981]"
                         : "bg-zinc-700 scale-75 group-hover:bg-zinc-400"

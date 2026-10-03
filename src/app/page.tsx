@@ -3,9 +3,9 @@ import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/hero/Hero";
 import { AboutOverview } from "@/components/sections/AboutOverview";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
+import { EngineeringApproach } from "@/components/sections/EngineeringApproach";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { TechnicalCapabilities } from "@/components/sections/TechnicalCapabilities";
-import { EngineeringApproach } from "@/components/sections/EngineeringApproach";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
@@ -16,7 +16,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section with Terminal Pipeline & Metrics */}
+      {/* Hero Section with Telemetry Pipeline & Engineering Benchmarks */}
       <Hero />
 
       {/* 01 · About Overview */}
@@ -24,6 +24,9 @@ export default function HomePage() {
 
       {/* 02 · Structured Technical Experience */}
       <ExperienceSection />
+
+      {/* Engineering Approach & Operational Reliability */}
+      <EngineeringApproach />
 
       {/* 03 · Featured Projects */}
       <section id="projects" className="py-16 sm:py-24 lg:py-28 xl:py-32 border-b border-zinc-800/80 bg-transparent">
@@ -64,9 +67,6 @@ export default function HomePage() {
 
       {/* 04 · Skills & Technical Toolbox */}
       <TechnicalCapabilities />
-
-      {/* Engineering Approach & Operational Reliability */}
-      <EngineeringApproach />
 
       {/* 05 · Contact */}
       <ContactCTA />
